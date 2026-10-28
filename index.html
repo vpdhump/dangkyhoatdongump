@@ -1455,16 +1455,18 @@
 
     let selectedFileObject = null;
 
-    // 1. Đọc file ảnh và lấy đủ tên, định dạng, base64
+    // 1. Đọc và mã hóa file minh chứng
     function handleFileSelect(event) {
       const file = event.target.files[0];
       const nameLabel = document.getElementById('fbFileName');
+      
       if (!file) {
         selectedFileObject = null;
         nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
         return;
       }
 
+      // Giới hạn dung lượng dưới 5MB để tránh quá tải Apps Script
       if (file.size > 5 * 1024 * 1024) {
         alert("Dung lượng ảnh vượt quá 5MB. Vui lòng chọn ảnh nhẹ hơn!");
         event.target.value = "";
@@ -1473,19 +1475,26 @@
         return;
       }
 
-      nameLabel.innerText = "✓ " + file.name;
+      nameLabel.innerText = "Đang xử lý ảnh: " + file.name + "...";
+
       const reader = new FileReader();
       reader.onload = function(e) {
         selectedFileObject = {
-          fileBase64: e.target.result,
+          fileBase64: e.target.result, // Chứa data:image/...;base64,...
           fileName: file.name,
           fileType: file.type || "image/jpeg"
         };
+        nameLabel.innerText = "✓ Đã tải: " + file.name;
+      };
+      reader.onerror = function() {
+        alert("Không thể đọc tệp ảnh. Vui lòng chọn lại!");
+        selectedFileObject = null;
+        nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
       };
       reader.readAsDataURL(file);
     }
 
-    // 2. Gửi phản hồi (Đã khớp chính xác biến với Code.gs)
+    // 2. Gửi phản hồi kèm link minh chứng khớp chuẩn với Code.gs
     function submitStudentFeedback() {
       if (!currentRegisteredData) {
         alert("Không tìm thấy thông tin sinh viên đã đăng ký!");
@@ -1509,18 +1518,18 @@
       icon.innerHTML = `<span class="spinner-loader"></span>`;
       text.innerText = "ĐANG GỬI PHẢN HỒI...";
 
-      // GỬI ĐÚNG TÊN BIẾN MÀ CODE.GS ĐANG ĐỢI:
+      // Chuẩn bị payload khớp đúng các trường Code.gs đợi
       const payload = {
         action: "submitFeedback",
-        tabName: currentEvent,                          // Khớp dòng 327 data.tabName
-        mssv: currentRegisteredData.mssv,               // Khớp data.mssv
+        tabName: currentEvent,
+        mssv: currentRegisteredData.mssv,
         hoten: currentRegisteredData.hoten,
         issueType: issueType,
         detail: detail,
         reason: issueType + ": " + detail,
-        fileBase64: selectedFileObject ? selectedFileObject.fileBase64 : "", // Khớp dòng 331 data.fileBase64
-        fileName: selectedFileObject ? selectedFileObject.fileName : "",     // Khớp dòng 331 data.fileName
-        fileType: selectedFileObject ? selectedFileObject.fileType : ""      // Khớp dòng 337 data.fileType
+        fileBase64: selectedFileObject ? selectedFileObject.fileBase64 : "",
+        fileName: selectedFileObject ? selectedFileObject.fileName : "",
+        fileType: selectedFileObject ? selectedFileObject.fileType : ""
       };
 
       fetch(GAS_API_URL, {
@@ -1537,7 +1546,7 @@
 
         if (res.success) {
           closeFeedbackModal();
-          triggerRobotReaction('happy');
+          if (typeof triggerRobotReaction === "function") triggerRobotReaction('happy');
           showAlert("🎉 " + (res.message || "Đã gửi phản hồi thành công! Ban Tổ chức sẽ rà soát và cập nhật."), "success");
         } else {
           alert(res.message || "Gửi phản hồi thất bại, vui lòng thử lại!");
