@@ -1453,12 +1453,14 @@
       document.getElementById('feedbackModal').classList.remove('active');
     }
 
-    // Đọc ảnh và chuyển sang chuỗi Base64
+    let selectedFileObject = null;
+
+    // 1. Đọc file ảnh và lấy đủ tên, định dạng, base64
     function handleFileSelect(event) {
       const file = event.target.files[0];
       const nameLabel = document.getElementById('fbFileName');
       if (!file) {
-        selectedBase64Image = "";
+        selectedFileObject = null;
         nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
         return;
       }
@@ -1466,7 +1468,7 @@
       if (file.size > 5 * 1024 * 1024) {
         alert("Dung lượng ảnh vượt quá 5MB. Vui lòng chọn ảnh nhẹ hơn!");
         event.target.value = "";
-        selectedBase64Image = "";
+        selectedFileObject = null;
         nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
         return;
       }
@@ -1474,12 +1476,16 @@
       nameLabel.innerText = "✓ " + file.name;
       const reader = new FileReader();
       reader.onload = function(e) {
-        selectedBase64Image = e.target.result;
+        selectedFileObject = {
+          fileBase64: e.target.result,
+          fileName: file.name,
+          fileType: file.type || "image/jpeg"
+        };
       };
       reader.readAsDataURL(file);
     }
 
-    // Bấm nút gửi phản hồi khiếu nại
+    // 2. Gửi phản hồi (Đã khớp chính xác biến với Code.gs)
     function submitStudentFeedback() {
       if (!currentRegisteredData) {
         alert("Không tìm thấy thông tin sinh viên đã đăng ký!");
@@ -1503,14 +1509,18 @@
       icon.innerHTML = `<span class="spinner-loader"></span>`;
       text.innerText = "ĐANG GỬI PHẢN HỒI...";
 
+      // GỬI ĐÚNG TÊN BIẾN MÀ CODE.GS ĐANG ĐỢI:
       const payload = {
         action: "submitFeedback",
-        event: currentEvent,
-        mssv: currentRegisteredData.mssv,
+        tabName: currentEvent,                          // Khớp dòng 327 data.tabName
+        mssv: currentRegisteredData.mssv,               // Khớp data.mssv
         hoten: currentRegisteredData.hoten,
         issueType: issueType,
         detail: detail,
-        imageBase64: selectedBase64Image || ""
+        reason: issueType + ": " + detail,
+        fileBase64: selectedFileObject ? selectedFileObject.fileBase64 : "", // Khớp dòng 331 data.fileBase64
+        fileName: selectedFileObject ? selectedFileObject.fileName : "",     // Khớp dòng 331 data.fileName
+        fileType: selectedFileObject ? selectedFileObject.fileType : ""      // Khớp dòng 337 data.fileType
       };
 
       fetch(GAS_API_URL, {
