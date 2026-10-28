@@ -1,1607 +1,1152 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hệ thống Gửi bài viết - Câu chuyện thời hoa lửa | UMP</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <title>ĐĂNG KÝ & TRA CỨU HOẠT ĐỘNG - ĐH Y DƯỢC TP.HCM</title>
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+  <!-- Phông chữ Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
   <style>
-    :root {
-      --bg-page: #EEF5FC;
-      --card-bg: #FFFFFF;
-      --primary: #1565C0;
-      --primary-hover: #0D47A1;
-      --primary-light: #E3F2FD;
-      --primary-gradient: linear-gradient(135deg, #1E88E5 0%, #1565C0 100%);
-      --text-title: #0D3C61;
-      --text-main: #2D3748;
-      --text-muted: #718096;
-      --border-color: #E2E8F0;
-      --border-focus: #1E88E5;
-      --radius-sm: 10px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-xl: 28px;
-      --shadow-soft: 0 10px 30px rgba(21, 101, 192, 0.08);
-      --shadow-hover: 0 16px 36px rgba(21, 101, 192, 0.14);
-      --font-heading: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'Inter', sans-serif;
+    * {
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--bg-page);
-      font-family: var(--font-body);
-      color: var(--text-main);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, h4, .brand-title, .portal-title, .sub-slogan, .card-title {
-      font-family: var(--font-heading);
-      letter-spacing: -0.015em;
-    }
-
-    /* ================= GIAO DIỆN CHÍNH (PORTAL STYLE) ================= */
-    .portal-container {
-      max-width: 1200px;
       width: 100%;
-      margin: auto;
-      padding: 30px 20px;
-    }
-
-    .portal-main-box {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(226, 232, 240, 0.8);
-      overflow: hidden;
-    }
-
-    .portal-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      min-height: 580px;
-    }
-
-    @media (max-width: 992px) {
-      .portal-grid { grid-template-columns: 1fr; }
-    }
-
-    /* CỘT TRÁI: GIỚI THIỆU & THỐNG KÊ */
-    .portal-left-panel {
-      padding: 40px 36px;
-      background: #FFFFFF;
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.7) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(238, 242, 255, 0.6) 0px, transparent 50%),
+        linear-gradient(to right, rgba(226, 232, 240, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.45) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      color: #0f172a;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: space-between;
-      border-right: 1px solid #EDF2F7;
+      padding: 16px 20px;
     }
 
-    .brand-logos {
+    /* 1. TOP HEADER STRIP */
+    .top-header-strip {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 18px;
+      justify-content: space-between;
+      padding: 4px 6px 14px 6px;
     }
-    .brand-logos img, .logo-badge {
-      width: 48px;
-      height: 48px;
+
+    .brand-id-cluster {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-unified {
+      height: 42px;
+      max-width: 160px;
+      width: auto;
       object-fit: contain;
-      border-radius: 50%;
+      filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.18));
+      transition: transform 0.2s ease;
     }
 
-    .brand-header-text {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    .brand-subtext {
-      color: #0077B6;
-      font-size: 0.85rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-    }
-    .portal-title {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: #0F4C81;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .portal-slogan {
-      font-size: 0.84rem;
-      color: #5A6A80;
-      font-weight: 500;
+    .brand-logo-unified:hover {
+      transform: scale(1.04);
     }
 
-    /* TIÊU ĐỀ THỐNG KÊ TIẾP NHẬN */
-    .stat-section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
+    .vertical-brand-divider {
+      width: 1.5px;
+      height: 26px;
+      background: #cbd5e1;
+      margin: 0 2px;
     }
-    .stat-heading {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #1A365D;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+
+    .brand-text-identity {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #1e3a8a;
+      letter-spacing: 0.35px;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
+      line-height: 1.35;
     }
-    .live-badge {
-      background: #E8F5E9;
-      color: #2E7D32;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
+
+    .live-pulse-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      background: rgba(236, 253, 245, 0.9);
+      backdrop-filter: blur(8px);
+      color: #059669;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid #a7f3d0;
     }
-    .pulse-dot {
+
+    .pulse-dot-small {
       width: 7px;
       height: 7px;
-      background: #2E7D32;
+      background: #10b981;
       border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+      animation: pulseDotAnim 1.8s infinite;
     }
 
-    /* THẺ THỐNG KÊ (3 THẺ CÙNG KIỂU ẢNH MẪU) */
-    .stat-cards-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    @media (max-width: 640px) {
-      .stat-cards-container { grid-template-columns: 1fr; }
+    @keyframes pulseDotAnim {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
-    .stat-pill-card {
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: var(--radius-md);
-      padding: 16px 12px 14px;
-      text-align: center;
+    /* 2. CARD TRUNG TÂM */
+    .main-center-wrapper {
+      width: 100%;
+      max-width: 480px;
+      margin: auto;
+      padding: 12px 0 20px 0;
+    }
+
+    .portal-card {
+      width: 100%;
+      background: #ffffff;
+      border-radius: 26px;
+      box-shadow: 0 20px 48px -12px rgba(29, 104, 245, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      padding: 30px 26px;
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-      transition: all 0.25s;
-    }
-    .stat-pill-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-    }
-    .card-orange::before { background: #FF9800; }
-    .card-teal::before   { background: #00B4D8; }
-    .card-purple::before { background: #9C27B0; }
-
-    .stat-card-icon {
-      font-size: 1.2rem;
-      margin-bottom: 6px;
-      display: inline-block;
-    }
-    .card-orange .stat-card-icon { color: #E65100; }
-    .card-teal .stat-card-icon   { color: #0077B6; }
-    .card-purple .stat-card-icon { color: #7B1FA2; }
-
-    .stat-card-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #1E293B;
-      margin-bottom: 2px;
-    }
-    .stat-card-subtitle {
-      font-size: 0.72rem;
-      color: #64748B;
-      margin-bottom: 12px;
-      white-space: nowrap;
+      transition: all 0.3s ease;
+      text-align: center;
     }
 
-    .stat-circle-rate {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      border: 2px solid #E2E8F0;
+    /* ROBOT AI SVG ANIMATION */
+    .robot-mascot-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 10px;
-      background: #F8FAFC;
-    }
-    .rate-val { font-size: 0.95rem; font-weight: 800; line-height: 1; }
-    .rate-lbl { font-size: 0.58rem; color: #64748B; font-weight: 700; text-transform: uppercase; margin-top: 2px; }
-
-    .card-orange .stat-circle-rate { border-color: #FFE082; background: #FFFDE7; }
-    .card-orange .rate-val { color: #F57C00; }
-    
-    .card-teal .stat-circle-rate { border-color: #B2EBF2; background: #E0F7FA; }
-    .card-teal .rate-val { color: #00838F; }
-    
-    .card-purple .stat-circle-rate { border-color: #E1BEE7; background: #F3E5F5; }
-    .card-purple .rate-val { color: #6A1B9A; }
-
-    .stat-footer-text {
-      font-size: 0.7rem;
-      color: #64748B;
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px dashed #E2E8F0;
-      padding-top: 8px;
-      margin-top: 6px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      user-select: none;
     }
 
-    /* CỘT PHẢI: FORM TRA CỨU MSSV / ĐĂNG NHẬP */
-    .portal-right-panel {
-      padding: 44px 40px;
-      background: #F8FBFE;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
+    .robot-svg-wrap {
+      width: 104px;
+      height: 104px;
+      animation: robotFloat 3.2s ease-in-out infinite;
+      transform-origin: center bottom;
+      transition: transform 0.25s ease;
     }
 
-    .login-icon-avatar {
+    .robot-svg-wrap:hover {
+      animation-play-state: paused;
+      transform: scale(1.08) translateY(-4px);
+    }
+
+    .robot-shadow {
       width: 60px;
-      height: 60px;
+      height: 10px;
+      background: radial-gradient(ellipse at center, rgba(30, 58, 138, 0.2) 0%, transparent 72%);
       border-radius: 50%;
-      background: #E3F2FD;
-      color: #1976D2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin: 0 auto 16px;
-      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.12);
+      margin-top: -2px;
+      animation: robotShadow 3.2s ease-in-out infinite;
     }
 
-    .login-heading {
-      text-align: center;
-      font-size: 1.35rem;
+    @keyframes robotFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-9px) rotate(1.2deg); }
+    }
+
+    @keyframes robotShadow {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(0.72); opacity: 0.45; }
+    }
+
+    .robot-antenna-light {
+      animation: antennaPulse 1.8s infinite ease-in-out;
+    }
+    @keyframes antennaPulse {
+      0%, 100% { fill: #38bdf8; filter: drop-shadow(0 0 2px #38bdf8); }
+      50% { fill: #facc15; filter: drop-shadow(0 0 6px #facc15); }
+    }
+
+    .robot-eye {
+      transform-origin: center;
+      animation: eyeBlink 3.6s infinite ease-in-out;
+    }
+    @keyframes eyeBlink {
+      0%, 94%, 98%, 100% { transform: scaleY(1); }
+      96% { transform: scaleY(0.1); }
+    }
+
+    .robot-left-arm {
+      transform-origin: 32px 58px;
+      animation: leftArmWave 2.8s ease-in-out infinite alternate;
+    }
+    .robot-right-arm {
+      transform-origin: 68px 58px;
+      animation: rightArmWave 2.8s ease-in-out infinite alternate;
+    }
+    @keyframes leftArmWave {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-10deg); }
+    }
+    @keyframes rightArmWave {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(14deg); }
+    }
+
+    /* TIÊU ĐỀ & NGẮT DÒNG */
+    .header-minimal {
+      margin-top: 6px;
+      margin-bottom: 22px;
+    }
+
+    .header-sub-tag {
+      font-size: 11.5px;
       font-weight: 800;
-      color: #0F172A;
-      margin-bottom: 4px;
+      color: #0284c7;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-    }
-    .login-subheading {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #64748B;
-      margin-bottom: 28px;
-    }
-
-    .form-group-item { margin-bottom: 18px; text-align: left; }
-    .form-label-item {
-      display: block;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: #334155;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
       margin-bottom: 8px;
-    }
-    
-    .input-portal-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .input-portal {
-      width: 100%;
-      padding: 14px 18px;
-      font-size: 1rem;
-      background: #FFFFFF;
-      border: 1.5px solid #CBD5E1;
-      border-radius: var(--radius-md);
-      color: #1E293B;
-      outline: none;
-      transition: all 0.2s;
-    }
-    .input-portal:focus {
-      border-color: #1976D2;
-      box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.12);
-    }
-    .input-portal[readonly] {
-      background: #F1F5F9;
-      color: #475569;
-      cursor: not-allowed;
+      display: inline-block;
+      background: #f0f9ff;
+      padding: 4px 12px;
+      border-radius: 12px;
+      border: 1px solid #e0f2fe;
     }
 
-    .btn-portal-submit {
-      width: 100%;
-      background: var(--primary-gradient);
-      color: #FFFFFF;
-      padding: 14px 20px;
-      border-radius: var(--radius-md);
-      font-size: 0.95rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 6px 18px rgba(21, 101, 192, 0.25);
-      transition: all 0.25s;
-      margin-top: 10px;
-    }
-    .btn-portal-submit:hover {
-      background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
-      box-shadow: 0 8px 24px rgba(21, 101, 192, 0.35);
-      transform: translateY(-1px);
+    .program-heading {
+      font-size: 19px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.45;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: -0.2px;
+      white-space: pre-line;
+      text-wrap: balance;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      max-width: 95%;
+      margin: 0 auto;
     }
 
-    .btn-admin-role-link {
-      background: none;
-      border: none;
-      color: #0284C7;
-      font-size: 0.88rem;
+    /* ALERT BANNERS */
+    .alert-banner {
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 12.5px;
       font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin: 20px auto 0;
-      transition: color 0.2s;
+      line-height: 1.45;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 16px;
+      text-align: left;
+      animation: fadeIn 0.25s ease;
     }
-    .btn-admin-role-link:hover { color: #0369A1; text-decoration: underline; }
 
-    /* KHUNG THÔNG BÁO TRA CỨU SINH VIÊN */
-    .lookup-card-info {
-      background: #FFFFFF;
-      border: 1.5px solid #BAE6FD;
-      border-radius: var(--radius-md);
-      padding: 16px 18px;
-      margin-top: 18px;
-      display: none;
-      animation: fadeIn 0.3s ease;
-      box-shadow: 0 4px 12px rgba(186, 230, 253, 0.3);
-    }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(-4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* KHUNG FORM NỘP BÀI (HIỂN THỊ SAU KHI TRA CỨU MSSV) */
-    #submissionSection {
-      display: none;
-      margin-top: 28px;
-      background: #FFFFFF;
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #E2E8F0;
+    .alert-banner.warning {
+      background: #fefce8;
+      color: #854d0e;
+      border: 1px solid #fef08a;
     }
 
-    .editor-box-container {
-      border: 1.5px solid #CBD5E1;
-      border-radius: var(--radius-md);
-      overflow: hidden;
+    .alert-banner.danger {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
     }
-    .editor-toolbar {
-      background: #F1F5F9;
-      border-bottom: 1px solid #CBD5E1;
-      padding: 8px 12px;
+
+    .alert-banner.success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    /* INPUT & FORM */
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .input-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      color: #475569;
+      margin-bottom: 6px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .input-row {
       display: flex;
-      gap: 6px;
-      align-items: center;
-      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
     }
-    .tb-btn {
-      width: 32px; height: 32px;
-      background: transparent;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      color: #334155;
-    }
-    .tb-btn:hover { background: #E2E8F0; color: #1565C0; }
-    .tb-separator { width: 1px; height: 18px; background: #CBD5E1; margin: 0 4px; }
-    .editor-body {
-      min-height: 220px;
-      padding: 16px 18px;
-      outline: none;
-      background: #FFFFFF;
-      font-size: 0.95rem;
-    }
-    .editor-body:empty:before { content: attr(data-placeholder); color: #94A3B8; }
-    .editor-body img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
 
-    /* WORKSPACE DÀNH CHO ADMIN */
-    #adminWorkspace {
-      display: none;
-      padding: 24px;
-      max-width: 1300px;
-      margin: 0 auto;
+    .form-control-custom {
       width: 100%;
+      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 13px;
+      border: 1.5px solid #e2e8f0;
+      background-color: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+      outline: none;
+      transition: all 0.2s ease;
     }
-    .admin-header-card {
-      background: #FFFFFF;
-      border-radius: var(--radius-lg);
-      padding: 20px 24px;
+
+    .form-control-custom:focus {
+      background-color: #ffffff;
+      border-color: #1d68f5;
+      box-shadow: 0 0 0 4px rgba(29, 104, 245, 0.12);
+    }
+
+    .form-control-custom:disabled {
+      background-color: #f1f5f9;
+      color: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    /* NÚT BẤM VỚI SPINNER */
+    .btn-submit-main {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 12px 20px;
+      border-radius: 13px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 18px -3px rgba(29, 104, 245, 0.35);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .btn-submit-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px -4px rgba(29, 104, 245, 0.45);
+    }
+
+    .btn-submit-main:disabled,
+    .btn-submit-main.btn-loading {
+      opacity: 0.85;
+      cursor: not-allowed !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .btn-full {
+      width: 100%;
+      padding: 13px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .spinner-loader {
+      width: 16px;
+      height: 16px;
+      border: 2.5px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      display: inline-block;
+      animation: spinAnim 0.75s linear infinite;
+    }
+
+    @keyframes spinAnim {
+      to { transform: rotate(360deg); }
+    }
+
+    /* KHUNG THẺ KẾT QUẢ */
+    .result-card-box {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px 18px;
+      border: 1.5px solid #e0f2fe;
+      box-shadow: 0 10px 24px -6px rgba(2, 132, 199, 0.08);
+      margin-top: 18px;
+      text-align: left;
+      animation: fadeInScale 0.25s ease;
+    }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .result-badge-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px dashed #e2e8f0;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .result-lead-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #0284c7;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .badge-attended {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+
+    .badge-pending {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    .student-highlight-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.2px;
+      margin-bottom: 2px;
+    }
+
+    .student-meta-sub {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .student-meta-sub span {
+      color: #0f172a;
+    }
+
+    .info-grid-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 12.5px;
+    }
+
+    .info-grid-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
-      box-shadow: var(--shadow-soft);
-      flex-wrap: wrap;
-      gap: 14px;
+      word-break: break-all;
     }
-    .admin-table-card {
-      background: #FFFFFF;
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      box-shadow: var(--shadow-soft);
-      overflow-x: auto;
-    }
-    .admin-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-    .admin-table th, .admin-table td {
-      padding: 12px 16px;
-      border-bottom: 1px solid #E2E8F0;
-      text-align: left;
-    }
-    .admin-table th { background: #F8FAFC; color: #334155; font-weight: 700; }
 
-    .status-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.78rem;
+    .info-label {
+      color: #64748b;
+      font-weight: 600;
+      min-width: 90px;
+    }
+
+    .info-value {
       font-weight: 700;
+      color: #0f172a;
+      text-align: right;
     }
-    .badge-pending  { background: #FFF3E0; color: #E65100; }
-    .badge-done     { background: #E8F5E9; color: #2E7D32; }
-    .badge-rejected { background: #FFEBEE; color: #C62828; }
 
-    /* MODAL CHUNG */
-    .modal-backdrop {
-      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(4px); z-index: 1000; display: none;
-      align-items: center; justify-content: center; padding: 16px;
+    .score-pill {
+      background: #fee2e2;
+      color: #b91c1c;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 12.5px;
     }
-    .modal-backdrop.show { display: flex; }
-    .modal-box {
-      background: #FFFFFF; width: 100%; max-width: 840px; max-height: 90vh;
-      border-radius: var(--radius-lg); display: flex; flex-direction: column; overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    }
-    .modal-header {
-      padding: 18px 24px; border-bottom: 1px solid #E2E8F0;
-      display: flex; justify-content: space-between; align-items: center; background: #F8FAFC;
-    }
-    .modal-body { padding: 24px; overflow-y: auto; flex: 1; }
 
-    /* TOAST */
-    .toast {
-      position: fixed; bottom: 24px; right: 24px; background: #0F172A; color: #FFFFFF;
-      padding: 12px 20px; border-radius: var(--radius-md); display: none; z-index: 2000;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15); font-size: 0.9rem;
+    .time-stamp-note {
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: right;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* 3. FOOTER 3 CỘT */
+    .portal-footer {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 18px 12px 10px 12px;
+      color: #64748b;
+      font-size: 11.5px;
+      text-align: center;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+      gap: 24px;
+      border-bottom: 1px solid rgba(2, 132, 199, 0.15);
+      padding-bottom: 14px;
+      margin-bottom: 12px;
+    }
+
+    .f-header {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      color: #0369a1;
+      letter-spacing: 0.3px;
+    }
+
+    .f-subtext {
+      color: #475569;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .portal-footer a {
+      color: #0284c7;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+
+    .portal-footer a:hover {
+      color: #0369a1;
+      text-decoration: underline;
+    }
+
+    .copyright-line {
+      font-weight: 700;
+      color: #475569;
+      font-size: 11.5px;
+      letter-spacing: 0.2px;
+    }
+
+    .author-line {
+      font-style: italic;
+      opacity: 0.8;
+      font-size: 10.5px;
+      margin-top: 3px;
+      color: #64748b;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 14px 14px 16px 14px; }
+      .brand-text-identity { font-size: 11px; }
+      .live-pulse-badge { display: none; }
+      .footer-grid { flex-direction: column; gap: 14px; }
+    }
+
+    /* KHUNG NHẬP EMAIL VỚI ĐUÔI CỐ ĐỊNH */
+    .email-input-group {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 13px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .email-input-group:focus-within {
+      background: #ffffff;
+      border-color: #1d68f5;
+      box-shadow: 0 0 0 4px rgba(29, 104, 245, 0.12);
+    }
+
+    .email-input-field {
+      flex: 1;
+      border: none !important;
+      background: transparent !important;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f172a;
+      outline: none;
+      min-width: 0;
+    }
+
+    .email-domain-addon {
+      background: #e0f2fe;
+      color: #0369a1;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-left: 1.5px solid #bae6fd;
+      user-select: none;
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
 
-  <!-- ================= GIAO DIỆN SINH VIÊN (PORTAL ĐỒNG BỘ THEO ẢNH) ================= -->
-  <main id="studentView" class="portal-container">
-    <div class="portal-main-box">
-      <div class="portal-grid">
-        
-        <!-- CỘT TRÁI: LOGO ĐOÀN HỘI UMP & 3 THẺ TIẾP NHẬN BÀI VIẾT -->
-        <div class="portal-left-panel">
-          <div>
-            <!-- LOGO ĐOÀN HỘI & TRƯỜNG -->
-            <div class="brand-logos">
-              <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/9/91/Bi%E1%BB%83u_tr%C6%B0ng_Tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh.svg/1200px-Bi%E1%BB%83u_tr%C6%B0ng_Tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh.svg.png" alt="Logo UMP" onerror="this.src='https://placehold.co/48x48/0284c7/white?text=UMP'">
-              <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/3/30/Huy_hi%E1%BB%87u_%C4%90o%C3%A0n.svg/1200px-Huy_hi%E1%BB%87u_%C4%90o%C3%A0n.svg.png" alt="Logo Doan" onerror="this.src='https://placehold.co/48x48/dc2626/white?text=DOAN'">
-              <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/a/a2/Logo_H%E1%BB%99i_Sinh_vi%C3%AAn_Vi%E1%BB%87t_Nam.svg/1200px-Logo_H%E1%BB%99i_Sinh_vi%C3%AAn_Vi%E1%BB%87t_Nam.svg.png" alt="Logo Hoi SV" onerror="this.src='https://placehold.co/48x48/0284c7/white?text=HSV'">
-            </div>
+  <!-- 1. HEADER: 1 LOGO THỐNG NHẤT & TÊN ĐOÀN HỘI UMP -->
+  <header class="top-header-strip">
+    <div class="brand-id-cluster">
+      <img alt="Logo Đại học Y Dược TP.HCM" 
+           class="brand-logo-unified" 
+           src="logo.png" 
+           onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png/640px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png'"/>
 
-            <div class="brand-header-text">
-              <div class="brand-subtext">ĐOÀN THANH NIÊN – HỘI SINH VIÊN<br>ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
-              <h1 class="portal-title">HỆ THỐNG GỬI BÀI VIẾT<br>CÂU CHUYỆN THỜI HOA LỬA</h1>
-              <p class="portal-slogan">Chuyên nghiệp – Xuất sắc – Sáng tạo – Phụng sự – Nhân văn</p>
-            </div>
+      <div class="vertical-brand-divider"></div>
 
-            <!-- KHỐI THỐNG KÊ TIẾP NHẬN BÀI VIẾT (ĐỒNG BỘ 3 THẺ THEO ẢNH) -->
-            <div class="stat-section-header">
-              <div class="stat-heading">
-                <i class="fa-solid fa-chart-pie" style="color: #0284C7;"></i> Thống kê bài viết đóng góp
-              </div>
-              <div class="live-badge">
-                <span class="pulse-dot"></span> Trực tuyến 24/7
-              </div>
-            </div>
-
-            <div class="stat-cards-container">
-              <!-- THẺ 1: BÀI ĐÃ DUYỆT (MÀU CAM/VÀNG) -->
-              <div class="stat-pill-card card-orange">
-                <div class="stat-card-icon"><i class="fa-solid fa-circle-check"></i></div>
-                <div class="stat-card-title">Bài Đã Duyệt</div>
-                <div class="stat-card-subtitle">Xét ĐRL & SV5T</div>
-                <div class="stat-circle-rate">
-                  <span id="rateApproved" class="rate-val">--%</span>
-                  <span class="rate-lbl">TỈ LỆ ĐẠT</span>
-                </div>
-                <div class="stat-footer-text">
-                  <span>Tổng duyệt</span>
-                  <strong id="statTotalApproved" style="color:#E65100;">0 bài</strong>
-                </div>
-              </div>
-
-              <!-- THẺ 2: BÀI CHỜ DUYỆT (MÀU XANH NGỌC) -->
-              <div class="stat-pill-card card-teal">
-                <div class="stat-card-icon"><i class="fa-regular fa-clock"></i></div>
-                <div class="stat-card-title">Bài Chờ Duyệt</div>
-                <div class="stat-card-subtitle">Đang xử lý cuốn chiếu</div>
-                <div class="stat-circle-rate">
-                  <span id="ratePending" class="rate-val">--%</span>
-                  <span class="rate-lbl">TIẾP NHẬN</span>
-                </div>
-                <div class="stat-footer-text">
-                  <span>Đang đợi</span>
-                  <strong id="statTotalPending" style="color:#00838F;">0 bài</strong>
-                </div>
-              </div>
-
-              <!-- THẺ 3: BÀI KHÔNG ĐẠT (MÀU TÍM) -->
-              <div class="stat-pill-card card-purple">
-                <div class="stat-card-icon"><i class="fa-solid fa-circle-xmark"></i></div>
-                <div class="stat-card-title">Không Đạt</div>
-                <div class="stat-card-subtitle">Cần gửi bài khác</div>
-                <div class="stat-circle-rate">
-                  <span id="rateRejected" class="rate-val">--%</span>
-                  <span class="rate-lbl">TỪ CHỐI</span>
-                </div>
-                <div class="stat-footer-text">
-                  <span>Từ chối</span>
-                  <strong id="statTotalRejected" style="color:#6A1B9A;">0 bài</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div style="font-size:0.75rem; color:#94A3B8; text-align:center; margin-top:16px;">
-            Hội Sinh viên Đại học Y Dược TP. Hồ Chí Minh &bull; Bản quyền &copy; 2026
-          </div>
-        </div>
-
-        <!-- CỘT PHẢI: FORM ĐĂNG NHẬP SINH VIÊN / TRA CỨU MSSV -->
-        <div class="portal-right-panel">
-          <div class="login-icon-avatar">
-            <i class="fa-solid fa-user"></i>
-          </div>
-          <h2 class="login-heading">TRA CỨU SINH VIÊN</h2>
-          <p class="login-subheading">Nhập mã số sinh viên để tiếp tục gửi bài & kiểm tra số bài đã duyệt</p>
-
-          <div class="form-group-item">
-            <label class="form-label-item">MÃ SỐ SINH VIÊN (MSSV)</label>
-            <div class="input-portal-wrapper">
-              <input type="text" id="mssvInput" class="input-portal" placeholder="Nhập MSSV của bạn (Ví dụ: 311214189)..." autocomplete="off">
-            </div>
-          </div>
-
-          <button type="button" class="btn-portal-submit" onclick="lookupStudentInfo()">
-            <span>TRA CỨU & BẮT ĐẦU GỬI BÀI</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-
-          <!-- KHUNG KẾT QUẢ TRA CỨU (XUẤT HIỆN SAU KHI TRA CỨU) -->
-          <div id="studentLookupResult" class="lookup-card-info"></div>
-
-          <!-- LIÊN KẾT ĐĂNG NHẬP ADMIN -->
-          <div style="text-align: center;">
-            <button type="button" class="btn-admin-role-link" onclick="openAdminLoginModal()">
-              <i class="fa-solid fa-key"></i> Đăng nhập với vai trò khác (Admin / Ban Quản trị)...
-            </button>
-          </div>
-        </div>
-
+      <div class="brand-text-identity">
+        ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH
       </div>
     </div>
 
-    <!-- KHUNG 2: FORM NỘI DUNG GỬI BÀI (XUẤT HIỆN SAU KHI TÌM THẤY MSSV) -->
-    <section id="submissionSection">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border-bottom: 1px solid #E2E8F0; padding-bottom: 14px;">
-        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; display: flex; align-items: center; gap: 10px;">
-          <i class="fa-solid fa-pen-nib" style="color: #1976D2;"></i> NỘI DUNG BÀI VIẾT ĐÓNG GÓP
-        </h3>
-        <span style="font-size: 0.85rem; color: #64748B;">Mỗi sinh viên đóng góp 3 nhân vật lịch sử khác nhau</span>
+    <div class="live-pulse-badge">
+      <span class="pulse-dot-small"></span>
+      <span>Hệ thống trực tuyến</span>
+    </div>
+  </header>
+
+  <!-- 2. CARD TRUNG TÂM -->
+  <main class="main-center-wrapper">
+    <!-- HỘP THÔNG BÁO ALERT NỔI -->
+    <div id="alertBox"></div>
+
+    <div class="portal-card">
+      <!-- ROBOT AI Y TẾ VECTOR SVG DỄ THƯƠNG ĐỨNG GIỮA -->
+      <div class="robot-mascot-container" onclick="triggerRobotReaction()" title="Xin chào! Mình là Robot AI hỗ trợ sinh viên UMP">
+        <div class="robot-svg-wrap">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; overflow: visible;">
+            <defs>
+              <linearGradient id="botHeadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#e0f2fe"/>
+              </linearGradient>
+              <linearGradient id="botEarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0284c7"/>
+              </linearGradient>
+              <linearGradient id="botScreenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0f172a"/>
+                <stop offset="100%" stop-color="#1e293b"/>
+              </linearGradient>
+              <linearGradient id="botBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f8fafc"/>
+                <stop offset="100%" stop-color="#bae6fd"/>
+              </linearGradient>
+              <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="1.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+
+            <!-- Cột ăng-ten & đèn LED đỉnh đầu -->
+            <line x1="50" y1="20" x2="50" y2="10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+            <circle class="robot-antenna-light" cx="50" cy="8" r="4.5" fill="#38bdf8" filter="url(#softGlow)"/>
+
+            <!-- Tay trái & Tay phải -->
+            <g class="robot-left-arm">
+              <rect x="23" y="56" width="7" height="15" rx="3.5" fill="#93c5fd" stroke="#60a5fa" stroke-width="1.2"/>
+              <circle cx="26.5" cy="72" r="3.5" fill="#38bdf8"/>
+            </g>
+            <g class="robot-right-arm">
+              <rect x="70" y="56" width="7" height="15" rx="3.5" fill="#93c5fd" stroke="#60a5fa" stroke-width="1.2"/>
+              <circle cx="73.5" cy="72" r="3.5" fill="#38bdf8"/>
+            </g>
+
+            <!-- Thân Robot & Biểu tượng Chữ Thập Y Tế -->
+            <rect x="33" y="52" width="34" height="26" rx="10" fill="url(#botBodyGrad)" stroke="#93c5fd" stroke-width="1.5"/>
+            <rect x="39" y="58" width="22" height="14" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+            <path d="M50 61V69M46 65H54" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+
+            <!-- Tai nghe y tế -->
+            <rect x="23" y="27" width="6" height="14" rx="3" fill="url(#botEarGrad)"/>
+            <rect x="71" y="27" width="6" height="14" rx="3" fill="url(#botEarGrad)"/>
+            <path d="M26 28C26 17 74 17 74 28" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+            <!-- Đầu Robot -->
+            <rect x="27" y="18" width="46" height="32" rx="15" fill="url(#botHeadGrad)" stroke="#7dd3fc" stroke-width="1.8"/>
+
+            <!-- Màn hình visor LED -->
+            <rect x="32" y="23" width="36" height="21" rx="9" fill="url(#botScreenGrad)"/>
+
+            <!-- Đôi mắt LED -->
+            <g class="robot-eye">
+              <ellipse id="botEyeLeft" cx="42" cy="33.5" rx="3.2" ry="4.5" fill="#38bdf8" filter="url(#softGlow)"/>
+              <circle cx="43.2" cy="32" r="1.2" fill="#ffffff"/>
+              <ellipse id="botEyeRight" cx="58" cy="33.5" rx="3.2" ry="4.5" fill="#38bdf8" filter="url(#softGlow)"/>
+              <circle cx="59.2" cy="32" r="1.2" fill="#ffffff"/>
+            </g>
+
+            <!-- Vệt ửng hồng má -->
+            <ellipse cx="36.5" cy="38" rx="2.5" ry="1.2" fill="#f472b6" opacity="0.75"/>
+            <ellipse cx="63.5" cy="38" rx="2.5" ry="1.2" fill="#f472b6" opacity="0.75"/>
+
+            <!-- Nụ cười LED -->
+            <path id="botSmile" d="M47 38.5Q50 41 53 38.5" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="robot-shadow"></div>
       </div>
 
-      <form id="submissionForm" onsubmit="handleFormSubmit(event)">
-        <!-- 1. THÔNG TIN CÁ NHÂN TỰ ĐIỀN -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px;">
-          <div>
-            <label class="form-label-item">Họ và tên</label>
-            <input type="text" id="fullnameInput" class="input-portal" readonly>
-          </div>
-          <div>
-            <label class="form-label-item">Trường / Khoa</label>
-            <input type="text" id="facultyInput" class="input-portal" readonly>
-          </div>
-          <div>
-            <label class="form-label-item">Lớp</label>
-            <input type="text" id="classInput" class="input-portal" readonly>
-          </div>
-        </div>
+      <!-- TIÊU ĐỀ HOẠT ĐỘNG -->
+      <div class="header-minimal">
+        <span class="header-sub-tag">ĐĂNG KÝ HOẠT ĐỘNG</span>
+        <h1 class="program-heading" id="displayProgramTitle">ĐANG TẢI...</h1>
+      </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
-          <div>
-            <label class="form-label-item">Số điện thoại liên hệ*</label>
-            <input type="tel" id="phoneInput" class="input-portal" placeholder="10 chữ số" pattern="[0-9]{10}" required>
-          </div>
-          <div>
-            <label class="form-label-item">Địa chỉ Email*</label>
-            <input type="email" id="emailInput" class="input-portal" placeholder="tenmail@ump.edu.vn" required>
-          </div>
+      <!-- CẢNH BÁO ĐÓNG CỔNG -->
+      <div class="alert-banner warning" id="closedNoticeBox" style="display: none;">
+        <span>⚠️</span>
+        <div>
+          <strong style="color: #854d0e;">CỔNG ĐĂNG KÝ TẠM ĐÓNG</strong><br/>
+          <span id="closedNoticeText" style="font-size: 11.5px; opacity: 0.95;">
+            Chương trình hiện đã đủ số lượng hoặc đã kết thúc đăng ký. Sinh viên đã đăng ký vẫn có thể nhập MSSV để tra cứu điểm danh &amp; kết quả.
+          </span>
         </div>
+      </div>
 
-        <!-- 2. NỘI DUNG BÀI VIẾT -->
-        <div class="form-group-item">
-          <label class="form-label-item">1. Nhân vật lịch sử*</label>
-          <input type="text" id="postFigure" class="input-portal" placeholder="Ví dụ: Đặng Thùy Trâm, Nguyễn Văn Trỗi, Tô Vĩnh Diện,..." required>
-        </div>
-
-        <div class="form-group-item">
-          <label class="form-label-item">2. Tiêu đề bài viết*</label>
-          <input type="text" id="postTitle" class="input-portal" placeholder="Nhập tiêu đề câu chuyện..." required>
-        </div>
-
-        <div class="form-group-item">
-          <label class="form-label-item">3. Mô tả ngắn</label>
-          <input type="text" id="postShortDesc" class="input-portal" placeholder="Tóm tắt ngắn gọn hiển thị ở thẻ bài...">
-        </div>
-
-        <div class="form-group-item">
-          <label class="form-label-item">4. Thời kỳ lịch sử</label>
-          <select id="historicalPeriod" class="input-portal">
-            <option value="– Không rõ –">– Không rõ –</option>
-            <option value="1945 · Cách mạng Tháng Tám & lập nước">1945 · Cách mạng Tháng Tám & lập nước</option>
-            <option value="1954 · Chiến thắng Điện Biên Phủ">1954 · Chiến thắng Điện Biên Phủ</option>
-            <option value="1968 · Tổng tiến công Mậu Thân">1968 · Tổng tiến công Mậu Thân</option>
-            <option value="1975 · Đại thắng mùa xuân 1975">1975 · Đại thắng mùa xuân 1975</option>
-            <option value="1979 · Chiến tranh bảo vệ biên giới">1979 · Chiến tranh bảo vệ biên giới</option>
-            <option value="1988 · Gạc Ma & bảo vệ chủ quyền biển đảo">1988 · Gạc Ma & bảo vệ chủ quyền biển đảo</option>
-            <option value="1990+ · Đổi mới & hội nhập">1990+ · Đổi mới & hội nhập</option>
-          </select>
-        </div>
-
-        <div class="form-group-item">
-          <label class="form-label-item">5. Nội dung chi tiết bài viết (Hỗ trợ chèn & dán trực tiếp hình ảnh)*</label>
-          <div class="editor-box-container">
-            <div class="editor-toolbar">
-              <button type="button" class="tb-btn" onclick="execCmd('bold')"><b>B</b></button>
-              <button type="button" class="tb-btn" onclick="execCmd('italic')"><i>I</i></button>
-              <button type="button" class="tb-btn" onclick="execCmd('underline')"><u>U</u></button>
-              <div class="tb-separator"></div>
-              <button type="button" class="tb-btn" onclick="execCmd('insertUnorderedList')"><i class="fa-solid fa-list-ul"></i></button>
-              <button type="button" class="tb-btn" onclick="execCmd('insertOrderedList')"><i class="fa-solid fa-list-ol"></i></button>
-            </div>
-            <div id="editorContent" class="editor-body" contenteditable="true" data-placeholder="Nhập nội dung chi tiết bài viết, có thể dán (paste) trực tiếp hình ảnh vào đây..."></div>
-          </div>
-        </div>
-
-        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
-          <button type="button" class="btn-portal-submit" style="width: auto; background: #E2E8F0; color: #334155; box-shadow: none;" onclick="resetForm()">Làm mới</button>
-          <button type="submit" class="btn-portal-submit" style="width: auto;">
-            <i class="fa-solid fa-paper-plane"></i> Gửi bài viết duyệt
+      <!-- Ô NHẬP MSSV DUY NHẤT -->
+      <div class="form-group">
+        <label class="input-label" for="inputMSSV">MÃ SỐ SINH VIÊN (MSSV)</label>
+        <div class="input-row">
+          <input autocomplete="off" 
+                 class="form-control-custom" 
+                 id="inputMSSV" 
+                 placeholder="Ví dụ: 21121410xx..." 
+                 type="text"
+                 onkeydown="if(event.key==='Enter') handleCheck()"/>
+          <button class="btn-submit-main" id="btnCheck" onclick="handleCheck()">
+            <span id="btnCheckIcon">🔍</span>
+            <span id="btnCheckText">Kiểm tra</span>
           </button>
         </div>
-      </form>
-    </section>
+      </div>
+
+      <!-- KHUNG 1: DÀNH CHO SV CHƯA ĐĂNG KÝ (FORM EMAIL/SĐT) -->
+      <div class="result-card-box" id="regFormContainer" style="display: none;">
+        <div class="result-badge-strip">
+          <div class="result-lead-title">
+            <span>✓</span> ĐÃ XÁC THỰC SINH VIÊN
+          </div>
+          <span class="status-badge" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;">
+            Chưa đăng ký
+          </span>
+        </div>
+
+        <div class="student-highlight-name" id="regName">--</div>
+        <div class="student-meta-sub">
+          MSSV: <strong id="regMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="regClass">--</span> | Trường/khoa: <span id="regFaculty">--</span>
+        </div>
+
+        <div style="border-top: 1px dashed #e2e8f0; padding-top: 14px;">
+          <!-- Ô NHẬP EMAIL VỚI ĐUÔI @ump.edu.vn CỐ ĐỊNH -->
+          <div class="form-group">
+            <label class="input-label" for="regEmail">
+              ĐỊA CHỈ EMAIL TRƯỜNG CẤP <span style="color: #ef4444;">*</span>
+            </label>
+            <div class="email-input-group">
+              <input autocomplete="off" 
+                     class="email-input-field" 
+                     id="regEmail" 
+                     placeholder="Ví dụ: nguyenvana" 
+                     type="text"/>
+              <div class="email-domain-addon">@ump.edu.vn</div>
+            </div>
+            <span style="font-size: 11px; color: #64748b; margin-top: 5px; display: block;">
+              💡 Chỉ cần nhập tên tài khoản, hệ thống sẽ tự ghép đuôi <strong>@ump.edu.vn</strong>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label class="input-label" for="regPhone">
+              SỐ ĐIỆN THOẠI DI ĐỘNG <span style="color: #ef4444;">*</span>
+            </label>
+            <input autocomplete="off" 
+                   class="form-control-custom" 
+                   id="regPhone" 
+                   placeholder="09012345xx" 
+                   type="tel"/>
+          </div>
+
+          <button class="btn-submit-main btn-full" id="btnConfirm" onclick="handleRegister()">
+            <span id="btnConfirmIcon">✍️</span>
+            <span id="btnConfirmText">XÁC NHẬN ĐĂNG KÝ →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- KHUNG 2: DÀNH CHO SV ĐÃ ĐĂNG KÝ (TRA CỨU ĐIỂM DANH & ĐIỂM SỐ) -->
+      <div class="result-card-box" id="statusContainer" style="display: none;">
+        <div class="result-badge-strip">
+          <div class="result-lead-title">
+            <span>📋</span> HỒ SƠ THAM GIA HOẠT ĐỘNG
+          </div>
+          <div id="resAttend"></div>
+        </div>
+
+        <div class="student-highlight-name" id="resName">--</div>
+        <div class="student-meta-sub">
+          MSSV: <strong id="resMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="resClass">--</span> | Trường/khoa: <span id="resFaculty">--</span>
+        </div>
+
+        <div class="info-grid-list">
+          <div class="info-grid-row">
+            <span class="info-label">Email:</span>
+            <span class="info-value" id="resEmail">--</span>
+          </div>
+          <div class="info-grid-row">
+            <span class="info-label">Số điện thoại:</span>
+            <span class="info-value" id="resPhone">--</span>
+          </div>
+          <div class="info-grid-row" style="border-top: 1px dashed #e2e8f0; padding-top: 8px;">
+            <span class="info-label">Điểm / Đánh giá:</span>
+            <span class="info-value">
+              <span class="score-pill" id="resScore">Chưa cập nhật</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="time-stamp-note">
+          Thời gian nộp: <span id="resTime">--</span>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <!-- ================= POPUP XÁC THỰC MÃ ADMIN ================= -->
-  <div id="adminLoginModal" class="modal-backdrop">
-    <div style="background:#FFF; max-width:400px; width:100%; border-radius:var(--radius-lg); padding:32px; text-align:center; box-shadow:0 12px 36px rgba(0,0,0,0.18);">
-      <div style="width:52px; height:52px; background:#E3F2FD; color:#1976D2; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:14px;">
-        <i class="fa-solid fa-user-shield"></i>
+  <!-- 3. FOOTER ĐỒNG BỘ 3 CỘT -->
+  <footer class="portal-footer" id="portalFooter">
+    <div class="footer-grid">
+      <div>
+        <div class="f-header">HỆ THỐNG QUẢN LÝ HOẠT ĐỘNG</div>
+        <div class="f-subtext">ĐOÀN THANH NIÊN - HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TPHCM</div>
       </div>
-      <h3 style="font-size:1.25rem; font-weight:800; color:#0F172A; margin-bottom:4px;">XÁC THỰC CTV / ADMIN</h3>
-      <p style="font-size:0.84rem; color:#64748B; margin-bottom:20px;">Nhập mã định danh Admin được cấp</p>
-
-      <form onsubmit="handleAdminLogin(event)">
-        <div style="margin-bottom:16px; text-align:left;">
-          <label class="form-label-item">MÃ SỐ ĐỊNH DANH (PIN)*</label>
-          <input type="password" id="adminPinInput" class="input-portal" placeholder="Nhập mã số PIN..." autocomplete="off" required>
-          <div id="adminLoginError" style="font-size:0.82rem; color:#DC2626; margin-top:6px; display:none;"></div>
-        </div>
-
-        <div style="display:flex; gap:10px; margin-top:20px;">
-          <button type="button" class="btn-portal-submit" style="background:#E2E8F0; color:#334155; box-shadow:none; flex:1;" onclick="closeAdminLoginModal()">Đóng</button>
-          <button type="submit" id="btnAdminSubmit" class="btn-portal-submit" style="flex:1;">Đăng nhập</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- ================= KHÔNG GIAN 2: WORKSPACE QUẢN TRỊ DÀNH CHO ADMIN ================= -->
-  <div id="adminWorkspace">
-    <div class="admin-header-card">
-      <div style="display: flex; align-items: center; gap: 14px;">
-        <div style="width: 44px; height: 44px; border-radius: 12px; background: #E3F2FD; color: #1976D2; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
-          <i class="fa-solid fa-shield-halved"></i>
-        </div>
-        <div>
-          <h2 style="font-size: 1.25rem; font-weight: 800; color: #0F172A;">HỆ THỐNG DUYỆT BÀI VIẾT (CTV / ADMIN)</h2>
-          <span style="font-size: 0.84rem; color: #64748B;">Tiếp nhận bài đóng góp và cập nhật lên website</span>
-        </div>
+      <div>
+        <div class="f-header">📍 ĐỊA CHỈ</div>
+        <div class="f-subtext">• 540 Ngô Gia Tự, Phường An Đông, TP. HCM</div>
+        <div class="f-subtext">• 217 Hồng Bàng, Phường Chợ Lớn, TP. HCM</div>
       </div>
-
-      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <button type="button" class="btn-portal-submit" style="width: auto; background: #2E7D32; box-shadow: none; font-size: 0.84rem; padding: 10px 16px;" onclick="exportSummaryReport()">
-          <i class="fa-solid fa-file-excel"></i> Xuất file thống kê
-        </button>
-        <span style="background: #E3F2FD; color: #1976D2; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 0.85rem;">
-          <i class="fa-solid fa-user-check"></i> <span id="currentAdminNameDisplay">Admin</span>
-        </span>
-        <button type="button" class="btn-portal-submit" style="width: auto; background: #E2E8F0; color: #334155; box-shadow: none; font-size: 0.84rem; padding: 10px 16px;" onclick="renderAdminSubmissions()">
-          <i class="fa-solid fa-rotate-right"></i> Làm mới
-        </button>
-        <button type="button" class="btn-portal-submit" style="width: auto; background: #DC2626; box-shadow: none; font-size: 0.84rem; padding: 10px 16px;" onclick="logoutAdminWorkspace()">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i> Thoát
-        </button>
+      <div>
+        <div class="f-header">📧 LIÊN HỆ &amp; HỖ TRỢ</div>
+        <div class="f-subtext">• Đoàn - Hội: <a href="mailto:vpdhump@gmail.com">vpdhump@gmail.com</a></div>
+        <div class="f-subtext">• Fanpage: <a href="https://www.facebook.com/tuoitreyduochcm" target="_blank">Tuổi trẻ Y Dược</a></div>
       </div>
     </div>
-
-    <!-- THANH BỘ LỌC BÀI VIẾT DÀNH CHO CTV -->
-    <div style="display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap;">
-      <span style="font-weight: 700; font-size: 0.88rem; color: #334155;"><i class="fa-solid fa-filter"></i> Lọc danh sách:</span>
-      <button type="button" id="btnFilterAll" class="btn-portal-submit" style="width:auto; padding:6px 14px; font-size:0.82rem; margin:0; box-shadow:none;" onclick="filterAdminPosts('all')">
-        Tất cả bài viết
-      </button>
-      <button type="button" id="btnFilterMyPosts" class="btn-portal-submit" style="width:auto; padding:6px 14px; font-size:0.82rem; margin:0; background:#FFF; color:#1976D2; border:1px solid #1976D2; box-shadow:none;" onclick="filterAdminPosts('my_posts')">
-        <i class="fa-solid fa-user-tag"></i> Bài phân công cho tôi
-      </button>
-      <button type="button" id="btnFilterMyPending" class="btn-portal-submit" style="width:auto; padding:6px 14px; font-size:0.82rem; margin:0; background:#FFF; color:#E65100; border:1px solid #FFA726; box-shadow:none;" onclick="filterAdminPosts('my_pending')">
-        <i class="fa-regular fa-clock"></i> Bài của tôi chưa duyệt
-      </button>
-    </div>
-
-    <!-- BẢNG DANH SÁCH BÀI VIẾT -->
-    <div class="admin-table-card">
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th>Thời gian</th>
-            <th>Sinh viên</th>
-            <th>MSSV - Lớp</th>
-            <th>Nhân vật lịch sử</th>
-            <th>Tiêu đề bài viết</th>
-            <th>Thời kỳ</th>
-            <th>Trạng thái & Người xử lý</th>
-            <th>Thao tác</th>
-          </tr>
-        </thead>
-        <tbody id="submissionTableBody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- POPUP XEM & COPY CHI TIẾT BÀI VIẾT (ADMIN) -->
-  <div id="viewPostModal" class="modal-backdrop">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h3 id="viewPostHeading" style="font-size: 1.15rem; color: #1565C0; font-weight: 800;"></h3>
-        <button type="button" style="border:none; background:none; font-size:1.4rem; cursor:pointer;" onclick="closeViewPostModal()">&times;</button>
-      </div>
-      <div class="modal-body" id="viewPostDetailContent"></div>
-    </div>
-  </div>
-
-  <div id="toast" class="toast"><i class="fa-solid fa-circle-check"></i> <span id="toastMsg"></span></div>
+    <div class="copyright-line">© 2026 VĂN PHÒNG ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
+    <div class="author-line">The website was developed by NTCL team</div>
+  </footer>
 
   <script>
-    /* =========================================================================
-       1. CẤU HÌNH & KHAI BÁO TẬP TRUNG
-       ========================================================================= */
-    const GOOGLE_SHEET_ID = "1b5ROAHmf7XyeBxId0ebdG1NQQIDlApwEZHjKKbALpN0";
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx144VlCEE9a_WgD5GHnWqr2ing1QO5haGxEwHczwUiCdgkyvsygllPacloK209sjRU/exec";
+    // ======================================================================
+    // CẤU HÌNH API GOOGLE APPS SCRIPT
+    // ======================================================================
+    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxxxY8la40nPgXPd_wf-aJCKvfpaY0PZJBArm_EhjZCmex8HTcCOVpwsggO05MSJzyL/exec"; // Dán URL Deployment của bạn vào đây
 
-    const SHEET_TABS = {
-      SINH_VIEN: "SinhVien",
-      BAI_VIET: "BaiViet",
-      ADMINS: "Admins"
-    };
+    // Đọc mã sự kiện từ tham số URL (?event=MãTab), mặc định là 'MASCOT'
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentEvent = (urlParams.get('event') || "MASCOT").trim();
 
-    const getSheetGvizUrl = (tabName) => 
-      `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(tabName)}`;
+    let foundStudent = null;
 
-    let currentAdminName = localStorage.getItem("activeAdminCodeName") || null;
-    let cachedPosts = [];
-    let studentDatabaseCache = null;
-    let adminDatabaseCache = null;
-    let currentFilterType = 'all';
+    // Robot AI cảm xúc tương tác
+    function triggerRobotReaction(mode = 'happy') {
+      const eyeL = document.getElementById('botEyeLeft');
+      const eyeR = document.getElementById('botEyeRight');
+      const smile = document.getElementById('botSmile');
 
-    // Tự động tải thống kê 3 thẻ khi trang web mở lên
-    window.addEventListener('DOMContentLoaded', () => {
-      loadOverallSystemStats();
-    });
+      if (!eyeL || !eyeR || !smile) return;
 
-    /* =========================================================================
-       2. TẢI THỐNG KÊ 3 THẺ CỦA HỆ THỐNG (ĐỒNG BỘ GIAO DIỆN MẪU)
-       ========================================================================= */
-    async function loadOverallSystemStats() {
-      const posts = await getLatestPosts();
-      const total = posts.length;
-      
-      const approvedCount = posts.filter(p => p.status === 'processed').length;
-      const pendingCount = posts.filter(p => p.status !== 'processed' && p.status !== 'rejected').length;
-      const rejectedCount = posts.filter(p => p.status === 'rejected').length;
-
-      document.getElementById('statTotalApproved').innerText = `${approvedCount} bài`;
-      document.getElementById('statTotalPending').innerText = `${pendingCount} bài`;
-      document.getElementById('statTotalRejected').innerText = `${rejectedCount} bài`;
-
-      if (total > 0) {
-        document.getElementById('rateApproved').innerText = `${Math.round((approvedCount / total) * 100)}%`;
-        document.getElementById('ratePending').innerText = `${Math.round((pendingCount / total) * 100)}%`;
-        document.getElementById('rateRejected').innerText = `${Math.round((rejectedCount / total) * 100)}%`;
-      } else {
-        document.getElementById('rateApproved').innerText = `--%`;
-        document.getElementById('ratePending').innerText = `--%`;
-        document.getElementById('rateRejected').innerText = `--%`;
+      if (mode === 'happy') {
+        eyeL.setAttribute('rx', '4');
+        eyeR.setAttribute('rx', '4');
+        smile.setAttribute('d', 'M46 38Q50 43 54 38');
+        smile.setAttribute('stroke', '#38bdf8');
+      } else if (mode === 'wink') {
+        eyeL.setAttribute('ry', '1');
+        setTimeout(() => {
+          eyeL.setAttribute('ry', '4.5');
+        }, 600);
+      } else if (mode === 'sad') {
+        eyeL.setAttribute('ry', '1.5');
+        eyeR.setAttribute('ry', '1.5');
+        smile.setAttribute('d', 'M47 41Q50 38 53 41'); // Miệng méo buồn
       }
+
+      setTimeout(() => {
+        eyeL.setAttribute('rx', '3.2');
+        eyeL.setAttribute('ry', '4.5');
+        eyeR.setAttribute('rx', '3.2');
+        eyeR.setAttribute('ry', '4.5');
+        smile.setAttribute('d', 'M47 38.5Q50 41 53 38.5');
+      }, 2500);
     }
 
-    /* =========================================================================
-       3. TRA CỨU MSSV VÀ BÁO SỐ LƯỢNG BÀI ĐÃ DUYỆT (TỐI ĐA 3 BÀI)
-       ========================================================================= */
-    async function lookupStudentInfo() {
-      const mssv = document.getElementById('mssvInput').value.trim();
-      const resultBox = document.getElementById('studentLookupResult');
-      const submitSec = document.getElementById('submissionSection');
-
-      if (!mssv) {
-        alert("Vui lòng nhập Mã số sinh viên (MSSV) để tra cứu!");
-        return;
-      }
-
-      resultBox.style.display = 'block';
-      resultBox.innerHTML = '<div style="color:#0284C7; font-weight:600;"><i class="fa-solid fa-spinner fa-spin"></i> Đang đối soát thông tin sinh viên...</div>';
-
-      try {
-        if (!studentDatabaseCache) {
-          const response = await fetch(getSheetGvizUrl(SHEET_TABS.SINH_VIEN));
-          if (!response.ok) throw new Error("Không thể kết nối tab SinhVien");
-
-          const rawText = await response.text();
-          const jsonStr = rawText.substring(rawText.indexOf('{'), rawText.lastIndexOf('}') + 1);
-          const parsed = JSON.parse(jsonStr);
-
-          studentDatabaseCache = {};
-          const rows = parsed.table.rows || [];
-
-          rows.forEach(r => {
-            if (!r.c) return;
-            const vals = r.c.map(c => (c && c.v !== null && c.v !== undefined) ? String(c.v).trim() : '');
-            
-            const idx = vals.findIndex(v => v.length >= 6 && /^\d+$/.test(v));
-            if (idx !== -1) {
-              const rowMssv = vals[idx];
-              studentDatabaseCache[rowMssv] = {
-                fullname: vals[idx + 1] || vals[1] || '',
-                faculty: vals[idx + 2] || vals[2] || '',
-                studentClass: vals[idx + 3] || vals[3] || ''
-              };
-            }
-          });
-        }
-
-        const student = studentDatabaseCache[mssv];
-
-        if (student && student.fullname) {
-          document.getElementById('fullnameInput').value = student.fullname;
-          document.getElementById('facultyInput').value = student.faculty;
-          document.getElementById('classInput').value = student.studentClass;
-
-          // Lấy dữ liệu bài của sinh viên
-          cachedPosts = [];
-          const allPosts = await getLatestPosts();
-          const studentPosts = allPosts.filter(p => String(p.mssv).trim() === String(mssv).trim());
-          
-          const approvedCount = studentPosts.filter(p => p.status === 'processed').length;
-          const rejectedCount = studentPosts.filter(p => p.status === 'rejected').length;
-          const pendingCount = studentPosts.filter(p => p.status !== 'processed' && p.status !== 'rejected').length;
-
-          let statusDetail = `Đã duyệt: <b style="color:#2E7D32;">${approvedCount}/3</b> bài`;
-          if (pendingCount > 0) {
-            statusDetail += ` | <span style="color:#E65100;">${pendingCount} bài chờ duyệt</span>`;
-          }
-          if (rejectedCount > 0) {
-            statusDetail += ` | <span style="color:#C62828; font-weight:700;"><i class="fa-solid fa-circle-xmark"></i> ${rejectedCount} bài không đạt</span>`;
-          }
-
-          resultBox.innerHTML = `
-            <div style="color:#0F172A; font-weight:700; margin-bottom:4px;">
-              <i class="fa-solid fa-circle-check" style="color:#16A34A;"></i> Đã tìm thấy: ${student.fullname} (${student.faculty} - ${student.studentClass})
-            </div>
-            <div style="font-size:0.88rem; color:#334155;">
-              <i class="fa-solid fa-clipboard-check" style="color:#0284C7;"></i> Tiến độ xét duyệt: ${statusDetail}
-            </div>
-          `;
-
-          // Mở khung soạn bài
-          submitSec.style.display = 'block';
-          submitSec.scrollIntoView({ behavior: 'smooth' });
-          showToast("Tra cứu thành công!");
-        } else {
-          resultBox.innerHTML = `<div style="color:#DC2626; font-weight:600;"><i class="fa-solid fa-circle-exclamation"></i> Không tìm thấy sinh viên có MSSV "${mssv}" trong danh sách!</div>`;
-          submitSec.style.display = 'none';
-        }
-
-      } catch (err) {
-        console.error("Lỗi tra cứu:", err);
-        resultBox.innerHTML = '<div style="color:#DC2626;"><i class="fa-solid fa-triangle-exclamation"></i> Không thể đọc danh sách sinh viên. Vui lòng kiểm tra quyền truy cập Sheet.</div>';
-      }
-    }
-
-    async function getLatestPosts() {
-      if (cachedPosts && cachedPosts.length > 0) return cachedPosts;
-      try {
-        const res = await fetch(`${APPS_SCRIPT_URL}?action=getPosts&_t=${Date.now()}`);
-        const data = await res.json();
-        cachedPosts = data.posts || [];
-        return cachedPosts;
-      } catch (e) {
-        return JSON.parse(localStorage.getItem('studentSubmissions') || '[]');
-      }
-    }
-
-    /* =========================================================================
-       4. GỬI BÀI VIẾT (CHẶN TRÙNG NHÂN VẬT & TỰ ĐỘNG PHÂN CÔNG CUỐN CHIẾU)
-       ========================================================================= */
-    async function handleFormSubmit(event) {
-      event.preventDefault();
-
-      const submitBtn = event.target.querySelector('button[type="submit"]');
-      const mssvInput = document.getElementById('mssvInput').value.trim();
-      const figureInput = document.getElementById('postFigure').value.trim();
-      const titleInput = document.getElementById('postTitle').value.trim();
-      const editorContent = document.getElementById('editorContent').innerHTML.trim();
-
-      if (!figureInput) {
-        alert("Vui lòng nhập tên Nhân vật lịch sử!");
-        document.getElementById('postFigure').focus();
-        return;
-      }
-
-      if (!titleInput) {
-        alert("Vui lòng nhập Tiêu đề bài viết!");
-        document.getElementById('postTitle').focus();
-        return;
-      }
-
-      if (!editorContent || editorContent === '<br>') {
-        alert("Vui lòng nhập nội dung chi tiết bài viết!");
-        return;
-      }
-
-      // Khóa nút gửi chống spam click
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi bài...';
-      }
-
-      try {
-        const allPosts = await getLatestPosts();
-        const studentPosts = allPosts.filter(p => String(p.mssv).trim() === String(mssvInput).trim());
-
-        // Chuẩn hóa tên nhân vật
-        const normalizeStr = (str) => String(str || '').toLowerCase().replace(/\s+/g, ' ').trim();
-        const currentNormFigure = normalizeStr(figureInput);
-
-        // Chặn trùng nhân vật (ngoại trừ các bài đã bị từ chối)
-        const isDuplicateFigure = studentPosts.some(p => p.status !== 'rejected' && normalizeStr(p.historicalFigure) === currentNormFigure);
-
-        if (isDuplicateFigure) {
-          alert(`Bạn đã gửi bài viết về nhân vật "${figureInput}" rồi. Mỗi sinh viên phải viết về các nhân vật lịch sử khác nhau, không được trùng lặp!`);
-          document.getElementById('postFigure').focus();
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Gửi bài viết duyệt';
-          }
-          return;
-        }
-
-        const postData = {
-          action: "submitPost",
-          id: "POST_" + Date.now(),
-          timestamp: new Date().toLocaleString('vi-VN'),
-          mssv: mssvInput,
-          fullname: document.getElementById('fullnameInput').value.trim(),
-          faculty: document.getElementById('facultyInput').value.trim(),
-          studentClass: document.getElementById('classInput').value.trim(),
-          phone: document.getElementById('phoneInput').value.trim(),
-          email: document.getElementById('emailInput').value.trim(),
-          historicalFigure: figureInput,
-          title: titleInput,
-          shortDesc: document.getElementById('postShortDesc').value.trim(),
-          historicalPeriod: document.getElementById('historicalPeriod').value,
-          content: editorContent
-        };
-
-        showToast("Đang lưu bài viết...");
-
-        if (!APPS_SCRIPT_URL.includes("THAY_THE_URL_CUA_BAN") && !APPS_SCRIPT_URL.includes("...")) {
-          await fetch(APPS_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(postData)
-          });
-        }
-
-        const local = JSON.parse(localStorage.getItem('studentSubmissions') || '[]');
-        local.unshift(postData);
-        localStorage.setItem('studentSubmissions', JSON.stringify(local));
-
-        showToast("Đã gửi và lưu bài viết thành công!");
-        resetForm();
-        lookupStudentInfo(); // Cập nhật lại số bài ngay
-        loadOverallSystemStats(); // Cập nhật lại 3 thẻ thống kê
-
-      } catch (err) {
-        alert("Có lỗi khi lưu bài: " + err.message);
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Gửi bài viết duyệt';
-        }
-      }
-    }
-
-    function resetForm() {
-      document.getElementById('postFigure').value = '';
-      document.getElementById('postTitle').value = '';
-      document.getElementById('postShortDesc').value = '';
-      document.getElementById('editorContent').innerHTML = '';
-    }
-
-    function execCmd(cmd, val = null) {
-      document.execCommand(cmd, false, val);
-      document.getElementById('editorContent').focus();
-    }
-
-    /* =========================================================================
-       5. XÁC THỰC CTV / ADMIN VỚI TAB 'Admins'
-       ========================================================================= */
-    async function fetchAdminsFromSheet() {
-      if (adminDatabaseCache) return adminDatabaseCache;
-
-      try {
-        const response = await fetch(getSheetGvizUrl(SHEET_TABS.ADMINS));
-        if (!response.ok) throw new Error("Không thể kết nối tab Admins");
-
-        const rawText = await response.text();
-        const jsonStr = rawText.substring(rawText.indexOf('{'), rawText.lastIndexOf('}') + 1);
-        const parsed = JSON.parse(jsonStr);
-
-        adminDatabaseCache = {};
-        const rows = parsed.table.rows || [];
-
-        rows.forEach(r => {
-          if (!r.c) return;
-          const vals = r.c.map(c => (c && c.v !== null && c.v !== undefined) ? String(c.v).trim() : '');
-          
-          const adminCode = vals[0] || '';
-          const adminName = vals[1] || '';
-          if (adminCode && adminName) {
-            adminDatabaseCache[adminCode] = adminName;
-          }
-        });
-
-        return adminDatabaseCache;
-      } catch (err) {
-        console.error("Lỗi đọc danh sách Admin:", err);
-        return null;
-      }
-    }
-
-    function openAdminLoginModal() {
-      if (currentAdminName) {
-        enterWorkspace();
-        return;
-      }
-      document.getElementById('adminPinInput').value = '';
-      document.getElementById('adminLoginError').style.display = 'none';
-      document.getElementById('adminLoginModal').classList.add('show');
-      setTimeout(() => document.getElementById('adminPinInput').focus(), 150);
-    }
-
-    function closeAdminLoginModal() {
-      document.getElementById('adminLoginModal').classList.remove('show');
-    }
-
-    async function handleAdminLogin(event) {
-      event.preventDefault();
-      const pin = document.getElementById('adminPinInput').value.trim();
-      const errBox = document.getElementById('adminLoginError');
-      const submitBtn = document.getElementById('btnAdminSubmit');
-
-      if (!pin) {
-        errBox.innerText = 'Vui lòng nhập mã PIN!';
-        errBox.style.display = 'block';
-        return;
-      }
-
-      errBox.style.display = 'none';
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Xác thực...';
-
-      const adminList = await fetchAdminsFromSheet();
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '<span>Đăng nhập</span>';
-
-      if (adminList && adminList[pin]) {
-        currentAdminName = adminList[pin];
-        localStorage.setItem("activeAdminCodeName", currentAdminName);
-        
-        closeAdminLoginModal();
-        showToast(`Xin chào ${currentAdminName}!`);
-        enterWorkspace();
-      } else {
-        errBox.innerText = `Mã số "${pin}" không có quyền quản trị hoặc chưa có trong tab Admins!`;
-        errBox.style.display = 'block';
-      }
-    }
-
-    function enterWorkspace() {
-      document.getElementById('studentView').style.display = 'none';
-      document.getElementById('adminWorkspace').style.display = 'block';
-      const nameDisplay = document.getElementById('currentAdminNameDisplay');
-      if (nameDisplay) nameDisplay.innerText = currentAdminName;
-      renderAdminSubmissions();
-    }
-
-    function logoutAdminWorkspace() {
-      localStorage.removeItem("activeAdminCodeName");
-      currentAdminName = null;
-      document.getElementById('adminWorkspace').style.display = 'none';
-      document.getElementById('studentView').style.display = 'block';
-      showToast("Đã đăng xuất khỏi Bàn làm việc Admin.");
-    }
-
-    /* =========================================================================
-       6. QUẢN LÝ BẢNG BÀI VIẾT & BỘ LỌC DÀNH CHO CTV
-       ========================================================================= */
-    async function renderAdminSubmissions(renderLocalOnly = false) {
-      const tbody = document.getElementById('submissionTableBody');
-
-      if (!renderLocalOnly) {
-        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:20px;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải danh sách bài viết...</td></tr>`;
-        cachedPosts = [];
-        cachedPosts = await getLatestPosts();
-      }
-
-      filterAdminPosts(currentFilterType);
-    }
-
-    function filterAdminPosts(type) {
-      currentFilterType = type;
-      if (!cachedPosts || cachedPosts.length === 0) {
-        drawSubmissionsTable([]);
-        return;
-      }
-
-      const btnAll = document.getElementById('btnFilterAll');
-      const btnMyPosts = document.getElementById('btnFilterMyPosts');
-      const btnMyPending = document.getElementById('btnFilterMyPending');
-
-      [btnAll, btnMyPosts, btnMyPending].forEach(b => {
-        if (b) {
-          b.style.background = '#FFFFFF';
-          b.style.color = '#334155';
-          b.style.border = '1px solid #CBD5E1';
-        }
-      });
-
-      let filtered = cachedPosts;
-      const myNameLower = (currentAdminName || '').trim().toLowerCase();
-
-      if (type === 'my_posts') {
-        if (btnMyPosts) {
-          btnMyPosts.style.background = 'var(--primary-gradient)';
-          btnMyPosts.style.color = '#FFFFFF';
-          btnMyPosts.style.border = 'none';
-        }
-        filtered = cachedPosts.filter(p => (p.assignedAdmin || '').toLowerCase().includes(myNameLower));
-      } else if (type === 'my_pending') {
-        if (btnMyPending) {
-          btnMyPending.style.background = '#E65100';
-          btnMyPending.style.color = '#FFFFFF';
-          btnMyPending.style.border = 'none';
-        }
-        filtered = cachedPosts.filter(p => 
-          (p.assignedAdmin || '').toLowerCase().includes(myNameLower) && 
-          p.status !== 'processed' && p.status !== 'rejected'
-        );
-      } else {
-        if (btnAll) {
-          btnAll.style.background = 'var(--primary-gradient)';
-          btnAll.style.color = '#FFFFFF';
-          btnAll.style.border = 'none';
-        }
-      }
-
-      drawSubmissionsTable(filtered);
-    }
-
-    function drawSubmissionsTable(posts) {
-      const tbody = document.getElementById('submissionTableBody');
-      if (!posts || posts.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:20px; color:#94A3B8;">Chưa có bài viết nào trong danh mục này.</td></tr>`;
-        return;
-      }
-
-      tbody.innerHTML = posts.map(item => {
-        const isAssignedToMe = currentAdminName && (item.assignedAdmin || '').includes(currentAdminName);
-
-        let adminBadgeHtml = '';
-        if (item.assignedAdmin) {
-          if (isAssignedToMe) {
-            adminBadgeHtml = `
-              <div style="font-size:0.75rem; color:#1565C0; background:#E3F2FD; border:1px solid #BBDEFB; padding:2px 8px; border-radius:6px; margin-top:5px; font-weight:700; display:inline-block;">
-                <i class="fa-solid fa-user-tag"></i> Phụ trách: Bạn (${item.assignedAdmin})
-              </div>`;
-          } else {
-            adminBadgeHtml = `
-              <div style="font-size:0.75rem; color:#6A1B9A; margin-top:4px; font-weight:600;">
-                <i class="fa-solid fa-user-pen"></i> Phụ trách: ${item.assignedAdmin}
-              </div>`;
-          }
-        } else {
-          adminBadgeHtml = `<div style="font-size:0.75rem; color:#94A3B8; margin-top:4px;"><i>Chưa phân công</i></div>`;
-        }
-
-        const rowBgStyle = isAssignedToMe && item.status !== 'processed' && item.status !== 'rejected' ? 'style="background-color: #F8FBFE;"' : '';
-
-        return `
-          <tr ${rowBgStyle}>
-            <td><small style="color:#64748B;">${item.timestamp}</small></td>
-            <td><b>${item.fullname}</b><br><small style="color:#64748B;">${item.email}</small></td>
-            <td><code>${item.mssv}</code><br><small>${item.studentClass}</small></td>
-            <td>
-              <span style="display:inline-block; padding:3px 8px; border-radius:6px; background:#E0F2FE; color:#0369A1; font-weight:700; font-size:0.84rem;">
-                <i class="fa-solid fa-user-shield"></i> ${item.historicalFigure || '(Chưa rõ)'}
-              </span>
-            </td>
-            <td><b style="color:#1E293B;">${item.title || '(Không có tiêu đề)'}</b></td>
-            <td><small style="color:#1565C0; font-weight:600;">${item.historicalPeriod}</small></td>
-            <td>
-              ${item.status === 'processed' 
-                ? '<span class="status-badge badge-done"><i class="fa-solid fa-check"></i> Đã xử lý</span>' 
-                : (item.status === 'rejected'
-                    ? '<span class="status-badge badge-rejected"><i class="fa-solid fa-xmark"></i> Bị từ chối</span>'
-                    : '<span class="status-badge badge-pending"><i class="fa-regular fa-clock"></i> Chờ duyệt</span>')}
-              ${adminBadgeHtml}
-            </td>
-            <td>
-              <button type="button" class="btn-portal-submit" style="width:auto; padding:6px 12px; font-size:0.8rem; margin:0; background:#FFF; color:#1E293B; border:1px solid #CBD5E1; box-shadow:none;" onclick="viewPostDetail('${item.id}')">
-                <i class="fa-regular fa-eye"></i> Xem bài viết
-              </button>
-            </td>
-          </tr>
-        `;
-      }).join('');
-    }
-
-    /* =========================================================================
-       7. XEM CHI TIẾT & SAO CHÉP TỪNG MỤC ĐỘC LẬP
-       ========================================================================= */
-    function viewPostDetail(postId) {
-      const post = cachedPosts.find(p => p.id === postId);
-      if (!post) return;
-
-      document.getElementById('viewPostHeading').innerHTML = `<i class="fa-solid fa-book-open"></i> ${post.title || 'Chi tiết bài viết'}`;
-      
-      document.getElementById('viewPostDetailContent').innerHTML = `
-        <div style="background:#F0F9FF; padding:14px; border-radius:10px; margin-bottom:18px; font-size:0.88rem; border-left:4px solid #0284C7;">
-          <div><b>Sinh viên:</b> ${post.fullname} (MSSV: ${post.mssv}) | <b>Lớp:</b> ${post.studentClass} (${post.faculty})</div>
-          <div style="margin-top:4px;"><b>Liên hệ:</b> ${post.phone} - ${post.email}</div>
-          <div style="margin-top:4px; color: #1565C0;"><b>Phân công phụ trách:</b> <i class="fa-solid fa-user-pen"></i> ${post.assignedAdmin || 'Chưa gán'}</div>
-        </div>
-
-        <div style="margin-bottom:16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-            <label style="font-weight:700; font-size:0.85rem; color:#64748B;">NHÂN VẬT LỊCH SỬ:</label>
-            <button type="button" class="btn-portal-submit" style="width:auto; padding:3px 10px; font-size:0.75rem; margin:0; background:#FFF; color:#334155; border:1px solid #CBD5E1; box-shadow:none;" onclick="copyByField('${post.id}', 'historicalFigure', 'Nhân vật lịch sử')">
-              <i class="fa-regular fa-copy"></i> Copy
-            </button>
-          </div>
-          <div style="font-size:1.1rem; font-weight:700; color:#0369A1; background:#E0F2FE; padding:8px 14px; border-radius:8px; display:inline-block;">
-            <i class="fa-solid fa-user-shield"></i> ${post.historicalFigure || '(Chưa nhập)'}
-          </div>
-        </div>
-
-        <div style="margin-bottom:16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-            <label style="font-weight:700; font-size:0.85rem; color:#64748B;">TIÊU ĐỀ BÀI VIẾT:</label>
-            <button type="button" class="btn-portal-submit" style="width:auto; padding:3px 10px; font-size:0.75rem; margin:0; background:#FFF; color:#334155; border:1px solid #CBD5E1; box-shadow:none;" onclick="copyByField('${post.id}', 'title', 'Tiêu đề')">
-              <i class="fa-regular fa-copy"></i> Copy
-            </button>
-          </div>
-          <div style="font-size:1.15rem; font-weight:700; color:#1E293B;">${post.title}</div>
-        </div>
-
-        <div style="margin-bottom:16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-            <label style="font-weight:700; font-size:0.85rem; color:#64748B;">MÔ TẢ NGẮN:</label>
-            <button type="button" class="btn-portal-submit" style="width:auto; padding:3px 10px; font-size:0.75rem; margin:0; background:#FFF; color:#334155; border:1px solid #CBD5E1; box-shadow:none;" onclick="copyByField('${post.id}', 'shortDesc', 'Mô tả ngắn')">
-              <i class="fa-regular fa-copy"></i> Copy
-            </button>
-          </div>
-          <div style="background:#FFF; padding:12px; border:1px solid #E2E8F0; border-radius:8px; font-size:0.92rem; white-space: pre-wrap;">${post.shortDesc || '(Không có)'}</div>
-        </div>
-
-        <div style="margin-bottom:18px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-            <label style="font-weight:700; font-size:0.85rem; color:#64748B;">THỜI KỲ LỊCH SỬ:</label>
-            <button type="button" class="btn-portal-submit" style="width:auto; padding:3px 10px; font-size:0.75rem; margin:0; background:#FFF; color:#334155; border:1px solid #CBD5E1; box-shadow:none;" onclick="copyByField('${post.id}', 'historicalPeriod', 'Thời kỳ lịch sử')">
-              <i class="fa-regular fa-copy"></i> Copy
-            </button>
-          </div>
-          <div style="color:#1565C0; font-weight:700; font-size:0.95rem;">${post.historicalPeriod}</div>
-        </div>
-
-        <div style="margin-bottom:24px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <label style="font-weight:700; font-size:0.85rem; color:#64748B;">NỘI DUNG CHI TIẾT BÀI VIẾT:</label>
-            <button type="button" class="btn-portal-submit" style="width:auto; padding:4px 12px; font-size:0.8rem; margin:0; background:#FFF; color:#1565C0; border:1px solid #BAE6FD; box-shadow:none;" onclick="copyOnlyDetailContent('${post.id}')">
-              <i class="fa-regular fa-copy"></i> Copy nội dung (gồm ảnh)
-            </button>
-          </div>
-          <div id="detailArticleContentBox" style="background:#FFF; padding:18px; border:1px solid #E2E8F0; border-radius:8px; max-height:300px; overflow-y:auto; line-height:1.7;">
-            ${post.content}
-          </div>
-        </div>
-
-        <!-- THANH NÚT THAO TÁC CỦA ADMIN -->
-        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #E2E8F0; padding-top:16px;">
-          <button type="button" class="btn-portal-submit" style="width:auto; background:#FFF; color:#DC2626; border:1px solid #FCA5A5; box-shadow:none; margin:0;" onclick="rejectPost('${post.id}')">
-            <i class="fa-solid fa-xmark"></i> TỪ CHỐI BÀI VIẾT
-          </button>
-          <button type="button" class="btn-portal-submit" style="width:auto; background:#16A34A; box-shadow:none; margin:0;" onclick="markDone('${post.id}', true)">
-            <i class="fa-solid fa-circle-check"></i> ĐÃ ĐĂNG TẢI
-          </button>
+    // Hiển thị thông báo Alert
+    function showAlert(msg, type = 'danger') {
+      const icon = type === 'success' ? '✓' : (type === 'warning' ? '⚠️' : '✕');
+      document.getElementById('alertBox').innerHTML = `
+        <div class="alert-banner ${type}">
+          <span>${icon}</span>
+          <div>${msg}</div>
         </div>
       `;
-
-      document.getElementById('viewPostModal').classList.add('show');
     }
 
-    function copyByField(postId, fieldKey, fieldDisplayName) {
-      const post = cachedPosts.find(p => p.id === postId);
-      if (!post) return;
+    function clearAlert() {
+      document.getElementById('alertBox').innerHTML = '';
+    }
 
-      const value = post[fieldKey];
-      if (!value || value === '(Không có)' || value === '(Chưa nhập)') {
-        showToast(`Mục ${fieldDisplayName} chưa có dữ liệu để copy!`);
-        return;
+    // Tự động tải tên hoạt động từ ô L1 của tab tương ứng
+    window.addEventListener('DOMContentLoaded', () => {
+      const titleElem = document.getElementById('displayProgramTitle');
+      const apiUrl = `${GAS_API_URL}?action=initEvent&event=${encodeURIComponent(currentEvent)}`;
+
+      fetch(apiUrl, { method: "GET", redirect: "follow" })
+        .then(r => r.json())
+        .then(res => {
+          if (res.success) {
+            titleElem.innerText = res.title || currentEvent;
+            document.title = (res.title || currentEvent);
+
+            if (!res.isOpen) {
+              document.getElementById('closedNoticeText').innerText = res.message || "Cổng đăng ký chương trình hiện đã đóng!";
+              document.getElementById('closedNoticeBox').style.display = 'flex';
+            }
+          } else {
+            titleElem.innerText = res.title || currentEvent;
+            showAlert(res.message || "Chương trình không tồn tại hoặc link không đúng!", "warning");
+          }
+        })
+        .catch(err => {
+          console.warn("Không kết nối được cấu hình ban đầu:", err);
+          titleElem.innerText = currentEvent;
+        });
+    });
+
+    // Bấm nút kiểm tra MSSV
+    function handleCheck() {
+      const inputEl = document.getElementById('inputMSSV');
+      const cleanMSSV = inputEl.value.replace(/['"\s]/g, '').toUpperCase();
+
+      if (!cleanMSSV) {
+        return showAlert('Vui lòng nhập Mã số sinh viên (MSSV)!', 'warning');
       }
 
-      navigator.clipboard.writeText(value).then(() => {
-        showToast(`Đã sao chép ${fieldDisplayName}!`);
-      }).catch(err => {
-        showToast("Không thể sao chép: " + err);
+      clearAlert();
+      document.getElementById('regFormContainer').style.display = 'none';
+      document.getElementById('statusContainer').style.display = 'none';
+
+      const btn = document.getElementById('btnCheck');
+      const btnIcon = document.getElementById('btnCheckIcon');
+      const btnText = document.getElementById('btnCheckText');
+
+      // Bật trạng thái xoay vòng spinner
+      btn.disabled = true;
+      inputEl.disabled = true;
+      btn.classList.add('btn-loading');
+      btnIcon.innerHTML = `<span class="spinner-loader"></span>`;
+      btnText.innerText = "Đang tìm...";
+      triggerRobotReaction('wink');
+
+      fetch(`${GAS_API_URL}?action=checkMSSV&mssv=${encodeURIComponent(cleanMSSV)}&event=${encodeURIComponent(currentEvent)}`)
+        .then(r => r.json())
+        .then(res => {
+          btn.disabled = false;
+          inputEl.disabled = false;
+          btn.classList.remove('btn-loading');
+          btnIcon.innerText = "🔍";
+          btnText.innerText = "Kiểm tra";
+
+          if (!res.success) {
+            triggerRobotReaction('sad');
+            showAlert(res.message || "Không tìm thấy thông tin sinh viên!", res.isClosed ? 'warning' : 'danger');
+            return;
+          }
+
+          triggerRobotReaction('happy');
+
+          // TRƯỜNG HỢP 1: ĐÃ ĐĂNG KÝ -> HIỂN THỊ KẾT QUẢ
+          if (res.status === 'ALREADY_REGISTERED') {
+            const d = res.data;
+            document.getElementById('resName').innerText = d.hoten || "Sinh viên";
+            document.getElementById('resMssv').innerText = d.mssv || cleanMSSV;
+            document.getElementById('resClass').innerText = d.lop || "--";
+            document.getElementById('resFaculty').innerText = d.truongkhoa || "--";
+            document.getElementById('resEmail').innerText = d.email || "--";
+            document.getElementById('resPhone').innerText = d.sdt || "--";
+            document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
+            document.getElementById('resTime').innerText = d.time || "Đã ghi nhận";
+
+            const attendElem = document.getElementById('resAttend');
+            if (d.diemdanh) {
+              attendElem.innerHTML = `<span class="status-badge badge-attended">✓ ĐÃ ĐIỂM DANH</span>`;
+            } else {
+              attendElem.innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
+            }
+
+            document.getElementById('statusContainer').style.display = 'block';
+          }
+
+          // TRƯỜNG HỢP 2: CHƯA ĐĂNG KÝ -> MỞ FORM ĐIỀN EMAIL/SĐT
+          else if (res.status === 'NOT_REGISTERED') {
+            foundStudent = res.data;
+            document.getElementById('regName').innerText = foundStudent.hoten || "Sinh viên";
+            document.getElementById('regMssv').innerText = foundStudent.mssv || cleanMSSV;
+            document.getElementById('regClass').innerText = foundStudent.lop || "--";
+            document.getElementById('regFaculty').innerText = foundStudent.truongkhoa || "--";
+            document.getElementById('regEmail').value = '';
+            document.getElementById('regPhone').value = '';
+
+            document.getElementById('regFormContainer').style.display = 'block';
+          }
+        })
+        .catch(err => {
+          console.error("Lỗi API checkMSSV:", err);
+          btn.disabled = false;
+          inputEl.disabled = false;
+          btn.classList.remove('btn-loading');
+          btnIcon.innerText = "🔍";
+          btnText.innerText = "Kiểm tra";
+          showAlert('Hệ thống đang bận hoặc lỗi kết nối. Vui lòng bấm thử lại!', 'warning');
+        });
+    }
+
+    // Gửi đăng ký tham gia chương trình (TỰ ĐỘNG GHÉP ĐUÔI @ump.edu.vn)
+    function handleRegister() {
+      if (!foundStudent) return;
+
+      const emailInput = document.getElementById('regEmail');
+      const phoneInput = document.getElementById('regPhone');
+      
+      let rawEmailName = emailInput.value.trim().toLowerCase();
+      const phone = phoneInput.value.trim();
+
+      // Nếu sinh viên lỡ gõ cả @ump.edu.vn hoặc @... thì tự động cắt lấy phần tên
+      if (rawEmailName.includes('@')) {
+        rawEmailName = rawEmailName.split('@')[0].trim();
+      }
+
+      // Kiểm tra tên email không được rỗng và không chứa ký tự cấm
+      if (!rawEmailName || !/^[a-z0-9._-]+$/.test(rawEmailName)) {
+        triggerRobotReaction('sad');
+        return showAlert('Vui lòng nhập tên tài khoản email trường cấp hợp lệ!', 'warning');
+      }
+
+      // Tự động ghép thành email hoàn chỉnh
+      const fullEmail = rawEmailName + "@ump.edu.vn";
+
+      // KIỂM TRA SỐ ĐIỆN THOẠI HỢP LỆ (9 - 11 số)
+      if (!phone || !/^[0-9]{9,11}$/.test(phone)) {
+        triggerRobotReaction('sad');
+        return showAlert('Vui lòng nhập Số điện thoại hợp lệ (9 - 11 chữ số)!', 'warning');
+      }
+
+      clearAlert();
+
+      const btn = document.getElementById('btnConfirm');
+      const btnIcon = document.getElementById('btnConfirmIcon');
+      const btnText = document.getElementById('btnConfirmText');
+
+      btn.disabled = true;
+      btn.classList.add('btn-loading');
+      btnIcon.innerHTML = `<span class="spinner-loader"></span>`;
+      btnText.innerText = "ĐANG GHI NHẬN HỒ SƠ...";
+      triggerRobotReaction('wink');
+
+      const payload = {
+        action: "register",
+        event: currentEvent,
+        student: {
+          mssv: foundStudent.mssv,
+          hoten: foundStudent.hoten,
+          lop: foundStudent.lop,
+          truongkhoa: foundStudent.truongkhoa,
+          email: fullEmail, // Lưu email chuẩn đuôi @ump.edu.vn lên Sheets
+          sdt: phone
+        }
+      };
+
+      fetch(GAS_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      })
+      .then(r => r.json())
+      .then(res => {
+        btn.disabled = false;
+        btn.classList.remove('btn-loading');
+        btnIcon.innerText = "✍️";
+        btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
+
+        if (res.success) {
+          triggerRobotReaction('happy');
+          document.getElementById('regFormContainer').style.display = 'none';
+
+          const d = res.registeredData;
+          document.getElementById('resName').innerText = d.hoten;
+          document.getElementById('resMssv').innerText = d.mssv;
+          document.getElementById('resClass').innerText = d.lop;
+          document.getElementById('resFaculty').innerText = d.truongkhoa;
+          document.getElementById('resEmail').innerText = d.email;
+          document.getElementById('resPhone').innerText = d.sdt;
+          document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
+          document.getElementById('resTime').innerText = d.time;
+          document.getElementById('resAttend').innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
+
+          document.getElementById('statusContainer').style.display = 'block';
+          showAlert('🎉 Đăng ký thành công! Thông tin của bạn đã được ghi nhận.', 'success');
+        } else {
+          triggerRobotReaction('sad');
+          showAlert(res.message || "Đăng ký thất bại, vui lòng kiểm tra lại!", 'danger');
+        }
+      })
+      .catch(err => {
+        console.error("Lỗi API register:", err);
+        btn.disabled = false;
+        btn.classList.remove('btn-loading');
+        btnIcon.innerText = "✍️";
+        btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
+        showAlert('Hệ thống đang quá tải, vui lòng bấm xác nhận lại!', 'warning');
       });
-    }
-
-    function closeViewPostModal() {
-      document.getElementById('viewPostModal').classList.remove('show');
-    }
-
-    async function copyOnlyDetailContent(postId) {
-      const post = cachedPosts.find(p => p.id === postId);
-      if (!post) return;
-
-      const htmlContent = post.content;
-      const temp = document.createElement("div");
-      temp.innerHTML = htmlContent;
-      const plainText = temp.innerText || temp.textContent || "";
-
-      try {
-        if (navigator.clipboard && window.ClipboardItem) {
-          const blobHtml = new Blob([htmlContent], { type: "text/html" });
-          const blobText = new Blob([plainText], { type: "text/plain" });
-          const item = new ClipboardItem({
-            "text/html": blobHtml,
-            "text/plain": blobText
-          });
-          await navigator.clipboard.write([item]);
-          showToast("Đã copy toàn bộ nội dung & HÌNH ẢNH!");
-          return;
-        }
-      } catch (err) {
-        console.warn("ClipboardItem fallback:", err);
-      }
-
-      const container = document.getElementById("detailArticleContentBox");
-      if (container) {
-        const range = document.createRange();
-        range.selectNodeContents(container);
-        const sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
-        document.execCommand("copy");
-        sel.removeAllRanges();
-        showToast("Đã copy nội dung và hình ảnh!");
-      }
-    }
-
-    async function markDone(postId, closeModal = false) {
-      showToast("Đang cập nhật trạng thái...");
-
-      const post = (cachedPosts || []).find(p => p.id === postId);
-      let updatedAdminText = post && post.assignedAdmin ? `${post.assignedAdmin} (Đã xong)` : `${currentAdminName} (Đã xong)`;
-
-      if (post) {
-        post.status = "processed";
-        post.assignedAdmin = updatedAdminText;
-      }
-
-      if (closeModal) closeViewPostModal();
-      renderAdminSubmissions(true);
-
-      if (!APPS_SCRIPT_URL.includes("THAY_THE_URL_CUA_BAN") && !APPS_SCRIPT_URL.includes("...")) {
-        try {
-          await fetch(APPS_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ 
-              action: "updatePostStatus", 
-              id: postId, 
-              status: "processed", 
-              adminName: updatedAdminText
-            })
-          });
-        } catch (err) {
-          console.error("Lỗi cập nhật sheet:", err);
-        }
-      }
-
-      showToast("Đã đánh dấu ĐÃ ĐĂNG TẢI thành công!");
-      loadOverallSystemStats();
-    }
-
-    async function rejectPost(postId) {
-      if (!confirm("Bạn có chắc chắn muốn TỪ CHỐI bài viết này không? Bài viết bị từ chối sẽ không tính điểm cho sinh viên.")) {
-        return;
-      }
-
-      showToast("Đang cập nhật từ chối...");
-
-      const post = (cachedPosts || []).find(p => p.id === postId);
-      let updatedAdminText = post && post.assignedAdmin ? `${post.assignedAdmin} (Từ chối)` : `${currentAdminName} (Từ chối)`;
-
-      if (post) {
-        post.status = "rejected";
-        post.assignedAdmin = updatedAdminText;
-      }
-
-      closeViewPostModal();
-      renderAdminSubmissions(true);
-
-      if (!APPS_SCRIPT_URL.includes("THAY_THE_URL_CUA_BAN") && !APPS_SCRIPT_URL.includes("...")) {
-        try {
-          await fetch(APPS_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ 
-              action: "updatePostStatus", 
-              id: postId, 
-              status: "rejected", 
-              adminName: updatedAdminText
-            })
-          });
-        } catch (err) {
-          console.error("Lỗi cập nhật:", err);
-        }
-      }
-
-      showToast("Đã từ chối bài viết!");
-      loadOverallSystemStats();
-    }
-
-    /* =========================================================================
-       8. XUẤT FILE BÁO CÁO XÉT QUYỀN LỢI (CSV CHUẨN EXCEL TIẾNG VIỆT)
-       ========================================================================= */
-    function exportSummaryReport() {
-      if (!cachedPosts || cachedPosts.length === 0) {
-        alert("Chưa có dữ liệu bài viết để xuất thống kê!");
-        return;
-      }
-
-      const studentMap = {};
-
-      cachedPosts.forEach(post => {
-        const mssv = String(post.mssv).trim();
-        if (!mssv) return;
-
-        if (!studentMap[mssv]) {
-          studentMap[mssv] = {
-            mssv: mssv,
-            fullname: post.fullname || '',
-            faculty: post.faculty || '',
-            studentClass: post.studentClass || '',
-            totalSubmissions: 0,
-            approvedCount: 0
-          };
-        }
-        
-        studentMap[mssv].totalSubmissions += 1;
-        if (post.status === 'processed') {
-          studentMap[mssv].approvedCount += 1;
-        }
-      });
-
-      let csvContent = "\uFEFF";
-      csvContent += "STT,MSSV,Họ và tên,Trường/Khoa,Lớp,Số bài đã gửi,Số bài đã duyệt,Quyền lợi\n";
-
-      let index = 1;
-      for (const mssv in studentMap) {
-        const s = studentMap[mssv];
-        
-        let benefit = "-";
-        if (s.approvedCount >= 3) {
-          benefit = "3.1.2 (SV5T)";
-        } else if (s.approvedCount >= 1) {
-          benefit = "3.1.1";
-        }
-
-        const row = [
-          index++,
-          `"${s.mssv}"`,
-          `"${s.fullname}"`,
-          `"${s.faculty}"`,
-          `"${s.studentClass}"`,
-          s.totalSubmissions,
-          s.approvedCount,
-          `"${benefit}"`
-        ];
-        csvContent += row.join(",") + "\n";
-      }
-
-      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.setAttribute("href", url);
-      link.setAttribute("download", `Danh_Sach_Quyen_Loi_Thoi_Hoa_Lua_${new Date().toISOString().slice(0,10)}.csv`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      showToast("Đã xuất danh sách xét quyền lợi thành công!");
-    }
-
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toastMsg').innerText = msg;
-      toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 3000);
     }
   </script>
 </body>
