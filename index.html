@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-  <title>ĐĂNG KÝ HOẠT ĐỘNG ĐẠI HỌC Y DƯỢC TP.HCM</title>
+  <title>ĐĂNG KÝ & TRA CỨU HOẠT ĐỘNG - ĐH Y DƯỢC TP.HCM</title>
   
-  <!-- Phông chữ Plus Jakarta Sans -->
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -37,7 +36,6 @@
       padding: 16px 20px;
     }
 
-    /* 1. TOP HEADER STRIP */
     .top-header-strip {
       width: 100%;
       max-width: 1240px;
@@ -111,7 +109,6 @@
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
-    /* 2. CARD TRUNG TÂM */
     .main-center-wrapper {
       width: 100%;
       max-width: 480px;
@@ -127,11 +124,9 @@
       border: 1px solid rgba(226, 232, 240, 0.85);
       padding: 30px 26px;
       position: relative;
-      transition: all 0.3s ease;
       text-align: center;
     }
 
-    /* ROBOT AI SVG ANIMATION */
     .robot-mascot-container {
       display: flex;
       flex-direction: column;
@@ -143,8 +138,8 @@
     }
 
     .robot-svg-wrap {
-      width: 104px;
-      height: 104px;
+      width: 100px;
+      height: 100px;
       animation: robotFloat 3.2s ease-in-out infinite;
       transform-origin: center bottom;
       transition: transform 0.25s ease;
@@ -191,24 +186,6 @@
       96% { transform: scaleY(0.1); }
     }
 
-    .robot-left-arm {
-      transform-origin: 32px 58px;
-      animation: leftArmWave 2.8s ease-in-out infinite alternate;
-    }
-    .robot-right-arm {
-      transform-origin: 68px 58px;
-      animation: rightArmWave 2.8s ease-in-out infinite alternate;
-    }
-    @keyframes leftArmWave {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(-10deg); }
-    }
-    @keyframes rightArmWave {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(14deg); }
-    }
-
-    /* TIÊU ĐỀ & NGẮT DÒNG */
     .header-minimal {
       margin-top: 6px;
       margin-bottom: 22px;
@@ -244,7 +221,6 @@
       margin: 0 auto;
     }
 
-    /* ALERT BANNERS */
     .alert-banner {
       border-radius: 14px;
       padding: 12px 16px;
@@ -256,33 +232,12 @@
       gap: 10px;
       margin-bottom: 16px;
       text-align: left;
-      animation: fadeIn 0.25s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .alert-banner.warning { background: #fefce8; color: #854d0e; border: 1px solid #fef08a; }
+    .alert-banner.danger { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    .alert-banner.success { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
 
-    .alert-banner.warning {
-      background: #fefce8;
-      color: #854d0e;
-      border: 1px solid #fef08a;
-    }
-
-    .alert-banner.danger {
-      background: #fef2f2;
-      color: #991b1b;
-      border: 1px solid #fecaca;
-    }
-
-    .alert-banner.success {
-      background: #ecfdf5;
-      color: #065f46;
-      border: 1px solid #a7f3d0;
-    }
-
-    /* INPUT & FORM */
     .form-group {
       margin-bottom: 16px;
       text-align: left;
@@ -301,7 +256,6 @@
     .input-row {
       display: flex;
       gap: 10px;
-      position: relative;
     }
 
     .form-control-custom {
@@ -323,13 +277,6 @@
       box-shadow: 0 0 0 4px rgba(29, 104, 245, 0.12);
     }
 
-    .form-control-custom:disabled {
-      background-color: #f1f5f9;
-      color: #94a3b8;
-      cursor: not-allowed;
-    }
-
-    /* KHUNG NHẬP EMAIL VỚI ĐUÔI CỐ ĐỊNH */
     .email-input-group {
       display: flex;
       align-items: stretch;
@@ -373,7 +320,6 @@
       white-space: nowrap;
     }
 
-    /* NÚT BẤM VỚI SPINNER */
     .btn-submit-main {
       background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
       color: #ffffff;
@@ -426,7 +372,6 @@
       to { transform: rotate(360deg); }
     }
 
-    /* KHUNG THẺ KẾT QUẢ */
     .result-card-box {
       background: #ffffff;
       border-radius: 18px;
@@ -435,12 +380,6 @@
       box-shadow: 0 10px 24px -6px rgba(2, 132, 199, 0.08);
       margin-top: 18px;
       text-align: left;
-      animation: fadeInScale 0.25s ease;
-    }
-
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     .result-badge-strip {
@@ -465,12 +404,6 @@
       gap: 6px;
     }
 
-    .badge-actions-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
     .status-badge {
       font-size: 11px;
       font-weight: 800;
@@ -481,19 +414,9 @@
       gap: 4px;
     }
 
-    .badge-attended {
-      background: #dcfce7;
-      color: #15803d;
-      border: 1px solid #bbf7d0;
-    }
+    .badge-attended { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+    .badge-pending { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
 
-    .badge-pending {
-      background: #fef3c7;
-      color: #b45309;
-      border: 1px solid #fde68a;
-    }
-
-    /* NÚT GỬI PHẢN HỒI MÀU CAM THEO MẪU */
     .btn-feedback-trigger {
       background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
       color: #ffffff;
@@ -510,12 +433,6 @@
       transition: all 0.2s ease;
     }
 
-    .btn-feedback-trigger:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
-      filter: brightness(1.05);
-    }
-
     .student-highlight-name {
       font-size: 16px;
       font-weight: 800;
@@ -530,10 +447,6 @@
       font-weight: 600;
       margin-bottom: 14px;
       line-height: 1.5;
-    }
-
-    .student-meta-sub span {
-      color: #0f172a;
     }
 
     .info-grid-list {
@@ -575,21 +488,9 @@
       font-size: 12.5px;
     }
 
-    .time-stamp-note {
-      font-size: 11px;
-      color: #94a3b8;
-      text-align: right;
-      margin-top: 8px;
-      font-weight: 500;
-    }
-
-    /* 3. MODAL POPUP PHẢN HỒI KẾT QUẢ THAM GIA */
     .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(6px);
       z-index: 9999;
@@ -602,26 +503,15 @@
       transition: all 0.25s ease;
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
 
     .modal-card {
       background: #ffffff;
       width: 100%;
       max-width: 440px;
       border-radius: 22px;
-      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
-      border: 1px solid rgba(226, 232, 240, 0.9);
       padding: 24px 22px;
       text-align: left;
-      transform: translateY(20px) scale(0.97);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .modal-overlay.active .modal-card {
-      transform: translateY(0) scale(1);
     }
 
     .modal-header {
@@ -633,12 +523,7 @@
       margin-bottom: 16px;
     }
 
-    .modal-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -0.2px;
-    }
+    .modal-title { font-size: 16px; font-weight: 800; color: #0f172a; }
 
     .btn-close-modal {
       background: #f1f5f9;
@@ -650,56 +535,18 @@
       align-items: center;
       justify-content: center;
       font-size: 14px;
-      color: #64748b;
       cursor: pointer;
-      transition: all 0.15s ease;
     }
 
-    .btn-close-modal:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-
-    .modal-select {
+    .modal-select, .modal-textarea {
       width: 100%;
-      font-size: 13.5px;
+      font-size: 13px;
       padding: 11px 14px;
       border-radius: 12px;
       border: 1.5px solid #e2e8f0;
       background-color: #f8fafc;
       font-weight: 600;
-      color: #0f172a;
       outline: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .modal-select:focus {
-      background-color: #ffffff;
-      border-color: #1d68f5;
-      box-shadow: 0 0 0 4px rgba(29, 104, 245, 0.12);
-    }
-
-    .modal-textarea {
-      width: 100%;
-      font-size: 13px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1.5px solid #e2e8f0;
-      background-color: #f8fafc;
-      font-weight: 500;
-      color: #0f172a;
-      outline: none;
-      resize: vertical;
-      min-height: 85px;
-      transition: all 0.2s ease;
-      font-family: inherit;
-    }
-
-    .modal-textarea:focus {
-      background-color: #ffffff;
-      border-color: #1d68f5;
-      box-shadow: 0 0 0 4px rgba(29, 104, 245, 0.12);
     }
 
     .file-input-wrapper {
@@ -711,29 +558,8 @@
       align-items: center;
       gap: 10px;
       cursor: pointer;
-      transition: all 0.2s ease;
     }
 
-    .file-input-wrapper:hover {
-      background: #f0f9ff;
-      border-color: #0284c7;
-    }
-
-    .file-input-wrapper input[type="file"] {
-      display: none;
-    }
-
-    .file-label-text {
-      font-size: 12px;
-      color: #475569;
-      font-weight: 600;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      flex: 1;
-    }
-
-    /* 4. FOOTER 3 CỘT */
     .portal-footer {
       width: 100%;
       max-width: 1240px;
@@ -760,45 +586,10 @@
       text-transform: uppercase;
       margin-bottom: 5px;
       color: #0369a1;
-      letter-spacing: 0.3px;
-    }
-
-    .f-subtext {
-      color: #475569;
-      font-weight: 500;
-      line-height: 1.5;
-    }
-
-    .portal-footer a {
-      color: #0284c7;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.15s ease;
-    }
-
-    .portal-footer a:hover {
-      color: #0369a1;
-      text-decoration: underline;
-    }
-
-    .copyright-line {
-      font-weight: 700;
-      color: #475569;
-      font-size: 11.5px;
-      letter-spacing: 0.2px;
-    }
-
-    .author-line {
-      font-style: italic;
-      opacity: 0.8;
-      font-size: 10.5px;
-      margin-top: 3px;
-      color: #64748b;
     }
 
     @media (max-width: 768px) {
       body { padding: 14px 14px 16px 14px; }
-      .brand-text-identity { font-size: 11px; }
       .live-pulse-badge { display: none; }
       .footer-grid { flex-direction: column; gap: 14px; }
     }
@@ -806,37 +597,25 @@
 </head>
 <body>
 
-  <!-- 1. HEADER: 1 LOGO THỐNG NHẤT & TÊN ĐOÀN HỘI UMP -->
   <header class="top-header-strip">
     <div class="brand-id-cluster">
-      <img alt="Logo Đại học Y Dược TP.HCM" 
-           class="brand-logo-unified" 
-           src="logo.png" 
-           onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png/640px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png'"/>
-
+      <img alt="Logo UMP" class="brand-logo-unified" src="logo.png" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png/640px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png'"/>
       <div class="vertical-brand-divider"></div>
-
-      <div class="brand-text-identity">
-        ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH
-      </div>
+      <div class="brand-text-identity">ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
     </div>
-
     <div class="live-pulse-badge">
       <span class="pulse-dot-small"></span>
       <span>Hệ thống trực tuyến</span>
     </div>
   </header>
 
-  <!-- 2. CARD TRUNG TÂM -->
   <main class="main-center-wrapper">
-    <!-- HỘP THÔNG BÁO ALERT NỔI -->
     <div id="alertBox"></div>
 
     <div class="portal-card">
-      <!-- ROBOT AI Y TẾ VECTOR SVG DỄ THƯƠNG ĐỨNG GIỮA -->
-      <div class="robot-mascot-container" onclick="triggerRobotReaction()" title="Xin chào! Mình là Robot AI hỗ trợ sinh viên UMP">
+      <div class="robot-mascot-container" onclick="triggerRobotReaction()" title="Robot AI UMP">
         <div class="robot-svg-wrap">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; overflow: visible;">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
             <defs>
               <linearGradient id="botHeadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#ffffff"/>
@@ -846,108 +625,50 @@
                 <stop offset="0%" stop-color="#38bdf8"/>
                 <stop offset="100%" stop-color="#0284c7"/>
               </linearGradient>
-              <linearGradient id="botScreenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#0f172a"/>
-                <stop offset="100%" stop-color="#1e293b"/>
-              </linearGradient>
-              <linearGradient id="botBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#f8fafc"/>
-                <stop offset="100%" stop-color="#bae6fd"/>
-              </linearGradient>
-              <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="1.5" result="blur"/>
-                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-              </filter>
             </defs>
-
-            <!-- Cột ăng-ten & đèn LED đỉnh đầu -->
             <line x1="50" y1="20" x2="50" y2="10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
-            <circle class="robot-antenna-light" cx="50" cy="8" r="4.5" fill="#38bdf8" filter="url(#softGlow)"/>
-
-            <!-- Tay trái & Tay phải -->
-            <g class="robot-left-arm">
-              <rect x="23" y="56" width="7" height="15" rx="3.5" fill="#93c5fd" stroke="#60a5fa" stroke-width="1.2"/>
-              <circle cx="26.5" cy="72" r="3.5" fill="#38bdf8"/>
-            </g>
-            <g class="robot-right-arm">
-              <rect x="70" y="56" width="7" height="15" rx="3.5" fill="#93c5fd" stroke="#60a5fa" stroke-width="1.2"/>
-              <circle cx="73.5" cy="72" r="3.5" fill="#38bdf8"/>
-            </g>
-
-            <!-- Thân Robot & Biểu tượng Chữ Thập Y Tế -->
-            <rect x="33" y="52" width="34" height="26" rx="10" fill="url(#botBodyGrad)" stroke="#93c5fd" stroke-width="1.5"/>
-            <rect x="39" y="58" width="22" height="14" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+            <circle class="robot-antenna-light" cx="50" cy="8" r="4.5" fill="#38bdf8"/>
+            <rect x="33" y="52" width="34" height="26" rx="10" fill="#f8fafc" stroke="#93c5fd" stroke-width="1.5"/>
             <path d="M50 61V69M46 65H54" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
-
-            <!-- Tai nghe y tế -->
             <rect x="23" y="27" width="6" height="14" rx="3" fill="url(#botEarGrad)"/>
             <rect x="71" y="27" width="6" height="14" rx="3" fill="url(#botEarGrad)"/>
-            <path d="M26 28C26 17 74 17 74 28" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none"/>
-
-            <!-- Đầu Robot -->
             <rect x="27" y="18" width="46" height="32" rx="15" fill="url(#botHeadGrad)" stroke="#7dd3fc" stroke-width="1.8"/>
-
-            <!-- Màn hình visor LED -->
-            <rect x="32" y="23" width="36" height="21" rx="9" fill="url(#botScreenGrad)"/>
-
-            <!-- Đôi mắt LED -->
+            <rect x="32" y="23" width="36" height="21" rx="9" fill="#0f172a"/>
             <g class="robot-eye">
-              <ellipse id="botEyeLeft" cx="42" cy="33.5" rx="3.2" ry="4.5" fill="#38bdf8" filter="url(#softGlow)"/>
-              <circle cx="43.2" cy="32" r="1.2" fill="#ffffff"/>
-              <ellipse id="botEyeRight" cx="58" cy="33.5" rx="3.2" ry="4.5" fill="#38bdf8" filter="url(#softGlow)"/>
-              <circle cx="59.2" cy="32" r="1.2" fill="#ffffff"/>
+              <ellipse id="botEyeLeft" cx="42" cy="33.5" rx="3.2" ry="4.5" fill="#38bdf8"/>
+              <ellipse id="botEyeRight" cx="58" cy="33.5" rx="3.2" ry="4.5" fill="#38bdf8"/>
             </g>
-
-            <!-- Vệt ửng hồng má -->
-            <ellipse cx="36.5" cy="38" rx="2.5" ry="1.2" fill="#f472b6" opacity="0.75"/>
-            <ellipse cx="63.5" cy="38" rx="2.5" ry="1.2" fill="#f472b6" opacity="0.75"/>
-
-            <!-- Nụ cười LED -->
             <path id="botSmile" d="M47 38.5Q50 41 53 38.5" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" fill="none"/>
           </svg>
         </div>
         <div class="robot-shadow"></div>
       </div>
 
-      <!-- TIÊU ĐỀ HOẠT ĐỘNG VỚI CÂN BẰNG DÒNG THÔNG MINH -->
       <div class="header-minimal">
         <span class="header-sub-tag">ĐĂNG KÝ HOẠT ĐỘNG</span>
         <h1 class="program-heading" id="displayProgramTitle">ĐANG TẢI...</h1>
       </div>
 
-      <!-- BANNER CẢNH BÁO KHÔNG TÌM THẤY CHƯƠNG TRÌNH / THIẾU LINK -->
       <div class="alert-banner danger" id="noEventNoticeBox" style="display: none;">
-        <span style="font-size: 18px;">⚠️</span>
+        <span>⚠️</span>
         <div>
-          <strong style="color: #991b1b; font-size: 13px;">Hệ thống chưa tìm ra chương trình!</strong><br/>
-          <span style="font-size: 12px; opacity: 0.95;">
-            Đường dẫn chưa chứa mã chương trình hoặc sự kiện không tồn tại. Vui lòng kiểm tra lại liên kết hoặc liên hệ email: 
-            <a href="mailto:vpdhump@gmail.com" style="color: #1e40af; font-weight: 700; text-decoration: underline;">vpdhump@gmail.com</a> để được hỗ trợ.
-          </span>
+          <strong style="color: #991b1b;">Hệ thống chưa tìm ra chương trình!</strong><br/>
+          <span>Vui lòng kiểm tra lại liên kết hoặc liên hệ email: <a href="mailto:vpdhump@gmail.com" style="color: #1e40af; font-weight: 700;">vpdhump@gmail.com</a>.</span>
         </div>
       </div>
 
-      <!-- CẢNH BÁO ĐÓNG CỔNG (KHI J2 ĐÓNG HOẶC ĐỦ CHỈ TIÊU) -->
       <div class="alert-banner warning" id="closedNoticeBox" style="display: none;">
         <span>⚠️</span>
         <div>
           <strong style="color: #854d0e;">CỔNG ĐĂNG KÝ TẠM ĐÓNG</strong><br/>
-          <span id="closedNoticeText" style="font-size: 11.5px; opacity: 0.95;">
-            Chương trình hiện đã đủ số lượng hoặc đã kết thúc đăng ký. Sinh viên đã đăng ký vẫn có thể nhập MSSV để tra cứu điểm danh &amp; kết quả.
-          </span>
+          <span id="closedNoticeText">Chương trình hiện đã kết thúc đăng ký.</span>
         </div>
       </div>
 
-      <!-- Ô NHẬP MSSV DUY NHẤT -->
       <div class="form-group" id="mssvSearchContainer">
         <label class="input-label" for="inputMSSV">MÃ SỐ SINH VIÊN (MSSV)</label>
         <div class="input-row">
-          <input autocomplete="off" 
-                 class="form-control-custom" 
-                 id="inputMSSV" 
-                 placeholder="Ví dụ: 2153010xxx..." 
-                 type="text"
-                 onkeydown="if(event.key==='Enter') handleCheck()"/>
+          <input autocomplete="off" class="form-control-custom" id="inputMSSV" placeholder="Ví dụ: 21121410xx..." type="text" onkeydown="if(event.key==='Enter') handleCheck()"/>
           <button class="btn-submit-main" id="btnCheck" onclick="handleCheck()">
             <span id="btnCheckIcon">🔍</span>
             <span id="btnCheckText">Kiểm tra</span>
@@ -955,46 +676,31 @@
         </div>
       </div>
 
-      <!-- KHUNG 1: DÀNH CHO SV CHƯA ĐĂNG KÝ (FORM EMAIL/SĐT) -->
+      <!-- FORM DÀNH CHO SINH VIÊN CHƯA ĐĂNG KÝ -->
       <div class="result-card-box" id="regFormContainer" style="display: none;">
         <div class="result-badge-strip">
-          <div class="result-lead-title">
-            <span>✓</span> ĐÃ XÁC THỰC SINH VIÊN
-          </div>
-          <span class="status-badge" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;">
-            Chưa đăng ký
-          </span>
+          <div class="result-lead-title"><span>✓</span> ĐÃ XÁC THỰC SINH VIÊN</div>
+          <span class="status-badge" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;">Chưa đăng ký</span>
         </div>
-
         <div class="student-highlight-name" id="regName">--</div>
         <div class="student-meta-sub">
           MSSV: <strong id="regMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="regClass">--</span> | Trường/khoa: <span id="regFaculty">--</span>
         </div>
-
         <div style="border-top: 1px dashed #e2e8f0; padding-top: 14px;">
-          <!-- Ô NHẬP EMAIL VỚI ĐUÔI @ump.edu.vn CỐ ĐỊNH -->
           <div class="form-group">
-            <label class="input-label" for="regEmail">
-              ĐỊA CHỈ EMAIL TRƯỜNG CẤP <span style="color: #ef4444;">*</span>
-            </label>
+            <label class="input-label" for="regEmail">ĐỊA CHỈ EMAIL TRƯỜNG CẤP <span style="color: #ef4444;">*</span></label>
             <div class="email-input-group">
-              <input autocomplete="off" 
-                     class="email-input-field" 
-                     id="regEmail" 
-                     placeholder="Ví dụ: nguyenvana" 
-                     type="text"/>
+              <input autocomplete="off" class="email-input-field" id="regEmail" placeholder="Ví dụ: nguyenvana" type="text"/>
               <div class="email-domain-addon">@ump.edu.vn</div>
             </div>
             <span style="font-size: 11px; color: #64748b; margin-top: 5px; display: block;">
-              💡 Chỉ cần nhập tên tài khoản, hệ thống sẽ tự ghép đuôi <strong>@ump.edu.vn</strong>
+              💡 Tự động gắn đuôi <strong>@ump.edu.vn</strong>
             </span>
           </div>
-
           <div class="form-group">
             <label class="input-label" for="regPhone">SỐ ĐIỆN THOẠI DI ĐỘNG <span style="color: #ef4444;">*</span></label>
             <input class="form-control-custom" id="regPhone" placeholder="0901234xxx" type="tel"/>
           </div>
-
           <button class="btn-submit-main btn-full" id="btnConfirm" onclick="handleRegister()">
             <span id="btnConfirmIcon">✍️</span>
             <span id="btnConfirmText">XÁC NHẬN ĐĂNG KÝ →</span>
@@ -1002,65 +708,47 @@
         </div>
       </div>
 
-      <!-- KHUNG 2: DÀNH CHO SV ĐÃ ĐĂNG KÝ (TRA CỨU ĐIỂM DANH & ĐIỂM SỐ) -->
+      <!-- KẾT QUẢ CHO SINH VIÊN ĐÃ ĐĂNG KÝ -->
       <div class="result-card-box" id="statusContainer" style="display: none;">
         <div class="result-badge-strip">
-          <div class="result-lead-title">
-            <span>📋</span> HỒ SƠ THAM GIA HOẠT ĐỘNG
-          </div>
-          <div class="badge-actions-wrap">
+          <div class="result-lead-title"><span>📋</span> HỒ SƠ THAM GIA</div>
+          <div style="display: flex; gap: 8px; align-items: center;">
             <div id="resAttend"></div>
-            <!-- NÚT GỬI PHẢN HỒI NỔI BẬT THEO MẪU -->
-            <button class="btn-feedback-trigger" onclick="openFeedbackModal()">
-              <span>📢</span> Gửi phản hồi
-            </button>
+            <button class="btn-feedback-trigger" onclick="openFeedbackModal()"><span>📢</span> Gửi phản hồi</button>
           </div>
         </div>
-
         <div class="student-highlight-name" id="resName">--</div>
         <div class="student-meta-sub">
           MSSV: <strong id="resMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="resClass">--</span> | Trường/khoa: <span id="resFaculty">--</span>
         </div>
-
         <div class="info-grid-list">
-          <div class="info-grid-row">
-            <span class="info-label">Email:</span>
-            <span class="info-value" id="resEmail">--</span>
-          </div>
-          <div class="info-grid-row">
-            <span class="info-label">Số điện thoại:</span>
-            <span class="info-value" id="resPhone">--</span>
-          </div>
+          <div class="info-grid-row"><span class="info-label">Email:</span><span class="info-value" id="resEmail">--</span></div>
+          <div class="info-grid-row"><span class="info-label">Số điện thoại:</span><span class="info-value" id="resPhone">--</span></div>
           <div class="info-grid-row" style="border-top: 1px dashed #e2e8f0; padding-top: 8px;">
             <span class="info-label">Điểm / Đánh giá:</span>
-            <span class="info-value">
-              <span class="score-pill" id="resScore">Chưa cập nhật</span>
-            </span>
+            <span class="info-value"><span class="score-pill" id="resScore">Chưa cập nhật</span></span>
           </div>
         </div>
-
-        <div class="time-stamp-note">
+        <div style="font-size: 11px; color: #94a3b8; text-align: right; margin-top: 8px;">
           Thời gian nộp: <span id="resTime">--</span>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- MODAL POPUP: PHẢN HỒI KẾT QUẢ THAM GIA -->
+  <!-- MODAL GỬI PHẢN HỒI KHIẾU NẠI -->
   <div class="modal-overlay" id="feedbackModal">
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title">Phản hồi kết quả tham gia</h3>
         <button class="btn-close-modal" onclick="closeFeedbackModal()">✕</button>
       </div>
-
       <div class="form-group">
-        <label class="input-label">CHƯƠNG TRÌNH CẦN PHẢN HỒI *</label>
-        <input class="form-control-custom" id="fbEventTitle" type="text" readonly style="background-color: #f1f5f9; cursor: default;"/>
+        <label class="input-label">CHƯƠNG TRÌNH</label>
+        <input class="form-control-custom" id="fbEventTitle" type="text" readonly style="background-color: #f1f5f9;"/>
       </div>
-
       <div class="form-group">
-        <label class="input-label">VẤN ĐỀ GẶP PHẢI *</label>
+        <label class="input-label">VẤN ĐỀ *</label>
         <select class="modal-select" id="fbIssueType">
           <option value="Đã tham gia nhưng hiển thị vắng mặt">Đã tham gia nhưng hiển thị vắng mặt</option>
           <option value="Điểm số / Đánh giá chưa chính xác">Điểm số / Đánh giá chưa chính xác</option>
@@ -1068,21 +756,18 @@
           <option value="Vấn đề khác cần hỗ trợ">Vấn đề khác cần hỗ trợ</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="input-label">CHI TIẾT PHẢN HỒI *</label>
-        <textarea class="modal-textarea" id="fbDetail" placeholder="Ghi rõ thời gian, ca trực hoặc nội dung thắc mắc..."></textarea>
+        <textarea class="modal-textarea" id="fbDetail" rows="3" placeholder="Ghi rõ thông tin cần giải quyết..."></textarea>
       </div>
-
       <div class="form-group">
-        <label class="input-label">ẢNH MINH CHỨNG (ẢNH CHECK-IN / GIẤY XÁC NHẬN)</label>
+        <label class="input-label">ẢNH MINH CHỨNG (NẾU CÓ)</label>
         <label class="file-input-wrapper">
-          <input type="file" id="fbEvidenceFile" accept="image/*" onchange="handleFileSelect(event)">
-          <span style="font-size: 16px;">📎</span>
-          <span class="file-label-text" id="fbFileName">Chọn tệp hình ảnh (tối đa 5MB)...</span>
+          <input type="file" id="fbEvidenceFile" accept="image/*" style="display:none;" onchange="handleFileSelect(event)">
+          <span>📎</span>
+          <span id="fbFileName" style="font-size: 12px; color: #475569;">Chọn tệp ảnh minh chứng (tối đa 5MB)...</span>
         </label>
       </div>
-
       <button class="btn-submit-main btn-full" id="btnSubmitFeedback" onclick="submitStudentFeedback()">
         <span id="btnFbIcon">📤</span>
         <span id="btnFbText">GỬI PHẢN HỒI TỚI BAN TỔ CHỨC →</span>
@@ -1090,77 +775,62 @@
     </div>
   </div>
 
-  <!-- 4. FOOTER ĐỒNG BỘ 3 CỘT -->
-  <footer class="portal-footer" id="portalFooter">
+  <footer class="portal-footer">
     <div class="footer-grid">
       <div>
         <div class="f-header">HỆ THỐNG QUẢN LÝ HOẠT ĐỘNG</div>
-        <div class="f-subtext">ĐOÀN THANH NIÊN - HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TPHCM</div>
+        <div>ĐOÀN THANH NIÊN - HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TPHCM</div>
       </div>
       <div>
         <div class="f-header">📍 ĐỊA CHỈ</div>
-        <div class="f-subtext">• 540 Ngô Gia Tự, Phường An Đông, TP. HCM</div>
-        <div class="f-subtext">• 217 Hồng Bàng, Phường Chợ Lớn, TP. HCM</div>
+        <div>• 540 Ngô Gia Tự, Phường An Đông, TP. HCM</div>
+        <div>• 217 Hồng Bàng, Phường Chợ Lớn, TP. HCM</div>
       </div>
       <div>
-        <div class="f-header">📧 LIÊN HỆ &amp; HỖ TRỢ</div>
-        <div class="f-subtext">• Đoàn - Hội: <a href="mailto:vpdhump@gmail.com">vpdhump@gmail.com</a></div>
-        <div class="f-subtext">• Fanpage: <a href="https://www.facebook.com/tuoitreyduochcm" target="_blank">Tuổi trẻ Y Dược</a></div>
+        <div class="f-header">📧 HỖ TRỢ</div>
+        <div>• Email: <a href="mailto:vpdhump@gmail.com" style="color: #0284c7;">vpdhump@gmail.com</a></div>
       </div>
     </div>
-    <div class="copyright-line">© 2026 VĂN PHÒNG ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
-    <div class="author-line">The website was developed by NTCL team</div>
+    <div style="font-weight: 700; margin-top: 6px;">© 2026 VĂN PHÒNG ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
   </footer>
 
   <script>
     // ======================================================================
-    // CẤU HÌNH API GOOGLE APPS SCRIPT
+    // THAY URL DEPLOYMENT WEB APP CHÍNH THỨC CỦA BẠN VÀO ĐÂY:
     // ======================================================================
-    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxxxY8la40nPgXPd_wf-aJCKvfpaY0PZJBArm_EhjZCmex8HTcCOVpwsggO05MSJzyL/exec"; // Dán URL Deployment của bạn vào đây
+    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbyR6Z12_ThayLinkCuaBanO_Day/exec"; 
 
-    // Đọc mã sự kiện từ tham số URL (?event=MãTab), không gán cứng mặc định
     const urlParams = new URLSearchParams(window.location.search);
-    const rawEventParam = urlParams.get('event');
-    const currentEvent = rawEventParam ? rawEventParam.trim() : "";
+    const rawEvent = urlParams.get('event');
+    const currentEvent = rawEvent ? rawEvent.trim() : "";
 
     let foundStudent = null;
     let currentRegisteredData = null;
-    let selectedBase64Image = "";
+    let selectedFileObject = null;
 
-    // Robot AI cảm xúc tương tác
     function triggerRobotReaction(mode = 'happy') {
       const eyeL = document.getElementById('botEyeLeft');
       const eyeR = document.getElementById('botEyeRight');
       const smile = document.getElementById('botSmile');
-
       if (!eyeL || !eyeR || !smile) return;
 
       if (mode === 'happy') {
-        eyeL.setAttribute('rx', '4');
-        eyeR.setAttribute('rx', '4');
+        eyeL.setAttribute('rx', '4'); eyeR.setAttribute('rx', '4');
         smile.setAttribute('d', 'M46 38Q50 43 54 38');
-        smile.setAttribute('stroke', '#38bdf8');
       } else if (mode === 'wink') {
         eyeL.setAttribute('ry', '1');
-        setTimeout(() => {
-          eyeL.setAttribute('ry', '4.5');
-        }, 600);
+        setTimeout(() => eyeL.setAttribute('ry', '4.5'), 600);
       } else if (mode === 'sad') {
-        eyeL.setAttribute('ry', '1.5');
-        eyeR.setAttribute('ry', '1.5');
+        eyeL.setAttribute('ry', '1.5'); eyeR.setAttribute('ry', '1.5');
         smile.setAttribute('d', 'M47 41Q50 38 53 41');
       }
-
       setTimeout(() => {
-        eyeL.setAttribute('rx', '3.2');
-        eyeL.setAttribute('ry', '4.5');
-        eyeR.setAttribute('rx', '3.2');
-        eyeR.setAttribute('ry', '4.5');
+        eyeL.setAttribute('rx', '3.2'); eyeL.setAttribute('ry', '4.5');
+        eyeR.setAttribute('rx', '3.2'); eyeR.setAttribute('ry', '4.5');
         smile.setAttribute('d', 'M47 38.5Q50 41 53 38.5');
       }, 3000);
     }
 
-    // Hiển thị thông báo Alert
     function showAlert(msg, type = 'danger') {
       const icon = type === 'success' ? '✓' : (type === 'warning' ? '⚠️' : '✕');
       document.getElementById('alertBox').innerHTML = `
@@ -1171,86 +841,54 @@
       `;
     }
 
-    function clearAlert() {
-      document.getElementById('alertBox').innerHTML = '';
-    }
+    function clearAlert() { document.getElementById('alertBox').innerHTML = ''; }
 
-    // Tự động kiểm tra URL tham số và tải cấu hình sự kiện
     window.addEventListener('DOMContentLoaded', () => {
       const titleElem = document.getElementById('displayProgramTitle');
       const noEventBox = document.getElementById('noEventNoticeBox');
 
-      // NẾU KHÔNG CÓ THAM SỐ ?event= HOẶC THAM SỐ RỖNG
       if (!currentEvent) {
         titleElem.innerText = "CHƯA XÁC ĐỊNH CHƯƠNG TRÌNH";
         titleElem.style.color = "#dc2626";
-        document.title = "Chưa tìm ra chương trình - UMP";
-
         if (noEventBox) noEventBox.style.display = 'flex';
-
-        const inputEl = document.getElementById('inputMSSV');
-        const btnEl = document.getElementById('btnCheck');
-        if (inputEl) {
-          inputEl.disabled = true;
-          inputEl.placeholder = "Vui lòng truy cập từ liên kết hợp lệ...";
-        }
-        if (btnEl) {
-          btnEl.disabled = true;
-          btnEl.style.opacity = "0.5";
-          btnEl.style.cursor = "not-allowed";
-        }
-
+        document.getElementById('inputMSSV').disabled = true;
+        document.getElementById('btnCheck').disabled = true;
         triggerRobotReaction('sad');
         return;
       }
 
-      // NẾU CÓ ?event= : GỌI API INIT SỰ KIỆN TỪ GOOGLE APPS SCRIPT
-      const apiUrl = `${GAS_API_URL}?action=initEvent&event=${encodeURIComponent(currentEvent)}`;
-
-      fetch(apiUrl, { method: "GET", redirect: "follow" })
+      fetch(`${GAS_API_URL}?action=initEvent&event=${encodeURIComponent(currentEvent)}`, { redirect: "follow" })
         .then(r => r.json())
         .then(res => {
           if (res.success) {
             titleElem.innerText = res.title || currentEvent;
-            titleElem.style.color = "#0f172a";
-            document.title = (res.title || currentEvent);
+            document.title = res.title || currentEvent;
             document.getElementById('fbEventTitle').value = res.title || currentEvent;
-
             if (!res.isOpen) {
-              document.getElementById('closedNoticeText').innerText = res.message || "Cổng đăng ký chương trình hiện đã đóng!";
+              document.getElementById('closedNoticeText').innerText = res.message || "Cổng đã đóng!";
               document.getElementById('closedNoticeBox').style.display = 'flex';
             }
           } else {
             titleElem.innerText = "HỆ THỐNG CHƯA TÌM RA CHƯƠNG TRÌNH";
             titleElem.style.color = "#dc2626";
             if (noEventBox) noEventBox.style.display = 'flex';
-            
-            const inputEl = document.getElementById('inputMSSV');
-            const btnEl = document.getElementById('btnCheck');
-            if (inputEl) inputEl.disabled = true;
-            if (btnEl) btnEl.disabled = true;
+            document.getElementById('inputMSSV').disabled = true;
+            document.getElementById('btnCheck').disabled = true;
             triggerRobotReaction('sad');
           }
         })
         .catch(err => {
-          console.warn("Không kết nối được cấu hình ban đầu:", err);
+          console.warn("Init error:", err);
           titleElem.innerText = currentEvent;
-          document.getElementById('fbEventTitle').value = currentEvent;
         });
     });
 
-    // Bấm nút kiểm tra MSSV
     function handleCheck() {
-      if (!currentEvent) {
-        return showAlert('Hệ thống chưa tìm ra chương trình, liên hệ email: vpdhump@gmail.com', 'danger');
-      }
+      if (!currentEvent) return showAlert('Hệ thống chưa tìm ra chương trình!', 'danger');
 
       const inputEl = document.getElementById('inputMSSV');
       const cleanMSSV = inputEl.value.replace(/['"\s]/g, '').toUpperCase();
-
-      if (!cleanMSSV) {
-        return showAlert('Vui lòng nhập Mã số sinh viên (MSSV)!', 'warning');
-      }
+      if (!cleanMSSV) return showAlert('Vui lòng nhập MSSV!', 'warning');
 
       clearAlert();
       document.getElementById('regFormContainer').style.display = 'none';
@@ -1260,121 +898,98 @@
       const btnIcon = document.getElementById('btnCheckIcon');
       const btnText = document.getElementById('btnCheckText');
 
-      btn.disabled = true;
-      inputEl.disabled = true;
+      btn.disabled = true; inputEl.disabled = true;
       btn.classList.add('btn-loading');
       btnIcon.innerHTML = `<span class="spinner-loader"></span>`;
       btnText.innerText = "Đang tìm...";
       triggerRobotReaction('wink');
 
-      fetch(`${GAS_API_URL}?action=checkMSSV&mssv=${encodeURIComponent(cleanMSSV)}&event=${encodeURIComponent(currentEvent)}`)
+      fetch(`${GAS_API_URL}?action=checkMSSV&mssv=${encodeURIComponent(cleanMSSV)}&event=${encodeURIComponent(currentEvent)}`, { redirect: "follow" })
         .then(r => r.json())
         .then(res => {
-          btn.disabled = false;
-          inputEl.disabled = false;
+          btn.disabled = false; inputEl.disabled = false;
           btn.classList.remove('btn-loading');
-          btnIcon.innerText = "🔍";
-          btnText.innerText = "Kiểm tra";
+          btnIcon.innerText = "🔍"; btnText.innerText = "Kiểm tra";
 
           if (!res.success) {
             triggerRobotReaction('sad');
-            showAlert(res.message || "Không tìm thấy thông tin sinh viên!", res.isClosed ? 'warning' : 'danger');
-            return;
+            return showAlert(res.message, res.isClosed ? 'warning' : 'danger');
           }
 
           triggerRobotReaction('happy');
 
-          // TRƯỜNG HỢP 1: ĐÃ ĐĂNG KÝ -> HIỂN THỊ KẾT QUẢ
           if (res.status === 'ALREADY_REGISTERED') {
             const d = res.data;
             currentRegisteredData = d;
+            document.getElementById('resName').innerText = d.hoten;
+            document.getElementById('resMssv').innerText = d.mssv;
+            document.getElementById('resClass').innerText = d.lop;
+            document.getElementById('resFaculty').innerText = d.truongkhoa;
+            document.getElementById('resEmail').innerText = d.email;
+            document.getElementById('resPhone').innerText = d.sdt;
+            document.getElementById('resScore').innerText = d.diem;
+            document.getElementById('resTime').innerText = d.time;
 
-            document.getElementById('resName').innerText = d.hoten || "Sinh viên";
-            document.getElementById('resMssv').innerText = d.mssv || cleanMSSV;
-            document.getElementById('resClass').innerText = d.lop || "--";
-            document.getElementById('resFaculty').innerText = d.truongkhoa || "--";
-            document.getElementById('resEmail').innerText = d.email || "--";
-            document.getElementById('resPhone').innerText = d.sdt || "--";
-            document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
-            document.getElementById('resTime').innerText = d.time || "Đã ghi nhận";
-
-            const attendElem = document.getElementById('resAttend');
-            if (d.diemdanh) {
-              attendElem.innerHTML = `<span class="status-badge badge-attended">✓ ĐÃ ĐIỂM DANH</span>`;
-            } else {
-              attendElem.innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
-            }
+            document.getElementById('resAttend').innerHTML = d.diemdanh 
+              ? `<span class="status-badge badge-attended">✓ ĐÃ ĐIỂM DANH</span>`
+              : `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
 
             document.getElementById('statusContainer').style.display = 'block';
-          }
-
-          // TRƯỜNG HỢP 2: CHƯA ĐĂNG KÝ -> MỞ FORM ĐIỀN EMAIL/SĐT
-          else if (res.status === 'NOT_REGISTERED') {
+          } else if (res.status === 'NOT_REGISTERED') {
             foundStudent = res.data;
             currentRegisteredData = null;
-
-            document.getElementById('regName').innerText = foundStudent.hoten || "Sinh viên";
-            document.getElementById('regMssv').innerText = foundStudent.mssv || cleanMSSV;
-            document.getElementById('regClass').innerText = foundStudent.lop || "--";
-            document.getElementById('regFaculty').innerText = foundStudent.truongkhoa || "--";
+            document.getElementById('regName').innerText = foundStudent.hoten;
+            document.getElementById('regMssv').innerText = foundStudent.mssv;
+            document.getElementById('regClass').innerText = foundStudent.lop;
+            document.getElementById('regFaculty').innerText = foundStudent.truongkhoa;
             document.getElementById('regEmail').value = '';
             document.getElementById('regPhone').value = '';
-
             document.getElementById('regFormContainer').style.display = 'block';
           }
         })
         .catch(err => {
-          console.error("Lỗi API checkMSSV:", err);
-          btn.disabled = false;
-          inputEl.disabled = false;
+          btn.disabled = false; inputEl.disabled = false;
           btn.classList.remove('btn-loading');
-          btnIcon.innerText = "🔍";
-          btnText.innerText = "Kiểm tra";
-          showAlert('Hệ thống đang bận hoặc lỗi kết nối. Vui lòng bấm thử lại!', 'warning');
+          btnIcon.innerText = "🔍"; btnText.innerText = "Kiểm tra";
+          showAlert('Lỗi kết nối máy chủ, vui lòng thử lại sau!', 'warning');
         });
     }
 
-    // Gửi đăng ký tham gia chương trình (TỰ ĐỘNG GHÉP ĐUÔI @ump.edu.vn)
+    // ĐĂNG KÝ: Khớp chính xác với registerStudent(postData.event, postData.student)
     function handleRegister() {
       if (!foundStudent) return;
-      if (!currentEvent) {
-        return showAlert('Hệ thống chưa tìm ra chương trình, liên hệ email: vpdhump@gmail.com', 'danger');
-      }
+      if (!currentEvent) return showAlert('Chưa xác định chương trình!', 'danger');
 
       const emailInput = document.getElementById('regEmail');
       const phoneInput = document.getElementById('regPhone');
-      
-      let rawEmailName = emailInput.value.trim().toLowerCase();
+      let rawEmail = emailInput.value.trim().toLowerCase();
       const phone = phoneInput.value.trim();
 
-      if (rawEmailName.includes('@')) {
-        rawEmailName = rawEmailName.split('@')[0].trim();
-      }
-
-      if (!rawEmailName || !/^[a-z0-9._-]+$/.test(rawEmailName)) {
+      if (rawEmail.includes('@')) rawEmail = rawEmail.split('@')[0].trim();
+      if (!rawEmail || !/^[a-z0-9._-]+$/.test(rawEmail)) {
         triggerRobotReaction('sad');
         return showAlert('Vui lòng nhập tên tài khoản email trường cấp hợp lệ!', 'warning');
       }
 
-      const fullEmail = rawEmailName + "@ump.edu.vn";
-
+      const fullEmail = rawEmail + "@ump.edu.vn";
       if (!phone || !/^[0-9]{9,11}$/.test(phone)) {
         triggerRobotReaction('sad');
-        return showAlert('Vui lòng nhập Số điện thoại hợp lệ (9 - 11 chữ số)!', 'warning');
+        return showAlert('Vui lòng nhập số điện thoại hợp lệ (9 - 11 chữ số)!', 'warning');
       }
 
       clearAlert();
 
       const btn = document.getElementById('btnConfirm');
-      const btnIcon = document.getElementById('btnConfirmIcon');
-      const btnText = document.getElementById('btnConfirmText');
+      const icon = document.getElementById('btnConfirmIcon');
+      const text = document.getElementById('btnConfirmText');
 
       btn.disabled = true;
       btn.classList.add('btn-loading');
-      btnIcon.innerHTML = `<span class="spinner-loader"></span>`;
-      btnText.innerText = "ĐANG GHI NHẬN HỒ SƠ...";
+      icon.innerHTML = `<span class="spinner-loader"></span>`;
+      text.innerText = "ĐANG GHI NHẬN...";
       triggerRobotReaction('wink');
 
+      // Gửi đúng 2 trường event và student mà code.txt đang phân tích
       const payload = {
         action: "register",
         event: currentEvent,
@@ -1390,6 +1005,8 @@
 
       fetch(GAS_API_URL, {
         method: "POST",
+        mode: "cors",
+        redirect: "follow",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       })
@@ -1397,8 +1014,8 @@
       .then(res => {
         btn.disabled = false;
         btn.classList.remove('btn-loading');
-        btnIcon.innerText = "✍️";
-        btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
+        icon.innerText = "✍️";
+        text.innerText = "XÁC NHẬN ĐĂNG KÝ →";
 
         if (res.success) {
           triggerRobotReaction('happy');
@@ -1406,46 +1023,40 @@
 
           const d = res.registeredData;
           currentRegisteredData = d;
-
           document.getElementById('resName').innerText = d.hoten;
           document.getElementById('resMssv').innerText = d.mssv;
           document.getElementById('resClass').innerText = d.lop;
           document.getElementById('resFaculty').innerText = d.truongkhoa;
           document.getElementById('resEmail').innerText = d.email;
           document.getElementById('resPhone').innerText = d.sdt;
-          document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
+          document.getElementById('resScore').innerText = d.diem;
           document.getElementById('resTime').innerText = d.time;
           document.getElementById('resAttend').innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
 
           document.getElementById('statusContainer').style.display = 'block';
-          showAlert('🎉 Đăng ký thành công! Thông tin của bạn đã được ghi nhận.', 'success');
+          showAlert('🎉 Đăng ký thành công! Thông tin đã được ghi nhận.', 'success');
         } else {
           triggerRobotReaction('sad');
-          showAlert(res.message || "Đăng ký thất bại, vui lòng kiểm tra lại!", 'danger');
+          showAlert(res.message || "Đăng ký không thành công!", 'danger');
         }
       })
       .catch(err => {
-        console.error("Lỗi API register:", err);
+        console.error("Lỗi register:", err);
         btn.disabled = false;
         btn.classList.remove('btn-loading');
-        btnIcon.innerText = "✍️";
-        btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
-        showAlert('Hệ thống đang quá tải, vui lòng bấm xác nhận lại!', 'warning');
+        icon.innerText = "✍️";
+        text.innerText = "XÁC NHẬN ĐĂNG KÝ →";
+        showAlert('Hệ thống bận hoặc lỗi phản hồi, vui lòng bấm thử lại!', 'warning');
       });
     }
 
-    // ======================================================================
-    // QUẢN LÝ POPUP VÀ GỬI PHẢN HỒI KHIẾU NẠI (CỘT K VÀ TÔ MÀU VÀNG)
-    // ======================================================================
+    // XỬ LÝ PHẢN HỒI KHIẾU NẠI
     function openFeedbackModal() {
       const modal = document.getElementById('feedbackModal');
-      const titleElem = document.getElementById('displayProgramTitle');
-      document.getElementById('fbEventTitle').value = titleElem.innerText || currentEvent;
       document.getElementById('fbDetail').value = "";
       document.getElementById('fbEvidenceFile').value = "";
-      document.getElementById('fbFileName').innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
-      selectedBase64Image = "";
-
+      document.getElementById('fbFileName').innerText = "Chọn tệp ảnh minh chứng (tối đa 5MB)...";
+      selectedFileObject = null;
       modal.classList.add('active');
     }
 
@@ -1453,61 +1064,40 @@
       document.getElementById('feedbackModal').classList.remove('active');
     }
 
-    let selectedFileObject = null;
-
-    // 1. Đọc và mã hóa file minh chứng
     function handleFileSelect(event) {
       const file = event.target.files[0];
       const nameLabel = document.getElementById('fbFileName');
-      
       if (!file) {
         selectedFileObject = null;
-        nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
+        nameLabel.innerText = "Chọn tệp ảnh minh chứng (tối đa 5MB)...";
         return;
       }
-
-      // Giới hạn dung lượng dưới 5MB để tránh quá tải Apps Script
       if (file.size > 5 * 1024 * 1024) {
-        alert("Dung lượng ảnh vượt quá 5MB. Vui lòng chọn ảnh nhẹ hơn!");
+        alert("Ảnh quá 5MB. Vui lòng chọn ảnh nhẹ hơn!");
         event.target.value = "";
         selectedFileObject = null;
-        nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
         return;
       }
 
-      nameLabel.innerText = "Đang xử lý ảnh: " + file.name + "...";
-
+      nameLabel.innerText = "Đang xử lý: " + file.name;
       const reader = new FileReader();
       reader.onload = function(e) {
         selectedFileObject = {
-          fileBase64: e.target.result, // Chứa data:image/...;base64,...
+          fileBase64: e.target.result,
           fileName: file.name,
           fileType: file.type || "image/jpeg"
         };
-        nameLabel.innerText = "✓ Đã tải: " + file.name;
-      };
-      reader.onerror = function() {
-        alert("Không thể đọc tệp ảnh. Vui lòng chọn lại!");
-        selectedFileObject = null;
-        nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
+        nameLabel.innerText = "✓ Đã chọn: " + file.name;
       };
       reader.readAsDataURL(file);
     }
 
-    // 2. Gửi phản hồi kèm link minh chứng khớp chuẩn với Code.gs
     function submitStudentFeedback() {
-      if (!currentRegisteredData) {
-        alert("Không tìm thấy thông tin sinh viên đã đăng ký!");
-        return;
-      }
-
+      if (!currentRegisteredData) return alert("Không tìm thấy thông tin đăng ký!");
       const issueType = document.getElementById('fbIssueType').value;
       const detail = document.getElementById('fbDetail').value.trim();
 
-      if (!detail) {
-        alert("Vui lòng nhập chi tiết nội dung phản hồi!");
-        return;
-      }
+      if (!detail) return alert("Vui lòng nhập chi tiết phản hồi!");
 
       const btn = document.getElementById('btnSubmitFeedback');
       const icon = document.getElementById('btnFbIcon');
@@ -1516,17 +1106,15 @@
       btn.disabled = true;
       btn.classList.add('btn-loading');
       icon.innerHTML = `<span class="spinner-loader"></span>`;
-      text.innerText = "ĐANG GỬI PHẢN HỒI...";
+      text.innerText = "ĐANG GỬI...";
 
-      // Chuẩn bị payload khớp đúng các trường Code.gs đợi
+      // Gửi đúng data.tabName, data.mssv, data.fileBase64 mà submitFeedback trong code.txt đợi
       const payload = {
         action: "submitFeedback",
         tabName: currentEvent,
         mssv: currentRegisteredData.mssv,
-        hoten: currentRegisteredData.hoten,
         issueType: issueType,
         detail: detail,
-        reason: issueType + ": " + detail,
         fileBase64: selectedFileObject ? selectedFileObject.fileBase64 : "",
         fileName: selectedFileObject ? selectedFileObject.fileName : "",
         fileType: selectedFileObject ? selectedFileObject.fileType : ""
@@ -1534,6 +1122,8 @@
 
       fetch(GAS_API_URL, {
         method: "POST",
+        mode: "cors",
+        redirect: "follow",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       })
@@ -1546,29 +1136,20 @@
 
         if (res.success) {
           closeFeedbackModal();
-          if (typeof triggerRobotReaction === "function") triggerRobotReaction('happy');
-          showAlert("🎉 " + (res.message || "Đã gửi phản hồi thành công! Ban Tổ chức sẽ rà soát và cập nhật."), "success");
+          triggerRobotReaction('happy');
+          showAlert("🎉 " + res.message, "success");
         } else {
-          alert(res.message || "Gửi phản hồi thất bại, vui lòng thử lại!");
+          alert(res.message || "Gửi phản hồi thất bại!");
         }
       })
       .catch(err => {
-        console.error("Lỗi submitFeedback:", err);
         btn.disabled = false;
         btn.classList.remove('btn-loading');
         icon.innerText = "📤";
         text.innerText = "GỬI PHẢN HỒI TỚI BAN TỔ CHỨC →";
-        alert("Lỗi kết nối máy chủ, vui lòng thử lại sau giây lát!");
+        alert("Lỗi kết nối, vui lòng thử lại sau!");
       });
     }
-
-    // Đóng modal khi bấm ra ngoài vùng đen
-    window.addEventListener('click', (e) => {
-      const modal = document.getElementById('feedbackModal');
-      if (e.target === modal) {
-        closeFeedbackModal();
-      }
-    });
   </script>
 </body>
 </html>
