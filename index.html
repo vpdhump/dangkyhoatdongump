@@ -36,6 +36,7 @@
       padding: 16px 20px;
     }
 
+    /* 1. THANH NHẬN DIỆN HEADER TRÊN CÙNG */
     .top-header-strip {
       width: 100%;
       max-width: 1240px;
@@ -109,6 +110,7 @@
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
+    /* 2. CARD TRUNG TÂM */
     .main-center-wrapper {
       width: 100%;
       max-width: 480px;
@@ -122,70 +124,111 @@
       border-radius: 26px;
       box-shadow: 0 20px 48px -12px rgba(29, 104, 245, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
       border: 1px solid rgba(226, 232, 240, 0.85);
-      padding: 30px 26px;
+      padding: 28px 24px;
       position: relative;
       text-align: center;
     }
 
+    /* 3. MASCOT ROBOT CHIBI & BONG BÓNG LỜI CHÀO */
     .robot-mascot-container {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 10px;
+      margin-top: 4px;
+      margin-bottom: 12px;
       cursor: pointer;
       user-select: none;
     }
 
+    .robot-speech-bubble {
+      position: relative;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+      color: #0369a1;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 7px 16px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.16);
+      border: 1.5px solid #bae6fd;
+      white-space: nowrap;
+      animation: bubbleFloat 3s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .robot-speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid #bae6fd;
+    }
+
+    @keyframes bubbleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
     .robot-svg-wrap {
-      width: 100px;
-      height: 100px;
-      animation: robotFloat 3.2s ease-in-out infinite;
+      width: 108px;
+      height: 108px;
+      animation: botFloat 3.2s ease-in-out infinite;
       transform-origin: center bottom;
       transition: transform 0.25s ease;
+      filter: drop-shadow(0 8px 16px rgba(2, 132, 199, 0.18));
     }
 
     .robot-svg-wrap:hover {
-      animation-play-state: paused;
       transform: scale(1.08) translateY(-4px);
     }
 
     .robot-shadow {
-      width: 60px;
-      height: 10px;
-      background: radial-gradient(ellipse at center, rgba(30, 58, 138, 0.2) 0%, transparent 72%);
+      width: 58px;
+      height: 9px;
+      background: radial-gradient(ellipse at center, rgba(2, 132, 199, 0.28) 0%, transparent 70%);
       border-radius: 50%;
-      margin-top: -2px;
-      animation: robotShadow 3.2s ease-in-out infinite;
+      margin-top: -4px;
+      animation: botShadow 3.2s ease-in-out infinite;
     }
 
-    @keyframes robotFloat {
+    @keyframes botFloat {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-9px) rotate(1.2deg); }
+      50% { transform: translateY(-7px) rotate(1deg); }
     }
 
-    @keyframes robotShadow {
-      0%, 100% { transform: scale(1); opacity: 0.85; }
-      50% { transform: scale(0.72); opacity: 0.45; }
+    @keyframes botShadow {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(0.7); opacity: 0.35; }
     }
 
-    .robot-antenna-light {
-      animation: antennaPulse 1.8s infinite ease-in-out;
-    }
-    @keyframes antennaPulse {
-      0%, 100% { fill: #38bdf8; filter: drop-shadow(0 0 2px #38bdf8); }
-      50% { fill: #facc15; filter: drop-shadow(0 0 6px #facc15); }
+    .robot-hand-wave {
+      transform-origin: 76px 58px;
+      animation: handWaveAnim 1.6s ease-in-out infinite alternate;
     }
 
-    .robot-eye {
-      transform-origin: center;
-      animation: eyeBlink 3.6s infinite ease-in-out;
+    @keyframes handWaveAnim {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-24deg); }
     }
-    @keyframes eyeBlink {
+
+    .robot-eyes-group {
+      transform-origin: 50px 38px;
+      animation: eyeBlinkAnim 3.8s infinite ease-in-out;
+    }
+
+    @keyframes eyeBlinkAnim {
       0%, 94%, 98%, 100% { transform: scaleY(1); }
-      96% { transform: scaleY(0.1); }
+      96% { transform: scaleY(0.12); }
     }
 
+    /* 4. TIÊU ĐỀ & NGẮT DÒNG THÔNG MINH */
     .header-minimal {
       margin-top: 6px;
       margin-bottom: 22px;
@@ -221,6 +264,7 @@
       margin: 0 auto;
     }
 
+    /* 5. KHUNG THÔNG BÁO ALERT BANNERS */
     .alert-banner {
       border-radius: 14px;
       padding: 12px 16px;
@@ -232,12 +276,33 @@
       gap: 10px;
       margin-bottom: 16px;
       text-align: left;
+      animation: fadeIn 0.25s ease;
     }
 
-    .alert-banner.warning { background: #fefce8; color: #854d0e; border: 1px solid #fef08a; }
-    .alert-banner.danger { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
-    .alert-banner.success { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
+    .alert-banner.warning {
+      background: #fefce8;
+      color: #854d0e;
+      border: 1px solid #fef08a;
+    }
+
+    .alert-banner.danger {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    .alert-banner.success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    /* 6. INPUTS & FORM */
     .form-group {
       margin-bottom: 16px;
       text-align: left;
@@ -256,6 +321,7 @@
     .input-row {
       display: flex;
       gap: 10px;
+      position: relative;
     }
 
     .form-control-custom {
@@ -277,6 +343,13 @@
       box-shadow: 0 0 0 4px rgba(29, 104, 245, 0.12);
     }
 
+    .form-control-custom:disabled {
+      background-color: #f1f5f9;
+      color: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    /* KHUNG NHẬP EMAIL CÓ ĐUÔI @ump.edu.vn CỐ ĐỊNH */
     .email-input-group {
       display: flex;
       align-items: stretch;
@@ -320,6 +393,7 @@
       white-space: nowrap;
     }
 
+    /* 7. NÚT BẤM VỚI VÒNG XOAY SPINNER */
     .btn-submit-main {
       background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
       color: #ffffff;
@@ -372,6 +446,7 @@
       to { transform: rotate(360deg); }
     }
 
+    /* 8. KHUNG THẺ KẾT QUẢ & ĐIỂM DANH */
     .result-card-box {
       background: #ffffff;
       border-radius: 18px;
@@ -380,6 +455,12 @@
       box-shadow: 0 10px 24px -6px rgba(2, 132, 199, 0.08);
       margin-top: 18px;
       text-align: left;
+      animation: fadeInScale 0.25s ease;
+    }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .result-badge-strip {
@@ -414,9 +495,19 @@
       gap: 4px;
     }
 
-    .badge-attended { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-    .badge-pending { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+    .badge-attended {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
 
+    .badge-pending {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    /* NÚT GỬI PHẢN HỒI KHIẾU NẠI MÀU CAM */
     .btn-feedback-trigger {
       background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
       color: #ffffff;
@@ -433,6 +524,12 @@
       transition: all 0.2s ease;
     }
 
+    .btn-feedback-trigger:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
+      filter: brightness(1.05);
+    }
+
     .student-highlight-name {
       font-size: 16px;
       font-weight: 800;
@@ -447,6 +544,10 @@
       font-weight: 600;
       margin-bottom: 14px;
       line-height: 1.5;
+    }
+
+    .student-meta-sub span {
+      color: #0f172a;
     }
 
     .info-grid-list {
@@ -488,9 +589,13 @@
       font-size: 12.5px;
     }
 
+    /* 9. MODAL POPUP PHẢN HỒI KẾT QUẢ THAM GIA */
     .modal-overlay {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(6px);
       z-index: 9999;
@@ -503,15 +608,26 @@
       transition: all 0.25s ease;
     }
 
-    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
 
     .modal-card {
       background: #ffffff;
       width: 100%;
       max-width: 440px;
       border-radius: 22px;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+      border: 1px solid rgba(226, 232, 240, 0.9);
       padding: 24px 22px;
       text-align: left;
+      transform: translateY(20px) scale(0.97);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0) scale(1);
     }
 
     .modal-header {
@@ -523,7 +639,12 @@
       margin-bottom: 16px;
     }
 
-    .modal-title { font-size: 16px; font-weight: 800; color: #0f172a; }
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.2px;
+    }
 
     .btn-close-modal {
       background: #f1f5f9;
@@ -535,18 +656,56 @@
       align-items: center;
       justify-content: center;
       font-size: 14px;
+      color: #64748b;
       cursor: pointer;
+      transition: all 0.15s ease;
     }
 
-    .modal-select, .modal-textarea {
+    .btn-close-modal:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .modal-select {
       width: 100%;
-      font-size: 13px;
+      font-size: 13.5px;
       padding: 11px 14px;
       border-radius: 12px;
       border: 1.5px solid #e2e8f0;
       background-color: #f8fafc;
       font-weight: 600;
+      color: #0f172a;
       outline: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .modal-select:focus {
+      background-color: #ffffff;
+      border-color: #1d68f5;
+      box-shadow: 0 0 0 4px rgba(29, 104, 245, 0.12);
+    }
+
+    .modal-textarea {
+      width: 100%;
+      font-size: 13px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1.5px solid #e2e8f0;
+      background-color: #f8fafc;
+      font-weight: 500;
+      color: #0f172a;
+      outline: none;
+      resize: vertical;
+      min-height: 85px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .modal-textarea:focus {
+      background-color: #ffffff;
+      border-color: #1d68f5;
+      box-shadow: 0 0 0 4px rgba(29, 104, 245, 0.12);
     }
 
     .file-input-wrapper {
@@ -558,9 +717,25 @@
       align-items: center;
       gap: 10px;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
 
-    /* FOOTER 3 CỘT ĐẦY ĐỦ */
+    .file-input-wrapper:hover {
+      background: #f0f9ff;
+      border-color: #0284c7;
+    }
+
+    .file-label-text {
+      font-size: 12px;
+      color: #475569;
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    /* 10. CHÂN TRANG FOOTER 3 CỘT ĐẦY ĐỦ */
     .portal-footer {
       width: 100%;
       max-width: 1240px;
@@ -600,9 +775,11 @@
       color: #0284c7;
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.15s ease;
     }
 
     .portal-footer a:hover {
+      color: #0369a1;
       text-decoration: underline;
     }
 
@@ -621,10 +798,14 @@
       color: #64748b;
     }
 
+    /* 11. ĐÁP ỨNG THIẾT BỊ DI ĐỘNG (RESPONSIVE) */
     @media (max-width: 768px) {
       body { padding: 14px 14px 16px 14px; }
+      .brand-text-identity { font-size: 11px; }
       .live-pulse-badge { display: none; }
       .footer-grid { flex-direction: column; gap: 14px; }
+      .portal-card { padding: 24px 18px; border-radius: 20px; }
+      .program-heading { font-size: 17.5px; }
     }
   </style>
 </head>
@@ -646,32 +827,94 @@
     <div id="alertBox"></div>
 
     <div class="portal-card">
-      <div class="robot-mascot-container" onclick="triggerRobotReaction()" title="Robot AI UMP">
+      <!-- ROBOT AI Y TẾ VECTOR SVG DỄ THƯƠNG ĐÚNG BẢN GỐC -->
+      <!-- MASCOT ROBOT BÁC SĨ NHÍ UMP SIÊU DỄ THƯƠNG -->
+      <div class="robot-mascot-container" onclick="triggerRobotReaction()" title="Chạm vào mình để giao lưu nhé!">
+        <!-- BONG BÓNG LỜI CHÀO -->
+        <div class="robot-speech-bubble" id="robotSpeech">
+          👋 Xin chào! Mình là Robot AI hỗ trợ sinh viên UMP 🩺✨
+        </div>
+
         <div class="robot-svg-wrap">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; overflow: visible;">
             <defs>
-              <linearGradient id="botHeadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="chibiHeadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stop-color="#ffffff"/>
                 <stop offset="100%" stop-color="#e0f2fe"/>
               </linearGradient>
-              <linearGradient id="botEarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="chibiVisorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0f172a"/>
+                <stop offset="100%" stop-color="#1e293b"/>
+              </linearGradient>
+              <linearGradient id="chibiEarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#38bdf8"/>
                 <stop offset="100%" stop-color="#0284c7"/>
               </linearGradient>
+              <filter id="chibiGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
             </defs>
-            <line x1="50" y1="20" x2="50" y2="10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
-            <circle class="robot-antenna-light" cx="50" cy="8" r="4.5" fill="#38bdf8"/>
-            <rect x="33" y="52" width="34" height="26" rx="10" fill="#f8fafc" stroke="#93c5fd" stroke-width="1.5"/>
-            <path d="M50 61V69M46 65H54" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
-            <rect x="23" y="27" width="6" height="14" rx="3" fill="url(#botEarGrad)"/>
-            <rect x="71" y="27" width="6" height="14" rx="3" fill="url(#botEarGrad)"/>
-            <rect x="27" y="18" width="46" height="32" rx="15" fill="url(#botHeadGrad)" stroke="#7dd3fc" stroke-width="1.8"/>
-            <rect x="32" y="23" width="36" height="21" rx="9" fill="#0f172a"/>
-            <g class="robot-eye">
-              <ellipse id="botEyeLeft" cx="42" cy="33.5" rx="3.2" ry="4.5" fill="#38bdf8"/>
-              <ellipse id="botEyeRight" cx="58" cy="33.5" rx="3.2" ry="4.5" fill="#38bdf8"/>
+
+            <!-- 1. Đèn Ăng-ten Trái Tim Y Tế Phát Sáng -->
+            <path d="M50 14V8" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="50" cy="6" r="4.5" fill="#38bdf8" filter="url(#chibiGlow)"/>
+            <circle cx="50" cy="6" r="3" fill="#ffffff"/>
+
+            <!-- 2. Thân Robot Bầu Bĩnh (Áo Blouse) -->
+            <path d="M34 56C34 52 66 52 66 56L68 76C68 81 64 84 59 84H41C36 84 32 81 32 76L34 56Z" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+            
+            <!-- Vòng bụng viền xanh + Dấu chữ thập y tế nổi 3D -->
+            <circle cx="50" cy="68" r="9.5" fill="#f0f9ff" stroke="#e0f2fe" stroke-width="1.5"/>
+            <path d="M50 63V73M45 68H55" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- 3. Tay Trái (Tựa bên hông hoặc cầm ống nghe) -->
+            <g>
+              <circle cx="28" cy="66" r="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
             </g>
-            <path id="botSmile" d="M47 38.5Q50 41 53 38.5" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+            <!-- 4. Tay Phải Vẫy Chào Siêu Cưng (Animation tự vẫy) -->
+            <g class="robot-hand-wave">
+              <path d="M72 63C76 60 83 55 86 52" stroke="#bae6fd" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="86" cy="50" r="5.5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
+              <!-- Tia vẫy chào -->
+              <path d="M91 43C93 45 93 48 93 48" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- 5. Hai Tai Nghe Tròn Dễ Thương (Bọc mềm 2 bên đầu) -->
+            <circle cx="22" cy="37" r="6.5" fill="url(#chibiEarGrad)"/>
+            <circle cx="22" cy="37" r="3.5" fill="#ffffff" opacity="0.6"/>
+            <circle cx="78" cy="37" r="6.5" fill="url(#chibiEarGrad)"/>
+            <circle cx="78" cy="37" r="3.5" fill="#ffffff" opacity="0.6"/>
+
+            <!-- 6. Đầu Robot Chibi Siêu Tròn & Mũ Y Tá Mini -->
+            <rect x="23" y="16" width="54" height="42" rx="21" fill="url(#chibiHeadGrad)" stroke="#38bdf8" stroke-width="2.5"/>
+
+            <!-- Chiếc nón y tế nhỏ nhắn đội trên đầu -->
+            <path d="M43 16C43 13 57 13 57 16H43Z" fill="#ffffff" stroke="#38bdf8" stroke-width="1.2"/>
+            <path d="M50 14V16M48.5 15H51.5" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"/>
+
+            <!-- 7. Màn Hình Visor Kính Đen Bóng Bẩy -->
+            <rect x="28" y="23" width="44" height="28" rx="14" fill="url(#chibiVisorGrad)"/>
+            <!-- Ánh sáng phản chiếu trên kính -->
+            <path d="M34 26C40 24 50 24 60 26" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
+
+            <!-- 8. Khuôn Mặt Biểu Cảm: Mắt Cyan Cong Tròn + Má Hồng -->
+            <g class="robot-eyes-group">
+              <!-- Mắt Trái -->
+              <ellipse id="botEyeLeft" cx="40" cy="36" rx="4.2" ry="5.5" fill="#38bdf8" filter="url(#chibiGlow)"/>
+              <circle cx="41.5" cy="34" r="1.6" fill="#ffffff"/>
+              <!-- Mắt Phải -->
+              <ellipse id="botEyeRight" cx="60" cy="36" rx="4.2" ry="5.5" fill="#38bdf8" filter="url(#chibiGlow)"/>
+              <circle cx="61.5" cy="34" r="1.6" fill="#ffffff"/>
+            </g>
+
+            <!-- Hai má hồng đào siêu đáng yêu -->
+            <ellipse cx="34" cy="42" rx="3.5" ry="2" fill="#f472b6" opacity="0.85"/>
+            <ellipse cx="66" cy="42" rx="3.5" ry="2" fill="#f472b6" opacity="0.85"/>
+
+            <!-- Miệng Cười Híp Mắt -->
+            <path id="botSmile" d="M46.5 41Q50 44.5 53.5 41" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" fill="none"/>
           </svg>
         </div>
         <div class="robot-shadow"></div>
@@ -844,27 +1087,39 @@
     let currentRegisteredData = null;
     let selectedFileObject = null;
 
+    // Robot AI tương tác sinh động với lời thoại
     function triggerRobotReaction(mode = 'happy') {
       const eyeL = document.getElementById('botEyeLeft');
       const eyeR = document.getElementById('botEyeRight');
       const smile = document.getElementById('botSmile');
+      const bubble = document.getElementById('robotSpeech');
+
       if (!eyeL || !eyeR || !smile) return;
 
       if (mode === 'happy') {
-        eyeL.setAttribute('rx', '4'); eyeR.setAttribute('rx', '4');
-        smile.setAttribute('d', 'M46 38Q50 43 54 38');
+        eyeL.setAttribute('rx', '5');
+        eyeR.setAttribute('rx', '5');
+        smile.setAttribute('d', 'M45 40Q50 46 55 40');
+        if (bubble) bubble.innerHTML = "🎉 Tuyệt vời! Hồ sơ của bạn đã sẵn sàng!";
       } else if (mode === 'wink') {
-        eyeL.setAttribute('ry', '1');
-        setTimeout(() => eyeL.setAttribute('ry', '4.5'), 600);
+        eyeL.setAttribute('ry', '1.2');
+        if (bubble) bubble.innerHTML = "🔍 Đang tra cứu dữ liệu sinh viên...";
+        setTimeout(() => eyeL.setAttribute('ry', '5.5'), 600);
       } else if (mode === 'sad') {
-        eyeL.setAttribute('ry', '1.5'); eyeR.setAttribute('ry', '1.5');
-        smile.setAttribute('d', 'M47 41Q50 38 53 41');
+        eyeL.setAttribute('ry', '2');
+        eyeR.setAttribute('ry', '2');
+        smile.setAttribute('d', 'M46 44Q50 41 54 44');
+        if (bubble) bubble.innerHTML = "🥺 Ơ kìa, chưa tìm thấy hoặc có chút nhầm lẫn!";
       }
+
       setTimeout(() => {
-        eyeL.setAttribute('rx', '3.2'); eyeL.setAttribute('ry', '4.5');
-        eyeR.setAttribute('rx', '3.2'); eyeR.setAttribute('ry', '4.5');
-        smile.setAttribute('d', 'M47 38.5Q50 41 53 38.5');
-      }, 3000);
+        eyeL.setAttribute('rx', '4.2');
+        eyeL.setAttribute('ry', '5.5');
+        eyeR.setAttribute('rx', '4.2');
+        eyeR.setAttribute('ry', '5.5');
+        smile.setAttribute('d', 'M46.5 41Q50 44.5 53.5 41');
+        if (bubble) bubble.innerHTML = "👋 Xin chào! Mình là Robot AI hỗ trợ sinh viên UMP 🩺✨";
+      }, 3600);
     }
 
     function showAlert(msg, type = 'danger') {
