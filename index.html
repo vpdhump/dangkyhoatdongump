@@ -560,6 +560,7 @@
       cursor: pointer;
     }
 
+    /* FOOTER 3 CỘT ĐẦY ĐỦ */
     .portal-footer {
       width: 100%;
       max-width: 1240px;
@@ -586,6 +587,38 @@
       text-transform: uppercase;
       margin-bottom: 5px;
       color: #0369a1;
+      letter-spacing: 0.3px;
+    }
+
+    .f-subtext {
+      color: #475569;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .portal-footer a {
+      color: #0284c7;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .portal-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright-line {
+      font-weight: 700;
+      color: #475569;
+      font-size: 11.5px;
+      letter-spacing: 0.2px;
+    }
+
+    .author-line {
+      font-style: italic;
+      opacity: 0.8;
+      font-size: 10.5px;
+      margin-top: 3px;
+      color: #64748b;
     }
 
     @media (max-width: 768px) {
@@ -599,7 +632,7 @@
 
   <header class="top-header-strip">
     <div class="brand-id-cluster">
-      <img alt="Logo UMP" class="brand-logo-unified" src="logo.png" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png/640px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png'"/>
+      <img alt="Logo Đoàn Hội UMP" class="brand-logo-unified" src="logo.png" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png/640px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png'"/>
       <div class="vertical-brand-divider"></div>
       <div class="brand-text-identity">ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
     </div>
@@ -775,28 +808,31 @@
     </div>
   </div>
 
-  <footer class="portal-footer">
+  <!-- FOOTER CHUẨN ĐẦY ĐỦ 3 CỘT -->
+  <footer class="portal-footer" id="portalFooter">
     <div class="footer-grid">
       <div>
         <div class="f-header">HỆ THỐNG QUẢN LÝ HOẠT ĐỘNG</div>
-        <div>ĐOÀN THANH NIÊN - HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TPHCM</div>
+        <div class="f-subtext">ĐOÀN THANH NIÊN - HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TPHCM</div>
       </div>
       <div>
         <div class="f-header">📍 ĐỊA CHỈ</div>
-        <div>• 540 Ngô Gia Tự, Phường An Đông, TP. HCM</div>
-        <div>• 217 Hồng Bàng, Phường Chợ Lớn, TP. HCM</div>
+        <div class="f-subtext">• 540 Ngô Gia Tự, Phường An Đông, TP. HCM</div>
+        <div class="f-subtext">• 217 Hồng Bàng, Phường Chợ Lớn, TP. HCM</div>
       </div>
       <div>
-        <div class="f-header">📧 HỖ TRỢ</div>
-        <div>• Email: <a href="mailto:vpdhump@gmail.com" style="color: #0284c7;">vpdhump@gmail.com</a></div>
+        <div class="f-header">📧 LIÊN HỆ &amp; HỖ TRỢ</div>
+        <div class="f-subtext">• Đoàn - Hội: <a href="mailto:vpdhump@gmail.com">vpdhump@gmail.com</a></div>
+        <div class="f-subtext">• Fanpage: <a href="https://www.facebook.com/tuoitreyduochcm" target="_blank">Tuổi trẻ Y Dược</a></div>
       </div>
     </div>
-    <div style="font-weight: 700; margin-top: 6px;">© 2026 VĂN PHÒNG ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
+    <div class="copyright-line">© 2026 VĂN PHÒNG ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
+    <div class="author-line">The website was developed by NTCL team</div>
   </footer>
 
   <script>
     // ======================================================================
-    // THAY URL DEPLOYMENT WEB APP CHÍNH THỨC CỦA BẠN VÀO ĐÂY:
+    // THAY ĐÚNG LINK TRIỂN KHAI APPS SCRIPT CỦA BẠN VÀO ĐÂY:
     // ======================================================================
     const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxxxY8la40nPgXPd_wf-aJCKvfpaY0PZJBArm_EhjZCmex8HTcCOVpwsggO05MSJzyL/exec"; 
 
@@ -843,6 +879,7 @@
 
     function clearAlert() { document.getElementById('alertBox').innerHTML = ''; }
 
+    // TẢI TÊN CHƯƠNG TRÌNH TỪ Ô L1 VÀ CẤU HÌNH ĐÓNG/MỞ
     window.addEventListener('DOMContentLoaded', () => {
       const titleElem = document.getElementById('displayProgramTitle');
       const noEventBox = document.getElementById('noEventNoticeBox');
@@ -857,6 +894,7 @@
         return;
       }
 
+      // Gọi API initEvent
       fetch(`${GAS_API_URL}?action=initEvent&event=${encodeURIComponent(currentEvent)}`, { redirect: "follow" })
         .then(r => r.json())
         .then(res => {
@@ -878,7 +916,7 @@
           }
         })
         .catch(err => {
-          console.warn("Init error:", err);
+          console.error("Lỗi nạp thông tin sự kiện:", err);
           titleElem.innerText = currentEvent;
         });
     });
@@ -955,7 +993,6 @@
         });
     }
 
-    // ĐĂNG KÝ: Khớp chính xác với registerStudent(postData.event, postData.student)
     function handleRegister() {
       if (!foundStudent) return;
       if (!currentEvent) return showAlert('Chưa xác định chương trình!', 'danger');
@@ -989,7 +1026,6 @@
       text.innerText = "ĐANG GHI NHẬN...";
       triggerRobotReaction('wink');
 
-      // Gửi đúng 2 trường event và student mà code.txt đang phân tích
       const payload = {
         action: "register",
         event: currentEvent,
@@ -1050,7 +1086,6 @@
       });
     }
 
-    // XỬ LÝ PHẢN HỒI KHIẾU NẠI
     function openFeedbackModal() {
       const modal = document.getElementById('feedbackModal');
       document.getElementById('fbDetail').value = "";
@@ -1108,7 +1143,6 @@
       icon.innerHTML = `<span class="spinner-loader"></span>`;
       text.innerText = "ĐANG GỬI...";
 
-      // Gửi đúng data.tabName, data.mssv, data.fileBase64 mà submitFeedback trong code.txt đợi
       const payload = {
         action: "submitFeedback",
         tabName: currentEvent,
