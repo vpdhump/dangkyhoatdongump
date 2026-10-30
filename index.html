@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-  <title>ĐĂNG KÝ & TRA CỨU HOẠT ĐỘNG - ĐH Y DƯỢC TP.HCM</title>
+  <title>ĐĂNG KÝ HOẠT ĐỘNG ĐẠI HỌC Y DƯỢC TP.HCM</title>
   
+  <!-- Phông chữ Plus Jakarta Sans -->
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -36,7 +37,7 @@
       padding: 16px 20px;
     }
 
-    /* 1. THANH NHẬN DIỆN HEADER TRÊN CÙNG */
+    /* 1. TOP HEADER STRIP */
     .top-header-strip {
       width: 100%;
       max-width: 1240px;
@@ -124,12 +125,13 @@
       border-radius: 26px;
       box-shadow: 0 20px 48px -12px rgba(29, 104, 245, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
       border: 1px solid rgba(226, 232, 240, 0.85);
-      padding: 28px 24px;
+      padding: 30px 26px;
       position: relative;
+      transition: all 0.3s ease;
       text-align: center;
     }
 
-    /* 3. MASCOT ROBOT CHIBI & BONG BÓNG LỜI CHÀO */
+    /* KHUNG MASCOT ROBOT & BONG BÓNG LỜI CHÀO */
     .robot-mascot-container {
       position: relative;
       display: flex;
@@ -137,25 +139,29 @@
       align-items: center;
       justify-content: center;
       margin-top: 4px;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       cursor: pointer;
       user-select: none;
     }
 
+    /* Bong bóng lời chào tinh tế, ôm sát chữ */
     .robot-speech-bubble {
       position: relative;
       margin-bottom: 12px;
-      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-      color: #0369a1;
-      font-size: 12px;
+      background: #ffffff;
+      color: #0284c7;
+      font-size: 13px;
       font-weight: 800;
-      padding: 7px 16px;
-      border-radius: 20px;
-      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.16);
+      padding: 8px 22px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px -4px rgba(56, 189, 248, 0.25);
       border: 1.5px solid #bae6fd;
-      white-space: nowrap;
-      animation: bubbleFloat 3s ease-in-out infinite;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      animation: bubbleFloat 3.2s ease-in-out infinite;
       z-index: 2;
+      white-space: nowrap;
     }
 
     .robot-speech-bubble::after {
@@ -168,7 +174,8 @@
       height: 0;
       border-left: 7px solid transparent;
       border-right: 7px solid transparent;
-      border-top: 7px solid #bae6fd;
+      border-top: 7px solid #ffffff;
+      filter: drop-shadow(0 2px 1px rgba(2, 132, 199, 0.15));
     }
 
     @keyframes bubbleFloat {
@@ -176,13 +183,14 @@
       50% { transform: translateY(-4px); }
     }
 
+    /* Khung Robot chuẩn tỷ lệ 110px x 110px */
     .robot-svg-wrap {
-      width: 108px;
-      height: 108px;
-      animation: botFloat 3.2s ease-in-out infinite;
+      width: 110px;
+      height: 110px;
+      animation: botFloat 3.4s ease-in-out infinite;
       transform-origin: center bottom;
       transition: transform 0.25s ease;
-      filter: drop-shadow(0 8px 16px rgba(2, 132, 199, 0.18));
+      filter: drop-shadow(0 10px 20px rgba(56, 189, 248, 0.2));
     }
 
     .robot-svg-wrap:hover {
@@ -190,45 +198,47 @@
     }
 
     .robot-shadow {
-      width: 58px;
-      height: 9px;
-      background: radial-gradient(ellipse at center, rgba(2, 132, 199, 0.28) 0%, transparent 70%);
+      width: 60px;
+      height: 10px;
+      background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.25) 0%, transparent 72%);
       border-radius: 50%;
       margin-top: -4px;
-      animation: botShadow 3.2s ease-in-out infinite;
+      animation: botShadow 3.4s ease-in-out infinite;
     }
 
     @keyframes botFloat {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-7px) rotate(1deg); }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
     }
 
     @keyframes botShadow {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(0.7); opacity: 0.35; }
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(0.72); opacity: 0.35; }
     }
 
-    .robot-hand-wave {
-      transform-origin: 76px 58px;
-      animation: handWaveAnim 1.6s ease-in-out infinite alternate;
+    /* Hiệu ứng chớp mắt tự nhiên */
+    .robot-eyes-anim {
+      transform-origin: 50px 42px;
+      animation: botBlink 4s infinite ease-in-out;
     }
 
-    @keyframes handWaveAnim {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(-24deg); }
-    }
-
-    .robot-eyes-group {
-      transform-origin: 50px 38px;
-      animation: eyeBlinkAnim 3.8s infinite ease-in-out;
-    }
-
-    @keyframes eyeBlinkAnim {
+    @keyframes botBlink {
       0%, 94%, 98%, 100% { transform: scaleY(1); }
-      96% { transform: scaleY(0.12); }
+      96% { transform: scaleY(0.1); }
     }
 
-    /* 4. TIÊU ĐỀ & NGẮT DÒNG THÔNG MINH */
+    /* Tay vẫy chào mượt mà */
+    .robot-hand-anim {
+      transform-origin: 78px 66px;
+      animation: handWave 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes handWave {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-18deg); }
+    }
+
+    /* TIÊU ĐỀ & NGẮT DÒNG */
     .header-minimal {
       margin-top: 6px;
       margin-bottom: 22px;
@@ -264,7 +274,7 @@
       margin: 0 auto;
     }
 
-    /* 5. KHUNG THÔNG BÁO ALERT BANNERS */
+    /* ALERT BANNERS */
     .alert-banner {
       border-radius: 14px;
       padding: 12px 16px;
@@ -302,7 +312,7 @@
       border: 1px solid #a7f3d0;
     }
 
-    /* 6. INPUTS & FORM */
+    /* INPUT & FORM */
     .form-group {
       margin-bottom: 16px;
       text-align: left;
@@ -349,7 +359,7 @@
       cursor: not-allowed;
     }
 
-    /* KHUNG NHẬP EMAIL CÓ ĐUÔI @ump.edu.vn CỐ ĐỊNH */
+    /* KHUNG NHẬP EMAIL VỚI ĐUÔI CỐ ĐỊNH */
     .email-input-group {
       display: flex;
       align-items: stretch;
@@ -393,7 +403,7 @@
       white-space: nowrap;
     }
 
-    /* 7. NÚT BẤM VỚI VÒNG XOAY SPINNER */
+    /* NÚT BẤM VỚI SPINNER */
     .btn-submit-main {
       background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
       color: #ffffff;
@@ -446,7 +456,7 @@
       to { transform: rotate(360deg); }
     }
 
-    /* 8. KHUNG THẺ KẾT QUẢ & ĐIỂM DANH */
+    /* KHUNG THẺ KẾT QUẢ */
     .result-card-box {
       background: #ffffff;
       border-radius: 18px;
@@ -485,6 +495,12 @@
       gap: 6px;
     }
 
+    .badge-actions-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .status-badge {
       font-size: 11px;
       font-weight: 800;
@@ -507,7 +523,7 @@
       border: 1px solid #fde68a;
     }
 
-    /* NÚT GỬI PHẢN HỒI KHIẾU NẠI MÀU CAM */
+    /* NÚT GỬI PHẢN HỒI MÀU CAM THEO MẪU */
     .btn-feedback-trigger {
       background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
       color: #ffffff;
@@ -589,7 +605,15 @@
       font-size: 12.5px;
     }
 
-    /* 9. MODAL POPUP PHẢN HỒI KẾT QUẢ THAM GIA */
+    .time-stamp-note {
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: right;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* 3. MODAL POPUP PHẢN HỒI KẾT QUẢ THAM GIA */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -725,6 +749,10 @@
       border-color: #0284c7;
     }
 
+    .file-input-wrapper input[type="file"] {
+      display: none;
+    }
+
     .file-label-text {
       font-size: 12px;
       color: #475569;
@@ -735,7 +763,7 @@
       flex: 1;
     }
 
-    /* 10. CHÂN TRANG FOOTER 3 CỘT ĐẦY ĐỦ */
+    /* 4. FOOTER 3 CỘT */
     .portal-footer {
       width: 100%;
       max-width: 1240px;
@@ -798,153 +826,167 @@
       color: #64748b;
     }
 
-    /* 11. ĐÁP ỨNG THIẾT BỊ DI ĐỘNG (RESPONSIVE) */
     @media (max-width: 768px) {
       body { padding: 14px 14px 16px 14px; }
       .brand-text-identity { font-size: 11px; }
       .live-pulse-badge { display: none; }
       .footer-grid { flex-direction: column; gap: 14px; }
-      .portal-card { padding: 24px 18px; border-radius: 20px; }
-      .program-heading { font-size: 17.5px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- 1. HEADER: 1 LOGO THỐNG NHẤT & TÊN ĐOÀN HỘI UMP -->
   <header class="top-header-strip">
     <div class="brand-id-cluster">
-      <img alt="Logo Đoàn Hội UMP" class="brand-logo-unified" src="logo.png" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png/640px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png'"/>
+      <img alt="Logo Đại học Y Dược TP.HCM" 
+           class="brand-logo-unified" 
+           src="logo.png" 
+           onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png/640px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Y_D%C6%B0%E1%BB%A3c_TP.HCM.png'"/>
+
       <div class="vertical-brand-divider"></div>
-      <div class="brand-text-identity">ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH</div>
+
+      <div class="brand-text-identity">
+        ĐOÀN THANH NIÊN – HỘI SINH VIÊN ĐẠI HỌC Y DƯỢC TP. HỒ CHÍ MINH
+      </div>
     </div>
+
     <div class="live-pulse-badge">
       <span class="pulse-dot-small"></span>
       <span>Hệ thống trực tuyến</span>
     </div>
   </header>
 
+  <!-- 2. CARD TRUNG TÂM -->
   <main class="main-center-wrapper">
+    <!-- HỘP THÔNG BÁO ALERT NỔI -->
     <div id="alertBox"></div>
 
     <div class="portal-card">
-      <!-- ROBOT AI Y TẾ VECTOR SVG DỄ THƯƠNG ĐÚNG BẢN GỐC -->
-      <!-- MASCOT ROBOT BÁC SĨ NHÍ UMP SIÊU DỄ THƯƠNG -->
-      <div class="robot-mascot-container" onclick="triggerRobotReaction()" title="Chạm vào mình để giao lưu nhé!">
+      <!-- MASCOT ROBOT AI UMP THIẾT KẾ MỚI SIÊU XINH -->
+      <div class="robot-mascot-container" onclick="triggerRobotReaction()">
         <!-- BONG BÓNG LỜI CHÀO -->
         <div class="robot-speech-bubble" id="robotSpeech">
-          👋 Xin chào! Mình là Robot AI hỗ trợ sinh viên UMP 🩺✨
+          <span>👋 Xin chào! Mình là Robot AI hỗ trợ sinh viên UMP 🩺✨</span>
         </div>
 
         <div class="robot-svg-wrap">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; overflow: visible;">
             <defs>
-              <linearGradient id="chibiHeadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <!-- Gradient thân và đầu trắng sứ bóng mượt -->
+              <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="100%" stop-color="#e0f2fe"/>
+                <stop offset="100%" stop-color="#e2f1fd"/>
               </linearGradient>
-              <linearGradient id="chibiVisorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#0f172a"/>
-                <stop offset="100%" stop-color="#1e293b"/>
-              </linearGradient>
-              <linearGradient id="chibiEarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <!-- Gradient xanh nhận diện UMP -->
+              <linearGradient id="primaryBlue" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#38bdf8"/>
                 <stop offset="100%" stop-color="#0284c7"/>
               </linearGradient>
-              <filter id="chibiGlow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="2" result="blur"/>
+              <!-- Hiệu ứng sáng dịu LED -->
+              <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="1.6" result="blur"/>
                 <feComposite in="SourceGraphic" in2="blur" operator="over"/>
               </filter>
             </defs>
 
-            <!-- 1. Đèn Ăng-ten Trái Tim Y Tế Phát Sáng -->
-            <path d="M50 14V8" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="50" cy="6" r="4.5" fill="#38bdf8" filter="url(#chibiGlow)"/>
-            <circle cx="50" cy="6" r="3" fill="#ffffff"/>
+            <!-- 1. Cột Ăng-ten & Đèn ngọc tròn trên đầu -->
+            <rect x="48.5" y="6" width="3" height="10" rx="1.5" fill="#94a3b8"/>
+            <circle cx="50" cy="7" r="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+            <circle cx="50" cy="7" r="3" fill="#38bdf8" filter="url(#softGlow)"/>
+            <circle cx="49" cy="6" r="1" fill="#ffffff"/>
 
-            <!-- 2. Thân Robot Bầu Bĩnh (Áo Blouse) -->
-            <path d="M34 56C34 52 66 52 66 56L68 76C68 81 64 84 59 84H41C36 84 32 81 32 76L34 56Z" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
-            
-            <!-- Vòng bụng viền xanh + Dấu chữ thập y tế nổi 3D -->
-            <circle cx="50" cy="68" r="9.5" fill="#f0f9ff" stroke="#e0f2fe" stroke-width="1.5"/>
-            <path d="M50 63V73M45 68H55" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+            <!-- 2. Thân Dưới (Hình giọt nước tròn trịa) -->
+            <path d="M34 52C34 48 66 48 66 52L68 74C68 81 61 86 50 86C39 86 32 81 32 74L34 52Z" fill="url(#bodyGrad)" stroke="#bae6fd" stroke-width="2.5"/>
 
-            <!-- 3. Tay Trái (Tựa bên hông hoặc cầm ống nghe) -->
-            <g>
-              <circle cx="28" cy="66" r="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
+            <!-- Vòng tròn ngực & Chữ thập đỏ Y tế -->
+            <circle cx="50" cy="69" r="10" fill="#ffffff" stroke="#e0f2fe" stroke-width="1.6"/>
+            <rect x="48.2" y="63" width="3.6" height="12" rx="1.8" fill="#ef4444"/>
+            <rect x="44" y="67.2" width="12" height="3.6" rx="1.8" fill="#ef4444"/>
+
+            <!-- 3. Tay Trái Tựa Bên Hông -->
+            <circle cx="28" cy="65" r="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+
+            <!-- 4. Tay Phải Vẫy Chào Liền Mạch (Có animation) -->
+            <g class="robot-hand-anim">
+              <path d="M70 63C76 60 83 55 86 49" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+              <path d="M70 63C76 60 83 55 86 49" stroke="#bae6fd" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <circle cx="87" cy="48" r="5.5" fill="#38bdf8"/>
+              <circle cx="84.5" cy="46" r="1.8" fill="#ffffff" opacity="0.6"/>
             </g>
 
-            <!-- 4. Tay Phải Vẫy Chào Siêu Cưng (Animation tự vẫy) -->
-            <g class="robot-hand-wave">
-              <path d="M72 63C76 60 83 55 86 52" stroke="#bae6fd" stroke-width="5" stroke-linecap="round"/>
-              <circle cx="86" cy="50" r="5.5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
-              <!-- Tia vẫy chào -->
-              <path d="M91 43C93 45 93 48 93 48" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
-            </g>
+            <!-- 5. Hai Tai Nghe Tròn Kiểu Headphone 3D -->
+            <circle cx="23" cy="36" r="6.5" fill="url(#primaryBlue)"/>
+            <circle cx="23" cy="36" r="3.2" fill="#ffffff" opacity="0.7"/>
+            <circle cx="77" cy="36" r="6.5" fill="url(#primaryBlue)"/>
+            <circle cx="77" cy="36" r="3.2" fill="#ffffff" opacity="0.7"/>
 
-            <!-- 5. Hai Tai Nghe Tròn Dễ Thương (Bọc mềm 2 bên đầu) -->
-            <circle cx="22" cy="37" r="6.5" fill="url(#chibiEarGrad)"/>
-            <circle cx="22" cy="37" r="3.5" fill="#ffffff" opacity="0.6"/>
-            <circle cx="78" cy="37" r="6.5" fill="url(#chibiEarGrad)"/>
-            <circle cx="78" cy="37" r="3.5" fill="#ffffff" opacity="0.6"/>
+            <!-- 6. Đầu Robot Bầu Bĩnh (Capsule tròn trịa) -->
+            <rect x="23" y="16" width="54" height="40" rx="20" fill="url(#bodyGrad)" stroke="#38bdf8" stroke-width="2.6"/>
 
-            <!-- 6. Đầu Robot Chibi Siêu Tròn & Mũ Y Tá Mini -->
-            <rect x="23" y="16" width="54" height="42" rx="21" fill="url(#chibiHeadGrad)" stroke="#38bdf8" stroke-width="2.5"/>
+            <!-- 7. Màn Hình Visor Kính Đen Gương Sâu -->
+            <rect x="28" y="21" width="44" height="30" rx="15" fill="#0f172a"/>
+            <!-- Vệt phản chiếu ánh sáng mặt kính cong -->
+            <path d="M34 25C40 23 50 23 60 25" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.28"/>
 
-            <!-- Chiếc nón y tế nhỏ nhắn đội trên đầu -->
-            <path d="M43 16C43 13 57 13 57 16H43Z" fill="#ffffff" stroke="#38bdf8" stroke-width="1.2"/>
-            <path d="M50 14V16M48.5 15H51.5" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"/>
-
-            <!-- 7. Màn Hình Visor Kính Đen Bóng Bẩy -->
-            <rect x="28" y="23" width="44" height="28" rx="14" fill="url(#chibiVisorGrad)"/>
-            <!-- Ánh sáng phản chiếu trên kính -->
-            <path d="M34 26C40 24 50 24 60 26" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
-
-            <!-- 8. Khuôn Mặt Biểu Cảm: Mắt Cyan Cong Tròn + Má Hồng -->
-            <g class="robot-eyes-group">
+            <!-- 8. Khuôn Mặt: Mắt Cười Cong Trăng Khuyết + Má Hồng + Nụ Cười -->
+            <g class="robot-eyes-anim">
               <!-- Mắt Trái -->
-              <ellipse id="botEyeLeft" cx="40" cy="36" rx="4.2" ry="5.5" fill="#38bdf8" filter="url(#chibiGlow)"/>
-              <circle cx="41.5" cy="34" r="1.6" fill="#ffffff"/>
+              <path id="botEyeLeft" d="M37 36C37 32.5 41 31 44 34.5" stroke="#38bdf8" stroke-width="3.4" stroke-linecap="round" filter="url(#softGlow)" fill="none"/>
               <!-- Mắt Phải -->
-              <ellipse id="botEyeRight" cx="60" cy="36" rx="4.2" ry="5.5" fill="#38bdf8" filter="url(#chibiGlow)"/>
-              <circle cx="61.5" cy="34" r="1.6" fill="#ffffff"/>
+              <path id="botEyeRight" d="M56 36C56 32.5 60 31 63 34.5" stroke="#38bdf8" stroke-width="3.4" stroke-linecap="round" filter="url(#softGlow)" fill="none"/>
             </g>
 
-            <!-- Hai má hồng đào siêu đáng yêu -->
-            <ellipse cx="34" cy="42" rx="3.5" ry="2" fill="#f472b6" opacity="0.85"/>
-            <ellipse cx="66" cy="42" rx="3.5" ry="2" fill="#f472b6" opacity="0.85"/>
+            <!-- Hai Má Hồng Phấn Cưng Xỉu -->
+            <ellipse cx="34" cy="42" rx="3.5" ry="2" fill="#f87171" opacity="0.85"/>
+            <ellipse cx="66" cy="42" rx="3.5" ry="2" fill="#f87171" opacity="0.85"/>
 
-            <!-- Miệng Cười Híp Mắt -->
-            <path id="botSmile" d="M46.5 41Q50 44.5 53.5 41" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+            <!-- Nụ Cười Xinh Xắn -->
+            <path id="botSmile" d="M47 39.5Q50 43 53 39.5" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" fill="none"/>
           </svg>
         </div>
         <div class="robot-shadow"></div>
       </div>
 
+      <!-- TIÊU ĐỀ HOẠT ĐỘNG VỚI CÂN BẰNG DÒNG THÔNG MINH -->
       <div class="header-minimal">
         <span class="header-sub-tag">ĐĂNG KÝ HOẠT ĐỘNG</span>
         <h1 class="program-heading" id="displayProgramTitle">ĐANG TẢI...</h1>
       </div>
 
+      <!-- BANNER CẢNH BÁO KHÔNG TÌM THẤY CHƯƠNG TRÌNH / THIẾU LINK -->
       <div class="alert-banner danger" id="noEventNoticeBox" style="display: none;">
-        <span>⚠️</span>
+        <span style="font-size: 18px;">⚠️</span>
         <div>
-          <strong style="color: #991b1b;">Hệ thống chưa tìm ra chương trình!</strong><br/>
-          <span>Vui lòng kiểm tra lại liên kết hoặc liên hệ email: <a href="mailto:vpdhump@gmail.com" style="color: #1e40af; font-weight: 700;">vpdhump@gmail.com</a>.</span>
+          <strong style="color: #991b1b; font-size: 13px;">Hệ thống chưa tìm ra chương trình!</strong><br/>
+          <span style="font-size: 12px; opacity: 0.95;">
+            Đường dẫn chưa chứa mã chương trình hoặc sự kiện không tồn tại. Vui lòng kiểm tra lại liên kết hoặc liên hệ email: 
+            <a href="mailto:vpdhump@gmail.com" style="color: #1e40af; font-weight: 700; text-decoration: underline;">vpdhump@gmail.com</a> để được hỗ trợ.
+          </span>
         </div>
       </div>
 
+      <!-- CẢNH BÁO ĐÓNG CỔNG (KHI J2 ĐÓNG HOẶC ĐỦ CHỈ TIÊU) -->
       <div class="alert-banner warning" id="closedNoticeBox" style="display: none;">
         <span>⚠️</span>
         <div>
           <strong style="color: #854d0e;">CỔNG ĐĂNG KÝ TẠM ĐÓNG</strong><br/>
-          <span id="closedNoticeText">Chương trình hiện đã kết thúc đăng ký.</span>
+          <span id="closedNoticeText" style="font-size: 11.5px; opacity: 0.95;">
+            Chương trình hiện đã đủ số lượng hoặc đã kết thúc đăng ký. Sinh viên đã đăng ký vẫn có thể nhập MSSV để tra cứu điểm danh &amp; kết quả.
+          </span>
         </div>
       </div>
 
+      <!-- Ô NHẬP MSSV DUY NHẤT -->
       <div class="form-group" id="mssvSearchContainer">
         <label class="input-label" for="inputMSSV">MÃ SỐ SINH VIÊN (MSSV)</label>
         <div class="input-row">
-          <input autocomplete="off" class="form-control-custom" id="inputMSSV" placeholder="Ví dụ: 21121410xx..." type="text" onkeydown="if(event.key==='Enter') handleCheck()"/>
+          <input autocomplete="off" 
+                 class="form-control-custom" 
+                 id="inputMSSV" 
+                 placeholder="Ví dụ: 2153010xxx..." 
+                 type="text"
+                 onkeydown="if(event.key==='Enter') handleCheck()"/>
           <button class="btn-submit-main" id="btnCheck" onclick="handleCheck()">
             <span id="btnCheckIcon">🔍</span>
             <span id="btnCheckText">Kiểm tra</span>
@@ -952,31 +994,46 @@
         </div>
       </div>
 
-      <!-- FORM DÀNH CHO SINH VIÊN CHƯA ĐĂNG KÝ -->
+      <!-- KHUNG 1: DÀNH CHO SV CHƯA ĐĂNG KÝ (FORM EMAIL/SĐT) -->
       <div class="result-card-box" id="regFormContainer" style="display: none;">
         <div class="result-badge-strip">
-          <div class="result-lead-title"><span>✓</span> ĐÃ XÁC THỰC SINH VIÊN</div>
-          <span class="status-badge" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;">Chưa đăng ký</span>
+          <div class="result-lead-title">
+            <span>✓</span> ĐÃ XÁC THỰC SINH VIÊN
+          </div>
+          <span class="status-badge" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;">
+            Chưa đăng ký
+          </span>
         </div>
+
         <div class="student-highlight-name" id="regName">--</div>
         <div class="student-meta-sub">
           MSSV: <strong id="regMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="regClass">--</span> | Trường/khoa: <span id="regFaculty">--</span>
         </div>
+
         <div style="border-top: 1px dashed #e2e8f0; padding-top: 14px;">
+          <!-- Ô NHẬP EMAIL VỚI ĐUÔI @ump.edu.vn CỐ ĐỊNH -->
           <div class="form-group">
-            <label class="input-label" for="regEmail">ĐỊA CHỈ EMAIL TRƯỜNG CẤP <span style="color: #ef4444;">*</span></label>
+            <label class="input-label" for="regEmail">
+              ĐỊA CHỈ EMAIL TRƯỜNG CẤP <span style="color: #ef4444;">*</span>
+            </label>
             <div class="email-input-group">
-              <input autocomplete="off" class="email-input-field" id="regEmail" placeholder="Ví dụ: nguyenvana" type="text"/>
+              <input autocomplete="off" 
+                     class="email-input-field" 
+                     id="regEmail" 
+                     placeholder="Ví dụ: nguyenvana" 
+                     type="text"/>
               <div class="email-domain-addon">@ump.edu.vn</div>
             </div>
             <span style="font-size: 11px; color: #64748b; margin-top: 5px; display: block;">
-              💡 Tự động gắn đuôi <strong>@ump.edu.vn</strong>
+              💡 Chỉ cần nhập tên tài khoản, hệ thống sẽ tự ghép đuôi <strong>@ump.edu.vn</strong>
             </span>
           </div>
+
           <div class="form-group">
             <label class="input-label" for="regPhone">SỐ ĐIỆN THOẠI DI ĐỘNG <span style="color: #ef4444;">*</span></label>
             <input class="form-control-custom" id="regPhone" placeholder="0901234xxx" type="tel"/>
           </div>
+
           <button class="btn-submit-main btn-full" id="btnConfirm" onclick="handleRegister()">
             <span id="btnConfirmIcon">✍️</span>
             <span id="btnConfirmText">XÁC NHẬN ĐĂNG KÝ →</span>
@@ -984,47 +1041,65 @@
         </div>
       </div>
 
-      <!-- KẾT QUẢ CHO SINH VIÊN ĐÃ ĐĂNG KÝ -->
+      <!-- KHUNG 2: DÀNH CHO SV ĐÃ ĐĂNG KÝ (TRA CỨU ĐIỂM DANH & ĐIỂM SỐ) -->
       <div class="result-card-box" id="statusContainer" style="display: none;">
         <div class="result-badge-strip">
-          <div class="result-lead-title"><span>📋</span> HỒ SƠ THAM GIA</div>
-          <div style="display: flex; gap: 8px; align-items: center;">
+          <div class="result-lead-title">
+            <span>📋</span> HỒ SƠ THAM GIA HOẠT ĐỘNG
+          </div>
+          <div class="badge-actions-wrap">
             <div id="resAttend"></div>
-            <button class="btn-feedback-trigger" onclick="openFeedbackModal()"><span>📢</span> Gửi phản hồi</button>
+            <!-- NÚT GỬI PHẢN HỒI NỔI BẬT THEO MẪU -->
+            <button class="btn-feedback-trigger" onclick="openFeedbackModal()">
+              <span>📢</span> Gửi phản hồi
+            </button>
           </div>
         </div>
+
         <div class="student-highlight-name" id="resName">--</div>
         <div class="student-meta-sub">
           MSSV: <strong id="resMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="resClass">--</span> | Trường/khoa: <span id="resFaculty">--</span>
         </div>
+
         <div class="info-grid-list">
-          <div class="info-grid-row"><span class="info-label">Email:</span><span class="info-value" id="resEmail">--</span></div>
-          <div class="info-grid-row"><span class="info-label">Số điện thoại:</span><span class="info-value" id="resPhone">--</span></div>
+          <div class="info-grid-row">
+            <span class="info-label">Email:</span>
+            <span class="info-value" id="resEmail">--</span>
+          </div>
+          <div class="info-grid-row">
+            <span class="info-label">Số điện thoại:</span>
+            <span class="info-value" id="resPhone">--</span>
+          </div>
           <div class="info-grid-row" style="border-top: 1px dashed #e2e8f0; padding-top: 8px;">
             <span class="info-label">Điểm / Đánh giá:</span>
-            <span class="info-value"><span class="score-pill" id="resScore">Chưa cập nhật</span></span>
+            <span class="info-value">
+              <span class="score-pill" id="resScore">Chưa cập nhật</span>
+            </span>
           </div>
         </div>
-        <div style="font-size: 11px; color: #94a3b8; text-align: right; margin-top: 8px;">
+
+        <div class="time-stamp-note">
           Thời gian nộp: <span id="resTime">--</span>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- MODAL GỬI PHẢN HỒI KHIẾU NẠI -->
+  <!-- MODAL POPUP: PHẢN HỒI KẾT QUẢ THAM GIA -->
   <div class="modal-overlay" id="feedbackModal">
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title">Phản hồi kết quả tham gia</h3>
         <button class="btn-close-modal" onclick="closeFeedbackModal()">✕</button>
       </div>
+
       <div class="form-group">
-        <label class="input-label">CHƯƠNG TRÌNH</label>
-        <input class="form-control-custom" id="fbEventTitle" type="text" readonly style="background-color: #f1f5f9;"/>
+        <label class="input-label">CHƯƠNG TRÌNH CẦN PHẢN HỒI *</label>
+        <input class="form-control-custom" id="fbEventTitle" type="text" readonly style="background-color: #f1f5f9; cursor: default;"/>
       </div>
+
       <div class="form-group">
-        <label class="input-label">VẤN ĐỀ *</label>
+        <label class="input-label">VẤN ĐỀ GẶP PHẢI *</label>
         <select class="modal-select" id="fbIssueType">
           <option value="Đã tham gia nhưng hiển thị vắng mặt">Đã tham gia nhưng hiển thị vắng mặt</option>
           <option value="Điểm số / Đánh giá chưa chính xác">Điểm số / Đánh giá chưa chính xác</option>
@@ -1032,18 +1107,21 @@
           <option value="Vấn đề khác cần hỗ trợ">Vấn đề khác cần hỗ trợ</option>
         </select>
       </div>
+
       <div class="form-group">
         <label class="input-label">CHI TIẾT PHẢN HỒI *</label>
-        <textarea class="modal-textarea" id="fbDetail" rows="3" placeholder="Ghi rõ thông tin cần giải quyết..."></textarea>
+        <textarea class="modal-textarea" id="fbDetail" placeholder="Ghi rõ thời gian, ca trực hoặc nội dung thắc mắc..."></textarea>
       </div>
+
       <div class="form-group">
-        <label class="input-label">ẢNH MINH CHỨNG (NẾU CÓ)</label>
+        <label class="input-label">ẢNH MINH CHỨNG (ẢNH CHECK-IN / GIẤY XÁC NHẬN)</label>
         <label class="file-input-wrapper">
-          <input type="file" id="fbEvidenceFile" accept="image/*" style="display:none;" onchange="handleFileSelect(event)">
-          <span>📎</span>
-          <span id="fbFileName" style="font-size: 12px; color: #475569;">Chọn tệp ảnh minh chứng (tối đa 5MB)...</span>
+          <input type="file" id="fbEvidenceFile" accept="image/*" onchange="handleFileSelect(event)">
+          <span style="font-size: 16px;">📎</span>
+          <span class="file-label-text" id="fbFileName">Chọn tệp hình ảnh (tối đa 5MB)...</span>
         </label>
       </div>
+
       <button class="btn-submit-main btn-full" id="btnSubmitFeedback" onclick="submitStudentFeedback()">
         <span id="btnFbIcon">📤</span>
         <span id="btnFbText">GỬI PHẢN HỒI TỚI BAN TỔ CHỨC →</span>
@@ -1051,7 +1129,7 @@
     </div>
   </div>
 
-  <!-- FOOTER CHUẨN ĐẦY ĐỦ 3 CỘT -->
+  <!-- 4. FOOTER ĐỒNG BỘ 3 CỘT -->
   <footer class="portal-footer" id="portalFooter">
     <div class="footer-grid">
       <div>
@@ -1075,19 +1153,19 @@
 
   <script>
     // ======================================================================
-    // THAY ĐÚNG LINK TRIỂN KHAI APPS SCRIPT CỦA BẠN VÀO ĐÂY:
+    // CẤU HÌNH API GOOGLE APPS SCRIPT
     // ======================================================================
-    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxxxY8la40nPgXPd_wf-aJCKvfpaY0PZJBArm_EhjZCmex8HTcCOVpwsggO05MSJzyL/exec"; 
+    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxxxY8la40nPgXPd_wf-aJCKvfpaY0PZJBArm_EhjZCmex8HTcCOVpwsggO05MSJzyL/exec"; // Dán URL Deployment của bạn vào đây
 
+    // Đọc mã sự kiện từ tham số URL (?event=MãTab), không gán cứng mặc định
     const urlParams = new URLSearchParams(window.location.search);
-    const rawEvent = urlParams.get('event');
-    const currentEvent = rawEvent ? rawEvent.trim() : "";
+    const rawEventParam = urlParams.get('event');
+    const currentEvent = rawEventParam ? rawEventParam.trim() : "";
 
     let foundStudent = null;
     let currentRegisteredData = null;
-    let selectedFileObject = null;
+    let selectedBase64Image = "";
 
-    // Robot AI tương tác sinh động với lời thoại
     function triggerRobotReaction(mode = 'happy') {
       const eyeL = document.getElementById('botEyeLeft');
       const eyeR = document.getElementById('botEyeRight');
@@ -1097,31 +1175,26 @@
       if (!eyeL || !eyeR || !smile) return;
 
       if (mode === 'happy') {
-        eyeL.setAttribute('rx', '5');
-        eyeR.setAttribute('rx', '5');
-        smile.setAttribute('d', 'M45 40Q50 46 55 40');
-        if (bubble) bubble.innerHTML = "🎉 Tuyệt vời! Hồ sơ của bạn đã sẵn sàng!";
+        eyeL.setAttribute('stroke-width', '4');
+        eyeR.setAttribute('stroke-width', '4');
       } else if (mode === 'wink') {
-        eyeL.setAttribute('ry', '1.2');
-        if (bubble) bubble.innerHTML = "🔍 Đang tra cứu dữ liệu sinh viên...";
-        setTimeout(() => eyeL.setAttribute('ry', '5.5'), 600);
+        if (bubble) bubble.innerHTML = "<span>🔍 Đang tra cứu dữ liệu...</span>";
       } else if (mode === 'sad') {
-        eyeL.setAttribute('ry', '2');
-        eyeR.setAttribute('ry', '2');
-        smile.setAttribute('d', 'M46 44Q50 41 54 44');
-        if (bubble) bubble.innerHTML = "🥺 Ơ kìa, chưa tìm thấy hoặc có chút nhầm lẫn!";
+        eyeL.setAttribute('d', 'M37 35C40 37 42 37 44 35');
+        eyeR.setAttribute('d', 'M56 35C59 37 61 37 63 35');
+        if (bubble) bubble.innerHTML = "<span>🥺 Chưa tìm thấy dữ liệu bạn ơi!</span>";
       }
 
       setTimeout(() => {
-        eyeL.setAttribute('rx', '4.2');
-        eyeL.setAttribute('ry', '5.5');
-        eyeR.setAttribute('rx', '4.2');
-        eyeR.setAttribute('ry', '5.5');
-        smile.setAttribute('d', 'M46.5 41Q50 44.5 53.5 41');
-        if (bubble) bubble.innerHTML = "👋 Xin chào! Mình là Robot AI hỗ trợ sinh viên UMP 🩺✨";
-      }, 3600);
+        eyeL.setAttribute('stroke-width', '3.4');
+        eyeR.setAttribute('stroke-width', '3.4');
+        eyeL.setAttribute('d', 'M37 36C37 32.5 41 31 44 34.5');
+        eyeR.setAttribute('d', 'M56 36C56 32.5 60 31 63 34.5');
+        if (bubble) bubble.innerHTML = "<span>👋 Xin chào! Mình là Robot AI hỗ trợ sinh viên UMP 🩺✨</span>";
+      }, 3500);
     }
 
+    // Hiển thị thông báo Alert
     function showAlert(msg, type = 'danger') {
       const icon = type === 'success' ? '✓' : (type === 'warning' ? '⚠️' : '✕');
       document.getElementById('alertBox').innerHTML = `
@@ -1132,56 +1205,86 @@
       `;
     }
 
-    function clearAlert() { document.getElementById('alertBox').innerHTML = ''; }
+    function clearAlert() {
+      document.getElementById('alertBox').innerHTML = '';
+    }
 
-    // TẢI TÊN CHƯƠNG TRÌNH TỪ Ô L1 VÀ CẤU HÌNH ĐÓNG/MỞ
+    // Tự động kiểm tra URL tham số và tải cấu hình sự kiện
     window.addEventListener('DOMContentLoaded', () => {
       const titleElem = document.getElementById('displayProgramTitle');
       const noEventBox = document.getElementById('noEventNoticeBox');
 
+      // NẾU KHÔNG CÓ THAM SỐ ?event= HOẶC THAM SỐ RỖNG
       if (!currentEvent) {
         titleElem.innerText = "CHƯA XÁC ĐỊNH CHƯƠNG TRÌNH";
         titleElem.style.color = "#dc2626";
+        document.title = "Chưa tìm ra chương trình - UMP";
+
         if (noEventBox) noEventBox.style.display = 'flex';
-        document.getElementById('inputMSSV').disabled = true;
-        document.getElementById('btnCheck').disabled = true;
+
+        const inputEl = document.getElementById('inputMSSV');
+        const btnEl = document.getElementById('btnCheck');
+        if (inputEl) {
+          inputEl.disabled = true;
+          inputEl.placeholder = "Vui lòng truy cập từ liên kết hợp lệ...";
+        }
+        if (btnEl) {
+          btnEl.disabled = true;
+          btnEl.style.opacity = "0.5";
+          btnEl.style.cursor = "not-allowed";
+        }
+
         triggerRobotReaction('sad');
         return;
       }
 
-      // Gọi API initEvent
-      fetch(`${GAS_API_URL}?action=initEvent&event=${encodeURIComponent(currentEvent)}`, { redirect: "follow" })
+      // NẾU CÓ ?event= : GỌI API INIT SỰ KIỆN TỪ GOOGLE APPS SCRIPT
+      const apiUrl = `${GAS_API_URL}?action=initEvent&event=${encodeURIComponent(currentEvent)}`;
+
+      fetch(apiUrl, { method: "GET", redirect: "follow" })
         .then(r => r.json())
         .then(res => {
           if (res.success) {
             titleElem.innerText = res.title || currentEvent;
-            document.title = res.title || currentEvent;
+            titleElem.style.color = "#0f172a";
+            document.title = (res.title || currentEvent);
             document.getElementById('fbEventTitle').value = res.title || currentEvent;
+
             if (!res.isOpen) {
-              document.getElementById('closedNoticeText').innerText = res.message || "Cổng đã đóng!";
+              document.getElementById('closedNoticeText').innerText = res.message || "Cổng đăng ký chương trình hiện đã đóng!";
               document.getElementById('closedNoticeBox').style.display = 'flex';
             }
           } else {
             titleElem.innerText = "HỆ THỐNG CHƯA TÌM RA CHƯƠNG TRÌNH";
             titleElem.style.color = "#dc2626";
             if (noEventBox) noEventBox.style.display = 'flex';
-            document.getElementById('inputMSSV').disabled = true;
-            document.getElementById('btnCheck').disabled = true;
+            
+            const inputEl = document.getElementById('inputMSSV');
+            const btnEl = document.getElementById('btnCheck');
+            if (inputEl) inputEl.disabled = true;
+            if (btnEl) btnEl.disabled = true;
             triggerRobotReaction('sad');
           }
         })
         .catch(err => {
-          console.error("Lỗi nạp thông tin sự kiện:", err);
+          console.warn("Không kết nối được cấu hình ban đầu:", err);
           titleElem.innerText = currentEvent;
+          document.getElementById('fbEventTitle').value = currentEvent;
         });
     });
 
+    // Bấm nút kiểm tra MSSV
     function handleCheck() {
-      if (!currentEvent) return showAlert('Hệ thống chưa tìm ra chương trình!', 'danger');
+      if (!currentEvent) {
+        return showAlert('Hệ thống chưa tìm ra chương trình, liên hệ email: vpdhump@gmail.com', 'danger');
+      }
 
       const inputEl = document.getElementById('inputMSSV');
       const cleanMSSV = inputEl.value.replace(/['"\s]/g, '').toUpperCase();
-      if (!cleanMSSV) return showAlert('Vui lòng nhập MSSV!', 'warning');
+
+      if (!cleanMSSV) {
+        return showAlert('Vui lòng nhập Mã số sinh viên (MSSV)!', 'warning');
+      }
 
       clearAlert();
       document.getElementById('regFormContainer').style.display = 'none';
@@ -1191,94 +1294,119 @@
       const btnIcon = document.getElementById('btnCheckIcon');
       const btnText = document.getElementById('btnCheckText');
 
-      btn.disabled = true; inputEl.disabled = true;
+      btn.disabled = true;
+      inputEl.disabled = true;
       btn.classList.add('btn-loading');
       btnIcon.innerHTML = `<span class="spinner-loader"></span>`;
       btnText.innerText = "Đang tìm...";
       triggerRobotReaction('wink');
 
-      fetch(`${GAS_API_URL}?action=checkMSSV&mssv=${encodeURIComponent(cleanMSSV)}&event=${encodeURIComponent(currentEvent)}`, { redirect: "follow" })
+      fetch(`${GAS_API_URL}?action=checkMSSV&mssv=${encodeURIComponent(cleanMSSV)}&event=${encodeURIComponent(currentEvent)}`)
         .then(r => r.json())
         .then(res => {
-          btn.disabled = false; inputEl.disabled = false;
+          btn.disabled = false;
+          inputEl.disabled = false;
           btn.classList.remove('btn-loading');
-          btnIcon.innerText = "🔍"; btnText.innerText = "Kiểm tra";
+          btnIcon.innerText = "🔍";
+          btnText.innerText = "Kiểm tra";
 
           if (!res.success) {
             triggerRobotReaction('sad');
-            return showAlert(res.message, res.isClosed ? 'warning' : 'danger');
+            showAlert(res.message || "Không tìm thấy thông tin sinh viên!", res.isClosed ? 'warning' : 'danger');
+            return;
           }
 
           triggerRobotReaction('happy');
 
+          // TRƯỜNG HỢP 1: ĐÃ ĐĂNG KÝ -> HIỂN THỊ KẾT QUẢ
           if (res.status === 'ALREADY_REGISTERED') {
             const d = res.data;
             currentRegisteredData = d;
-            document.getElementById('resName').innerText = d.hoten;
-            document.getElementById('resMssv').innerText = d.mssv;
-            document.getElementById('resClass').innerText = d.lop;
-            document.getElementById('resFaculty').innerText = d.truongkhoa;
-            document.getElementById('resEmail').innerText = d.email;
-            document.getElementById('resPhone').innerText = d.sdt;
-            document.getElementById('resScore').innerText = d.diem;
-            document.getElementById('resTime').innerText = d.time;
 
-            document.getElementById('resAttend').innerHTML = d.diemdanh 
-              ? `<span class="status-badge badge-attended">✓ ĐÃ ĐIỂM DANH</span>`
-              : `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
+            document.getElementById('resName').innerText = d.hoten || "Sinh viên";
+            document.getElementById('resMssv').innerText = d.mssv || cleanMSSV;
+            document.getElementById('resClass').innerText = d.lop || "--";
+            document.getElementById('resFaculty').innerText = d.truongkhoa || "--";
+            document.getElementById('resEmail').innerText = d.email || "--";
+            document.getElementById('resPhone').innerText = d.sdt || "--";
+            document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
+            document.getElementById('resTime').innerText = d.time || "Đã ghi nhận";
+
+            const attendElem = document.getElementById('resAttend');
+            if (d.diemdanh) {
+              attendElem.innerHTML = `<span class="status-badge badge-attended">✓ ĐÃ ĐIỂM DANH</span>`;
+            } else {
+              attendElem.innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
+            }
 
             document.getElementById('statusContainer').style.display = 'block';
-          } else if (res.status === 'NOT_REGISTERED') {
+          }
+
+          // TRƯỜNG HỢP 2: CHƯA ĐĂNG KÝ -> MỞ FORM ĐIỀN EMAIL/SĐT
+          else if (res.status === 'NOT_REGISTERED') {
             foundStudent = res.data;
             currentRegisteredData = null;
-            document.getElementById('regName').innerText = foundStudent.hoten;
-            document.getElementById('regMssv').innerText = foundStudent.mssv;
-            document.getElementById('regClass').innerText = foundStudent.lop;
-            document.getElementById('regFaculty').innerText = foundStudent.truongkhoa;
+
+            document.getElementById('regName').innerText = foundStudent.hoten || "Sinh viên";
+            document.getElementById('regMssv').innerText = foundStudent.mssv || cleanMSSV;
+            document.getElementById('regClass').innerText = foundStudent.lop || "--";
+            document.getElementById('regFaculty').innerText = foundStudent.truongkhoa || "--";
             document.getElementById('regEmail').value = '';
             document.getElementById('regPhone').value = '';
+
             document.getElementById('regFormContainer').style.display = 'block';
           }
         })
         .catch(err => {
-          btn.disabled = false; inputEl.disabled = false;
+          console.error("Lỗi API checkMSSV:", err);
+          btn.disabled = false;
+          inputEl.disabled = false;
           btn.classList.remove('btn-loading');
-          btnIcon.innerText = "🔍"; btnText.innerText = "Kiểm tra";
-          showAlert('Lỗi kết nối máy chủ, vui lòng thử lại sau!', 'warning');
+          btnIcon.innerText = "🔍";
+          btnText.innerText = "Kiểm tra";
+          showAlert('Hệ thống đang bận hoặc lỗi kết nối. Vui lòng bấm thử lại!', 'warning');
         });
     }
 
+    // Gửi đăng ký tham gia chương trình (TỰ ĐỘNG GHÉP ĐUÔI @ump.edu.vn)
     function handleRegister() {
       if (!foundStudent) return;
-      if (!currentEvent) return showAlert('Chưa xác định chương trình!', 'danger');
+      if (!currentEvent) {
+        return showAlert('Hệ thống chưa tìm ra chương trình, liên hệ email: vpdhump@gmail.com', 'danger');
+      }
 
       const emailInput = document.getElementById('regEmail');
       const phoneInput = document.getElementById('regPhone');
-      let rawEmail = emailInput.value.trim().toLowerCase();
+      
+      let rawEmailName = emailInput.value.trim().toLowerCase();
       const phone = phoneInput.value.trim();
 
-      if (rawEmail.includes('@')) rawEmail = rawEmail.split('@')[0].trim();
-      if (!rawEmail || !/^[a-z0-9._-]+$/.test(rawEmail)) {
+      if (rawEmailName.includes('@')) {
+        rawEmailName = rawEmailName.split('@')[0].trim();
+      }
+
+      if (!rawEmailName || !/^[a-z0-9._-]+$/.test(rawEmailName)) {
         triggerRobotReaction('sad');
         return showAlert('Vui lòng nhập tên tài khoản email trường cấp hợp lệ!', 'warning');
       }
 
-      const fullEmail = rawEmail + "@ump.edu.vn";
+      const fullEmail = rawEmailName + "@ump.edu.vn";
+
       if (!phone || !/^[0-9]{9,11}$/.test(phone)) {
         triggerRobotReaction('sad');
-        return showAlert('Vui lòng nhập số điện thoại hợp lệ (9 - 11 chữ số)!', 'warning');
+        return showAlert('Vui lòng nhập Số điện thoại hợp lệ (9 - 11 chữ số)!', 'warning');
       }
 
       clearAlert();
 
       const btn = document.getElementById('btnConfirm');
-      const icon = document.getElementById('btnConfirmIcon');
-      const text = document.getElementById('btnConfirmText');
+      const btnIcon = document.getElementById('btnConfirmIcon');
+      const btnText = document.getElementById('btnConfirmText');
 
       btn.disabled = true;
       btn.classList.add('btn-loading');
-      icon.innerHTML = `<span class="spinner-loader"></span>`;
-      text.innerText = "ĐANG GHI NHẬN...";
+      btnIcon.innerHTML = `<span class="spinner-loader"></span>`;
+      btnText.innerText = "ĐANG GHI NHẬN HỒ SƠ...";
       triggerRobotReaction('wink');
 
       const payload = {
@@ -1296,8 +1424,6 @@
 
       fetch(GAS_API_URL, {
         method: "POST",
-        mode: "cors",
-        redirect: "follow",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       })
@@ -1305,8 +1431,8 @@
       .then(res => {
         btn.disabled = false;
         btn.classList.remove('btn-loading');
-        icon.innerText = "✍️";
-        text.innerText = "XÁC NHẬN ĐĂNG KÝ →";
+        btnIcon.innerText = "✍️";
+        btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
 
         if (res.success) {
           triggerRobotReaction('happy');
@@ -1314,39 +1440,46 @@
 
           const d = res.registeredData;
           currentRegisteredData = d;
+
           document.getElementById('resName').innerText = d.hoten;
           document.getElementById('resMssv').innerText = d.mssv;
           document.getElementById('resClass').innerText = d.lop;
           document.getElementById('resFaculty').innerText = d.truongkhoa;
           document.getElementById('resEmail').innerText = d.email;
           document.getElementById('resPhone').innerText = d.sdt;
-          document.getElementById('resScore').innerText = d.diem;
+          document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
           document.getElementById('resTime').innerText = d.time;
           document.getElementById('resAttend').innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
 
           document.getElementById('statusContainer').style.display = 'block';
-          showAlert('🎉 Đăng ký thành công! Thông tin đã được ghi nhận.', 'success');
+          showAlert('🎉 Đăng ký thành công! Thông tin của bạn đã được ghi nhận.', 'success');
         } else {
           triggerRobotReaction('sad');
-          showAlert(res.message || "Đăng ký không thành công!", 'danger');
+          showAlert(res.message || "Đăng ký thất bại, vui lòng kiểm tra lại!", 'danger');
         }
       })
       .catch(err => {
-        console.error("Lỗi register:", err);
+        console.error("Lỗi API register:", err);
         btn.disabled = false;
         btn.classList.remove('btn-loading');
-        icon.innerText = "✍️";
-        text.innerText = "XÁC NHẬN ĐĂNG KÝ →";
-        showAlert('Hệ thống bận hoặc lỗi phản hồi, vui lòng bấm thử lại!', 'warning');
+        btnIcon.innerText = "✍️";
+        btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
+        showAlert('Hệ thống đang quá tải, vui lòng bấm xác nhận lại!', 'warning');
       });
     }
 
+    // ======================================================================
+    // QUẢN LÝ POPUP VÀ GỬI PHẢN HỒI KHIẾU NẠI (CỘT K VÀ TÔ MÀU VÀNG)
+    // ======================================================================
     function openFeedbackModal() {
       const modal = document.getElementById('feedbackModal');
+      const titleElem = document.getElementById('displayProgramTitle');
+      document.getElementById('fbEventTitle').value = titleElem.innerText || currentEvent;
       document.getElementById('fbDetail').value = "";
       document.getElementById('fbEvidenceFile').value = "";
-      document.getElementById('fbFileName').innerText = "Chọn tệp ảnh minh chứng (tối đa 5MB)...";
-      selectedFileObject = null;
+      document.getElementById('fbFileName').innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
+      selectedBase64Image = "";
+
       modal.classList.add('active');
     }
 
@@ -1354,40 +1487,61 @@
       document.getElementById('feedbackModal').classList.remove('active');
     }
 
+    let selectedFileObject = null;
+
+    // 1. Đọc và mã hóa file minh chứng
     function handleFileSelect(event) {
       const file = event.target.files[0];
       const nameLabel = document.getElementById('fbFileName');
+      
       if (!file) {
         selectedFileObject = null;
-        nameLabel.innerText = "Chọn tệp ảnh minh chứng (tối đa 5MB)...";
-        return;
-      }
-      if (file.size > 5 * 1024 * 1024) {
-        alert("Ảnh quá 5MB. Vui lòng chọn ảnh nhẹ hơn!");
-        event.target.value = "";
-        selectedFileObject = null;
+        nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
         return;
       }
 
-      nameLabel.innerText = "Đang xử lý: " + file.name;
+      // Giới hạn dung lượng dưới 5MB để tránh quá tải Apps Script
+      if (file.size > 5 * 1024 * 1024) {
+        alert("Dung lượng ảnh vượt quá 5MB. Vui lòng chọn ảnh nhẹ hơn!");
+        event.target.value = "";
+        selectedFileObject = null;
+        nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
+        return;
+      }
+
+      nameLabel.innerText = "Đang xử lý ảnh: " + file.name + "...";
+
       const reader = new FileReader();
       reader.onload = function(e) {
         selectedFileObject = {
-          fileBase64: e.target.result,
+          fileBase64: e.target.result, // Chứa data:image/...;base64,...
           fileName: file.name,
           fileType: file.type || "image/jpeg"
         };
-        nameLabel.innerText = "✓ Đã chọn: " + file.name;
+        nameLabel.innerText = "✓ Đã tải: " + file.name;
+      };
+      reader.onerror = function() {
+        alert("Không thể đọc tệp ảnh. Vui lòng chọn lại!");
+        selectedFileObject = null;
+        nameLabel.innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
       };
       reader.readAsDataURL(file);
     }
 
+    // 2. Gửi phản hồi kèm link minh chứng khớp chuẩn với Code.gs
     function submitStudentFeedback() {
-      if (!currentRegisteredData) return alert("Không tìm thấy thông tin đăng ký!");
+      if (!currentRegisteredData) {
+        alert("Không tìm thấy thông tin sinh viên đã đăng ký!");
+        return;
+      }
+
       const issueType = document.getElementById('fbIssueType').value;
       const detail = document.getElementById('fbDetail').value.trim();
 
-      if (!detail) return alert("Vui lòng nhập chi tiết phản hồi!");
+      if (!detail) {
+        alert("Vui lòng nhập chi tiết nội dung phản hồi!");
+        return;
+      }
 
       const btn = document.getElementById('btnSubmitFeedback');
       const icon = document.getElementById('btnFbIcon');
@@ -1396,14 +1550,17 @@
       btn.disabled = true;
       btn.classList.add('btn-loading');
       icon.innerHTML = `<span class="spinner-loader"></span>`;
-      text.innerText = "ĐANG GỬI...";
+      text.innerText = "ĐANG GỬI PHẢN HỒI...";
 
+      // Chuẩn bị payload khớp đúng các trường Code.gs đợi
       const payload = {
         action: "submitFeedback",
         tabName: currentEvent,
         mssv: currentRegisteredData.mssv,
+        hoten: currentRegisteredData.hoten,
         issueType: issueType,
         detail: detail,
+        reason: issueType + ": " + detail,
         fileBase64: selectedFileObject ? selectedFileObject.fileBase64 : "",
         fileName: selectedFileObject ? selectedFileObject.fileName : "",
         fileType: selectedFileObject ? selectedFileObject.fileType : ""
@@ -1411,8 +1568,6 @@
 
       fetch(GAS_API_URL, {
         method: "POST",
-        mode: "cors",
-        redirect: "follow",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       })
@@ -1425,20 +1580,29 @@
 
         if (res.success) {
           closeFeedbackModal();
-          triggerRobotReaction('happy');
-          showAlert("🎉 " + res.message, "success");
+          if (typeof triggerRobotReaction === "function") triggerRobotReaction('happy');
+          showAlert("🎉 " + (res.message || "Đã gửi phản hồi thành công! Ban Tổ chức sẽ rà soát và cập nhật."), "success");
         } else {
-          alert(res.message || "Gửi phản hồi thất bại!");
+          alert(res.message || "Gửi phản hồi thất bại, vui lòng thử lại!");
         }
       })
       .catch(err => {
+        console.error("Lỗi submitFeedback:", err);
         btn.disabled = false;
         btn.classList.remove('btn-loading');
         icon.innerText = "📤";
         text.innerText = "GỬI PHẢN HỒI TỚI BAN TỔ CHỨC →";
-        alert("Lỗi kết nối, vui lòng thử lại sau!");
+        alert("Lỗi kết nối máy chủ, vui lòng thử lại sau giây lát!");
       });
     }
+
+    // Đóng modal khi bấm ra ngoài vùng đen
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('feedbackModal');
+      if (e.target === modal) {
+        closeFeedbackModal();
+      }
+    });
   </script>
 </body>
 </html>
