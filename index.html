@@ -144,7 +144,6 @@
       user-select: none;
     }
 
-    /* Bong bóng lời chào tinh tế, ôm sát chữ */
     .robot-speech-bubble {
       position: relative;
       margin-bottom: 12px;
@@ -183,7 +182,6 @@
       50% { transform: translateY(-4px); }
     }
 
-    /* Khung Robot chuẩn tỷ lệ 110px x 110px */
     .robot-svg-wrap {
       width: 110px;
       height: 110px;
@@ -216,7 +214,6 @@
       50% { transform: scale(0.72); opacity: 0.35; }
     }
 
-    /* Hiệu ứng chớp mắt tự nhiên */
     .robot-eyes-anim {
       transform-origin: 50px 42px;
       animation: botBlink 4s infinite ease-in-out;
@@ -227,7 +224,6 @@
       96% { transform: scaleY(0.1); }
     }
 
-    /* Tay vẫy chào mượt mà */
     .robot-hand-anim {
       transform-origin: 78px 66px;
       animation: handWave 1.8s ease-in-out infinite alternate;
@@ -357,6 +353,43 @@
       background-color: #f1f5f9;
       color: #94a3b8;
       cursor: not-allowed;
+    }
+
+    /* KHUNG CHỌN NGÀY / ĐỊA ĐIỂM ĐA LỰA CHỌN */
+    .session-options-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .session-checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.4;
+    }
+
+    .session-checkbox-item:hover {
+      background: #f0f9ff;
+      border-color: #7dd3fc;
+    }
+
+    .session-checkbox-item input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: #1d68f5;
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
     /* KHUNG NHẬP EMAIL VỚI ĐUÔI CỐ ĐỊNH */
@@ -523,7 +556,6 @@
       border: 1px solid #fde68a;
     }
 
-    /* NÚT GỬI PHẢN HỒI MÀU CAM THEO MẪU */
     .btn-feedback-trigger {
       background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
       color: #ffffff;
@@ -580,20 +612,22 @@
     .info-grid-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      word-break: break-all;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     .info-label {
       color: #64748b;
       font-weight: 600;
       min-width: 90px;
+      flex-shrink: 0;
     }
 
     .info-value {
       font-weight: 700;
       color: #0f172a;
       text-align: right;
+      word-break: break-word;
     }
 
     .score-pill {
@@ -603,6 +637,7 @@
       padding: 3px 8px;
       border-radius: 8px;
       font-size: 12.5px;
+      display: inline-block;
     }
 
     .time-stamp-note {
@@ -831,6 +866,7 @@
       .brand-text-identity { font-size: 11px; }
       .live-pulse-badge { display: none; }
       .footer-grid { flex-direction: column; gap: 14px; }
+      .robot-speech-bubble { font-size: 11.5px; padding: 7px 14px; white-space: normal; text-align: center; }
     }
   </style>
 </head>
@@ -863,7 +899,7 @@
     <div id="alertBox"></div>
 
     <div class="portal-card">
-      <!-- MASCOT ROBOT AI UMP THIẾT KẾ MỚI SIÊU XINH -->
+      <!-- MASCOT ROBOT AI UMP -->
       <div class="robot-mascot-container" onclick="triggerRobotReaction()">
         <!-- BONG BÓNG LỜI CHÀO -->
         <div class="robot-speech-bubble" id="robotSpeech">
@@ -873,17 +909,14 @@
         <div class="robot-svg-wrap">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; overflow: visible;">
             <defs>
-              <!-- Gradient thân và đầu trắng sứ bóng mượt -->
               <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stop-color="#ffffff"/>
                 <stop offset="100%" stop-color="#e2f1fd"/>
               </linearGradient>
-              <!-- Gradient xanh nhận diện UMP -->
               <linearGradient id="primaryBlue" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#38bdf8"/>
                 <stop offset="100%" stop-color="#0284c7"/>
               </linearGradient>
-              <!-- Hiệu ứng sáng dịu LED -->
               <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
                 <feGaussianBlur stdDeviation="1.6" result="blur"/>
                 <feComposite in="SourceGraphic" in2="blur" operator="over"/>
@@ -896,7 +929,7 @@
             <circle cx="50" cy="7" r="3" fill="#38bdf8" filter="url(#softGlow)"/>
             <circle cx="49" cy="6" r="1" fill="#ffffff"/>
 
-            <!-- 2. Thân Dưới (Hình giọt nước tròn trịa) -->
+            <!-- 2. Thân Dưới -->
             <path d="M34 52C34 48 66 48 66 52L68 74C68 81 61 86 50 86C39 86 32 81 32 74L34 52Z" fill="url(#bodyGrad)" stroke="#bae6fd" stroke-width="2.5"/>
 
             <!-- Vòng tròn ngực & Chữ thập đỏ Y tế -->
@@ -907,7 +940,7 @@
             <!-- 3. Tay Trái Tựa Bên Hông -->
             <circle cx="28" cy="65" r="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
 
-            <!-- 4. Tay Phải Vẫy Chào Liền Mạch (Có animation) -->
+            <!-- 4. Tay Phải Vẫy Chào Liền Mạch -->
             <g class="robot-hand-anim">
               <path d="M70 63C76 60 83 55 86 49" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
               <path d="M70 63C76 60 83 55 86 49" stroke="#bae6fd" stroke-width="2" stroke-linecap="round" fill="none"/>
@@ -915,46 +948,41 @@
               <circle cx="84.5" cy="46" r="1.8" fill="#ffffff" opacity="0.6"/>
             </g>
 
-            <!-- 5. Hai Tai Nghe Tròn Kiểu Headphone 3D -->
+            <!-- 5. Hai Tai Nghe Tròn -->
             <circle cx="23" cy="36" r="6.5" fill="url(#primaryBlue)"/>
             <circle cx="23" cy="36" r="3.2" fill="#ffffff" opacity="0.7"/>
             <circle cx="77" cy="36" r="6.5" fill="url(#primaryBlue)"/>
             <circle cx="77" cy="36" r="3.2" fill="#ffffff" opacity="0.7"/>
 
-            <!-- 6. Đầu Robot Bầu Bĩnh (Capsule tròn trịa) -->
+            <!-- 6. Đầu Robot Bầu Bĩnh -->
             <rect x="23" y="16" width="54" height="40" rx="20" fill="url(#bodyGrad)" stroke="#38bdf8" stroke-width="2.6"/>
 
-            <!-- 7. Màn Hình Visor Kính Đen Gương Sâu -->
+            <!-- 7. Màn Hình Visor Kính Đen -->
             <rect x="28" y="21" width="44" height="30" rx="15" fill="#0f172a"/>
-            <!-- Vệt phản chiếu ánh sáng mặt kính cong -->
             <path d="M34 25C40 23 50 23 60 25" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.28"/>
 
-            <!-- 8. Khuôn Mặt: Mắt Cười Cong Trăng Khuyết + Má Hồng + Nụ Cười -->
+            <!-- 8. Khuôn Mặt -->
             <g class="robot-eyes-anim">
-              <!-- Mắt Trái -->
               <path id="botEyeLeft" d="M37 36C37 32.5 41 31 44 34.5" stroke="#38bdf8" stroke-width="3.4" stroke-linecap="round" filter="url(#softGlow)" fill="none"/>
-              <!-- Mắt Phải -->
               <path id="botEyeRight" d="M56 36C56 32.5 60 31 63 34.5" stroke="#38bdf8" stroke-width="3.4" stroke-linecap="round" filter="url(#softGlow)" fill="none"/>
             </g>
 
-            <!-- Hai Má Hồng Phấn Cưng Xỉu -->
             <ellipse cx="34" cy="42" rx="3.5" ry="2" fill="#f87171" opacity="0.85"/>
             <ellipse cx="66" cy="42" rx="3.5" ry="2" fill="#f87171" opacity="0.85"/>
 
-            <!-- Nụ Cười Xinh Xắn -->
             <path id="botSmile" d="M47 39.5Q50 43 53 39.5" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" fill="none"/>
           </svg>
         </div>
         <div class="robot-shadow"></div>
       </div>
 
-      <!-- TIÊU ĐỀ HOẠT ĐỘNG VỚI CÂN BẰNG DÒNG THÔNG MINH -->
+      <!-- TIÊU ĐỀ HOẠT ĐỘNG -->
       <div class="header-minimal">
         <span class="header-sub-tag">ĐĂNG KÝ HOẠT ĐỘNG</span>
         <h1 class="program-heading" id="displayProgramTitle">ĐANG TẢI...</h1>
       </div>
 
-      <!-- BANNER CẢNH BÁO KHÔNG TÌM THẤY CHƯƠNG TRÌNH / THIẾU LINK -->
+      <!-- BANNER CẢNH BÁO KHÔNG TÌM THẤY CHƯƠNG TRÌNH -->
       <div class="alert-banner danger" id="noEventNoticeBox" style="display: none;">
         <span style="font-size: 18px;">⚠️</span>
         <div>
@@ -966,7 +994,7 @@
         </div>
       </div>
 
-      <!-- CẢNH BÁO ĐÓNG CỔNG (KHI J2 ĐÓNG HOẶC ĐỦ CHỈ TIÊU) -->
+      <!-- CẢNH BÁO ĐÓNG CỔNG -->
       <div class="alert-banner warning" id="closedNoticeBox" style="display: none;">
         <span>⚠️</span>
         <div>
@@ -1034,6 +1062,12 @@
             <input class="form-control-custom" id="regPhone" placeholder="0901234xxx" type="tel"/>
           </div>
 
+          <!-- KHUNG CHỌN NGÀY / ĐỊA ĐIỂM (TỰ HIỆN KHI Ô M1 TRÊN SHEET CÓ DỮ LIỆU) -->
+          <div class="form-group" id="sessionSelectGroup" style="display: none;">
+            <label class="input-label">CHỌN NGÀY / ĐỊA ĐIỂM THAM GIA (CÓ THỂ CHỌN CẢ 2) <span style="color: #ef4444;">*</span></label>
+            <div class="session-options-box" id="sessionCheckboxesContainer"></div>
+          </div>
+
           <button class="btn-submit-main btn-full" id="btnConfirm" onclick="handleRegister()">
             <span id="btnConfirmIcon">✍️</span>
             <span id="btnConfirmText">XÁC NHẬN ĐĂNG KÝ →</span>
@@ -1049,7 +1083,6 @@
           </div>
           <div class="badge-actions-wrap">
             <div id="resAttend"></div>
-            <!-- NÚT GỬI PHẢN HỒI NỔI BẬT THEO MẪU -->
             <button class="btn-feedback-trigger" onclick="openFeedbackModal()">
               <span>📢</span> Gửi phản hồi
             </button>
@@ -1069,6 +1102,10 @@
           <div class="info-grid-row">
             <span class="info-label">Số điện thoại:</span>
             <span class="info-value" id="resPhone">--</span>
+          </div>
+          <div class="info-grid-row" id="resSessionRow" style="display: none;">
+            <span class="info-label">Lịch đăng ký:</span>
+            <span class="info-value" id="resSessions" style="color: #0284c7;">--</span>
           </div>
           <div class="info-grid-row" style="border-top: 1px dashed #e2e8f0; padding-top: 8px;">
             <span class="info-label">Điểm / Đánh giá:</span>
@@ -1157,14 +1194,13 @@
     // ======================================================================
     const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxxxY8la40nPgXPd_wf-aJCKvfpaY0PZJBArm_EhjZCmex8HTcCOVpwsggO05MSJzyL/exec"; // Dán URL Deployment của bạn vào đây
 
-    // Đọc mã sự kiện từ tham số URL (?event=MãTab), không gán cứng mặc định
     const urlParams = new URLSearchParams(window.location.search);
     const rawEventParam = urlParams.get('event');
     const currentEvent = rawEventParam ? rawEventParam.trim() : "";
 
     let foundStudent = null;
     let currentRegisteredData = null;
-    let selectedBase64Image = "";
+    let eventSessionOptions = [];
 
     function triggerRobotReaction(mode = 'happy') {
       const eyeL = document.getElementById('botEyeLeft');
@@ -1194,7 +1230,6 @@
       }, 3500);
     }
 
-    // Hiển thị thông báo Alert
     function showAlert(msg, type = 'danger') {
       const icon = type === 'success' ? '✓' : (type === 'warning' ? '⚠️' : '✕');
       document.getElementById('alertBox').innerHTML = `
@@ -1214,7 +1249,6 @@
       const titleElem = document.getElementById('displayProgramTitle');
       const noEventBox = document.getElementById('noEventNoticeBox');
 
-      // NẾU KHÔNG CÓ THAM SỐ ?event= HOẶC THAM SỐ RỖNG
       if (!currentEvent) {
         titleElem.innerText = "CHƯA XÁC ĐỊNH CHƯƠNG TRÌNH";
         titleElem.style.color = "#dc2626";
@@ -1238,7 +1272,6 @@
         return;
       }
 
-      // NẾU CÓ ?event= : GỌI API INIT SỰ KIỆN TỪ GOOGLE APPS SCRIPT
       const apiUrl = `${GAS_API_URL}?action=initEvent&event=${encodeURIComponent(currentEvent)}`;
 
       fetch(apiUrl, { method: "GET", redirect: "follow" })
@@ -1249,6 +1282,21 @@
             titleElem.style.color = "#0f172a";
             document.title = (res.title || currentEvent);
             document.getElementById('fbEventTitle').value = res.title || currentEvent;
+
+            // Xử lý hiển thị danh sách chọn ngày / địa điểm nếu ô M1 có dữ liệu
+            eventSessionOptions = res.sessionOptions || [];
+            const sessionGroup = document.getElementById('sessionSelectGroup');
+            const sessionContainer = document.getElementById('sessionCheckboxesContainer');
+
+            if (eventSessionOptions.length > 0 && sessionGroup && sessionContainer) {
+              sessionContainer.innerHTML = eventSessionOptions.map(opt => `
+                <label class="session-checkbox-item">
+                  <input type="checkbox" name="regSession" value="${opt.replace(/"/g, '&quot;')}">
+                  <span>${opt}</span>
+                </label>
+              `).join('');
+              sessionGroup.style.display = 'block';
+            }
 
             if (!res.isOpen) {
               document.getElementById('closedNoticeText').innerText = res.message || "Cổng đăng ký chương trình hiện đã đóng!";
@@ -1301,7 +1349,7 @@
       btnText.innerText = "Đang tìm...";
       triggerRobotReaction('wink');
 
-      fetch(`${GAS_API_URL}?action=checkMSSV&mssv=${encodeURIComponent(cleanMSSV)}&event=${encodeURIComponent(currentEvent)}`)
+      fetch(`${GAS_API_URL}?action=checkMSSV&mssv=${encodeURIComponent(cleanMSSV)}&event=${encodeURIComponent(currentEvent)}`, { redirect: "follow" })
         .then(r => r.json())
         .then(res => {
           btn.disabled = false;
@@ -1332,6 +1380,14 @@
             document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
             document.getElementById('resTime').innerText = d.time || "Đã ghi nhận";
 
+            const sessionRow = document.getElementById('resSessionRow');
+            if (d.sessions) {
+              document.getElementById('resSessions').innerText = d.sessions;
+              sessionRow.style.display = 'flex';
+            } else {
+              sessionRow.style.display = 'none';
+            }
+
             const attendElem = document.getElementById('resAttend');
             if (d.diemdanh) {
               attendElem.innerHTML = `<span class="status-badge badge-attended">✓ ĐÃ ĐIỂM DANH</span>`;
@@ -1354,6 +1410,9 @@
             document.getElementById('regEmail').value = '';
             document.getElementById('regPhone').value = '';
 
+            // Bỏ tick các checkbox ngày cũ nếu có
+            document.querySelectorAll('input[name="regSession"]').forEach(cb => cb.checked = false);
+
             document.getElementById('regFormContainer').style.display = 'block';
           }
         })
@@ -1368,7 +1427,7 @@
         });
     }
 
-    // Gửi đăng ký tham gia chương trình (TỰ ĐỘNG GHÉP ĐUÔI @ump.edu.vn)
+    // Gửi đăng ký tham gia chương trình
     function handleRegister() {
       if (!foundStudent) return;
       if (!currentEvent) {
@@ -1397,6 +1456,17 @@
         return showAlert('Vui lòng nhập Số điện thoại hợp lệ (9 - 11 chữ số)!', 'warning');
       }
 
+      // Kiểm tra bắt buộc chọn ngày nếu sự kiện có cấu hình đa ngày (ô M1)
+      let selectedSessionsStr = "";
+      if (eventSessionOptions.length > 0) {
+        const checkedBoxes = Array.from(document.querySelectorAll('input[name="regSession"]:checked'));
+        if (checkedBoxes.length === 0) {
+          triggerRobotReaction('sad');
+          return showAlert('Vui lòng chọn ít nhất 1 ngày / địa điểm tham gia!', 'warning');
+        }
+        selectedSessionsStr = checkedBoxes.map(cb => cb.value).join(' | ');
+      }
+
       clearAlert();
 
       const btn = document.getElementById('btnConfirm');
@@ -1418,12 +1488,15 @@
           lop: foundStudent.lop,
           truongkhoa: foundStudent.truongkhoa,
           email: fullEmail,
-          sdt: phone
+          sdt: phone,
+          sessions: selectedSessionsStr
         }
       };
 
       fetch(GAS_API_URL, {
         method: "POST",
+        mode: "cors",
+        redirect: "follow",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       })
@@ -1450,6 +1523,14 @@
           document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
           document.getElementById('resTime').innerText = d.time;
           document.getElementById('resAttend').innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
+
+          const sessionRow = document.getElementById('resSessionRow');
+          if (d.sessions) {
+            document.getElementById('resSessions').innerText = d.sessions;
+            sessionRow.style.display = 'flex';
+          } else {
+            sessionRow.style.display = 'none';
+          }
 
           document.getElementById('statusContainer').style.display = 'block';
           showAlert('🎉 Đăng ký thành công! Thông tin của bạn đã được ghi nhận.', 'success');
@@ -1478,7 +1559,7 @@
       document.getElementById('fbDetail').value = "";
       document.getElementById('fbEvidenceFile').value = "";
       document.getElementById('fbFileName').innerText = "Chọn tệp hình ảnh (tối đa 5MB)...";
-      selectedBase64Image = "";
+      selectedFileObject = null;
 
       modal.classList.add('active');
     }
@@ -1489,7 +1570,6 @@
 
     let selectedFileObject = null;
 
-    // 1. Đọc và mã hóa file minh chứng
     function handleFileSelect(event) {
       const file = event.target.files[0];
       const nameLabel = document.getElementById('fbFileName');
@@ -1500,7 +1580,6 @@
         return;
       }
 
-      // Giới hạn dung lượng dưới 5MB để tránh quá tải Apps Script
       if (file.size > 5 * 1024 * 1024) {
         alert("Dung lượng ảnh vượt quá 5MB. Vui lòng chọn ảnh nhẹ hơn!");
         event.target.value = "";
@@ -1514,7 +1593,7 @@
       const reader = new FileReader();
       reader.onload = function(e) {
         selectedFileObject = {
-          fileBase64: e.target.result, // Chứa data:image/...;base64,...
+          fileBase64: e.target.result,
           fileName: file.name,
           fileType: file.type || "image/jpeg"
         };
@@ -1528,7 +1607,6 @@
       reader.readAsDataURL(file);
     }
 
-    // 2. Gửi phản hồi kèm link minh chứng khớp chuẩn với Code.gs
     function submitStudentFeedback() {
       if (!currentRegisteredData) {
         alert("Không tìm thấy thông tin sinh viên đã đăng ký!");
@@ -1552,7 +1630,6 @@
       icon.innerHTML = `<span class="spinner-loader"></span>`;
       text.innerText = "ĐANG GỬI PHẢN HỒI...";
 
-      // Chuẩn bị payload khớp đúng các trường Code.gs đợi
       const payload = {
         action: "submitFeedback",
         tabName: currentEvent,
@@ -1568,6 +1645,8 @@
 
       fetch(GAS_API_URL, {
         method: "POST",
+        mode: "cors",
+        redirect: "follow",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       })
@@ -1596,7 +1675,6 @@
       });
     }
 
-    // Đóng modal khi bấm ra ngoài vùng đen
     window.addEventListener('click', (e) => {
       const modal = document.getElementById('feedbackModal');
       if (e.target === modal) {
