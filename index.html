@@ -1289,12 +1289,21 @@
             const sessionContainer = document.getElementById('sessionCheckboxesContainer');
 
             if (eventSessionOptions.length > 0 && sessionGroup && sessionContainer) {
-              sessionContainer.innerHTML = eventSessionOptions.map(opt => `
-                <label class="session-checkbox-item">
-                  <input type="checkbox" name="regSession" value="${opt.replace(/"/g, '&quot;')}">
-                  <span>${opt}</span>
-                </label>
-              `).join('');
+              sessionContainer.innerHTML = eventSessionOptions.map(opt => {
+                const isDisabled = opt.isFull ? 'disabled' : '';
+                const opacityStyle = opt.isFull ? 'opacity: 0.55; cursor: not-allowed; background: #f1f5f9;' : '';
+                const badgeFull = opt.isFull 
+                  ? `<span style="margin-left: auto; font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 2px 8px; border-radius: 8px;">Đã đủ (${opt.count}/${opt.max})</span>` 
+                  : '';
+
+                return `
+                  <label class="session-checkbox-item" style="${opacityStyle}">
+                    <input type="checkbox" name="regSession" value="${opt.name.replace(/"/g, '&quot;')}" ${isDisabled}>
+                    <span>${opt.name}</span>
+                    ${badgeFull}
+                  </label>
+                `;
+              }).join('');
               sessionGroup.style.display = 'block';
             }
 
