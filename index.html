@@ -1064,7 +1064,7 @@
 
           <!-- KHUNG CHỌN NGÀY / ĐỊA ĐIỂM (TỰ HIỆN KHI Ô M1 TRÊN SHEET CÓ DỮ LIỆU) -->
           <div class="form-group" id="sessionSelectGroup" style="display: none;">
-            <label class="input-label">CHỌN NGÀY / ĐỊA ĐIỂM THAM GIA (CÓ THỂ CHỌN CẢ 2) <span style="color: #ef4444;">*</span></label>
+            <label class="input-label">CHỌN NGÀY / ĐỊA ĐIỂM THAM GIA <span style="color: #ef4444;">*</span></label>
             <div class="session-options-box" id="sessionCheckboxesContainer"></div>
           </div>
 
@@ -1292,7 +1292,7 @@
               sessionContainer.innerHTML = eventSessionOptions.map(opt => {
                 const isDisabled = opt.isFull ? 'disabled' : '';
                 const opacityStyle = opt.isFull ? 'opacity: 0.55; cursor: not-allowed; background: #f1f5f9;' : '';
-                const labelText = opt.lockReason || (opt.max ? `Đã đủ (${opt.count}/${opt.max})` : 'Đã đóng');
+                const labelText = opt.lockReason || (opt.max ? `Đã đủ (${opt.count}/${opt.max})` : 'Đã đủ');
                 const badgeFull = opt.isFull 
                   ? `<span style="margin-left: auto; font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 2px 8px; border-radius: 8px; white-space: nowrap;">${labelText}</span>` 
                   : '';
@@ -1309,7 +1309,7 @@
             }
 
             if (!res.isOpen) {
-              document.getElementById('closedNoticeText').innerText = res.message || "Cổng đăng ký chương trình hiện đã đóng!";
+              document.getElementById('closedNoticeText').innerText = res.message || "Cổng đăng ký chương trình hiện đã đủ số lượng tham gia!";
               document.getElementById('closedNoticeBox').style.display = 'flex';
             }
           } else {
