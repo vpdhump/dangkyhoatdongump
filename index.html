@@ -1288,12 +1288,15 @@
 
     function showAlert(msg, type = 'danger') {
       const icon = type === 'success' ? '✓' : (type === 'warning' ? '⚠️' : '✕');
-      document.getElementById('alertBox').innerHTML = `
+      const alertBox = document.getElementById('alertBox');
+      alertBox.innerHTML = `
         <div class="alert-banner ${type}">
           <span>${icon}</span>
           <div>${msg}</div>
         </div>
       `;
+      // Tự động cuộn màn hình tới vị trí thông báo để người dùng thấy ngay
+      alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     function clearAlert() {
