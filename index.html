@@ -1292,8 +1292,9 @@
               sessionContainer.innerHTML = eventSessionOptions.map(opt => {
                 const isDisabled = opt.isFull ? 'disabled' : '';
                 const opacityStyle = opt.isFull ? 'opacity: 0.55; cursor: not-allowed; background: #f1f5f9;' : '';
+                const labelText = opt.lockReason || (opt.max ? `Đã đủ (${opt.count}/${opt.max})` : 'Đã đóng');
                 const badgeFull = opt.isFull 
-                  ? `<span style="margin-left: auto; font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 2px 8px; border-radius: 8px;">Đã đủ (${opt.count}/${opt.max})</span>` 
+                  ? `<span style="margin-left: auto; font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 2px 8px; border-radius: 8px; white-space: nowrap;">${labelText}</span>` 
                   : '';
 
                 return `
