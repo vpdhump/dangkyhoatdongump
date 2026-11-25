@@ -355,6 +355,34 @@
       cursor: not-allowed;
     }
 
+    /* NÚT CHUYỂN ĐỔI ĐỐI TƯỢNG KHÁC */
+    .other-object-switch {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-other-link {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      color: #0284c7;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-other-link:hover {
+      background: #e0f2fe;
+      color: #0369a1;
+      transform: translateY(-1px);
+    }
+
     /* KHUNG CHỌN NGÀY / ĐỊA ĐIỂM ĐA LỰA CHỌN */
     .session-options-box {
       display: flex;
@@ -1005,9 +1033,9 @@
         </div>
       </div>
 
-      <!-- Ô NHẬP MSSV DUY NHẤT -->
+      <!-- Ô NHẬP MSSV / MÃ SỐ HỌC VIÊN -->
       <div class="form-group" id="mssvSearchContainer">
-        <label class="input-label" for="inputMSSV">MÃ SỐ SINH VIÊN (MSSV)</label>
+        <label class="input-label" for="inputMSSV">MÃ SỐ SINH VIÊN (MSSV) / MÃ HỌC VIÊN</label>
         <div class="input-row">
           <input autocomplete="off" 
                  class="form-control-custom" 
@@ -1020,31 +1048,57 @@
             <span id="btnCheckText">Kiểm tra</span>
           </button>
         </div>
+
+        <!-- NÚT CHUYỂN ĐỔI ĐĂNG KÝ CHO HỌC VIÊN SAU ĐẠI HỌC / ĐỐI TƯỢNG KHÁC -->
+        <div class="other-object-switch" id="otherSwitchWrap">
+          <button type="button" class="btn-other-link" onclick="openOtherObjectForm()">
+            <span>🎓</span> Học viên Sau đại học / Đối tượng khác? Đăng ký tại đây →
+          </button>
+        </div>
       </div>
 
-      <!-- KHUNG 1: DÀNH CHO SV CHƯA ĐĂNG KÝ (FORM EMAIL/SĐT) -->
+      <!-- KHUNG 1: FORM ĐĂNG KÝ (TỰ ĐỘNG CHUYỂN ĐỔI GIỮA SV CHÍNH QUY & HỌC VIÊN SĐH) -->
       <div class="result-card-box" id="regFormContainer" style="display: none;">
         <div class="result-badge-strip">
-          <div class="result-lead-title">
+          <div class="result-lead-title" id="regFormLeadTitle">
             <span>✓</span> ĐÃ XÁC THỰC SINH VIÊN
           </div>
-          <span class="status-badge" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;">
+          <span class="status-badge" id="regFormBadge" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;">
             Chưa đăng ký
           </span>
         </div>
 
-        <div class="student-highlight-name" id="regName">--</div>
-        <div class="student-meta-sub">
-          MSSV: <strong id="regMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="regClass">--</span> | Trường/khoa: <span id="regFaculty">--</span>
+        <!-- THÔNG TIN HIỂN THỊ TỰ ĐỘNG CHO SINH VIÊN CHÍNH QUY -->
+        <div id="studentAutoInfoBox">
+          <div class="student-highlight-name" id="regName">--</div>
+          <div class="student-meta-sub">
+            MSSV: <strong id="regMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="regClass">--</span> | Trường/khoa: <span id="regFaculty">--</span>
+          </div>
+        </div>
+
+        <!-- Ô NHẬP TAY DÀNH CHO HỌC VIÊN SAU ĐẠI HỌC / ĐỐI TƯỢNG KHÁC -->
+        <div id="otherManualInfoBox" style="display: none;">
+          <div class="form-group">
+            <label class="input-label" for="otherCode">MÃ SỐ HỌC VIÊN / MÃ ĐỊNH DANH <span style="color: #ef4444;">*</span></label>
+            <input class="form-control-custom" id="otherCode" placeholder="Ví dụ: HV2601xxx..." type="text"/>
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="otherName">HỌ VÀ TÊN <span style="color: #ef4444;">*</span></label>
+            <input class="form-control-custom" id="otherName" placeholder="Nhập đầy đủ họ và tên có dấu..." type="text"/>
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="otherMajor">CHUYÊN NGÀNH / ĐƠN VỊ <span style="color: #ef4444;">*</span></label>
+            <input class="form-control-custom" id="otherMajor" placeholder="Ví dụ: Nội khoa, Ngoại khoa, Y tế công cộng..." type="text"/>
+          </div>
         </div>
 
         <div style="border-top: 1px dashed #e2e8f0; padding-top: 14px;">
-          <!-- Ô NHẬP EMAIL VỚI ĐUÔI @ump.edu.vn CỐ ĐỊNH -->
+          <!-- Ô NHẬP EMAIL -->
           <div class="form-group">
             <label class="input-label" for="regEmail">
-              ĐỊA CHỈ EMAIL TRƯỜNG CẤP <span style="color: #ef4444;">*</span>
+              ĐỊA CHỈ EMAIL <span style="color: #ef4444;">*</span>
             </label>
-            <div class="email-input-group">
+            <div class="email-input-group" id="svEmailGroup">
               <input autocomplete="off" 
                      class="email-input-field" 
                      id="regEmail" 
@@ -1052,7 +1106,8 @@
                      type="text"/>
               <div class="email-domain-addon">@ump.edu.vn</div>
             </div>
-            <span style="font-size: 11px; color: #64748b; margin-top: 5px; display: block;">
+            <input class="form-control-custom" id="otherEmailInput" placeholder="Nhập email liên hệ (ví dụ: ten@ump.edu.vn hoặc gmail)..." type="email" style="display: none;"/>
+            <span id="svEmailTip" style="font-size: 11px; color: #64748b; margin-top: 5px; display: block;">
               💡 Chỉ cần nhập tên tài khoản, hệ thống sẽ tự ghép đuôi <strong>@ump.edu.vn</strong>
             </span>
           </div>
@@ -1064,7 +1119,7 @@
 
           <!-- KHUNG CHỌN NGÀY / ĐỊA ĐIỂM (TỰ HIỆN KHI Ô M1 TRÊN SHEET CÓ DỮ LIỆU) -->
           <div class="form-group" id="sessionSelectGroup" style="display: none;">
-            <label class="input-label">CHỌN NGÀY / ĐỊA ĐIỂM THAM GIA <span style="color: #ef4444;">*</span></label>
+            <label class="input-label">CHỌN BUỔI / THỜI GIAN THAM GIA <span style="color: #ef4444;">*</span></label>
             <div class="session-options-box" id="sessionCheckboxesContainer"></div>
           </div>
 
@@ -1075,7 +1130,7 @@
         </div>
       </div>
 
-      <!-- KHUNG 2: DÀNH CHO SV ĐÃ ĐĂNG KÝ (TRA CỨU ĐIỂM DANH & ĐIỂM SỐ) -->
+      <!-- KHUNG 2: DÀNH CHO SV / HV ĐÃ ĐĂNG KÝ (TRA CỨU ĐIỂM DANH & ĐIỂM SỐ) -->
       <div class="result-card-box" id="statusContainer" style="display: none;">
         <div class="result-badge-strip">
           <div class="result-lead-title">
@@ -1091,7 +1146,7 @@
 
         <div class="student-highlight-name" id="resName">--</div>
         <div class="student-meta-sub">
-          MSSV: <strong id="resMssv" style="color: #0284c7;">--</strong> | Lớp: <span id="resClass">--</span> | Trường/khoa: <span id="resFaculty">--</span>
+          MSSV / Mã HV: <strong id="resMssv" style="color: #0284c7;">--</strong> | Đối tượng/Lớp: <span id="resClass">--</span> | Khoa/Chuyên ngành: <span id="resFaculty">--</span>
         </div>
 
         <div class="info-grid-list">
@@ -1201,6 +1256,7 @@
     let foundStudent = null;
     let currentRegisteredData = null;
     let eventSessionOptions = [];
+    let isOtherObjectMode = false;
 
     function triggerRobotReaction(mode = 'happy') {
       const eyeL = document.getElementById('botEyeLeft');
@@ -1258,6 +1314,7 @@
 
         const inputEl = document.getElementById('inputMSSV');
         const btnEl = document.getElementById('btnCheck');
+        const switchWrap = document.getElementById('otherSwitchWrap');
         if (inputEl) {
           inputEl.disabled = true;
           inputEl.placeholder = "Vui lòng truy cập từ liên kết hợp lệ...";
@@ -1267,6 +1324,7 @@
           btnEl.style.opacity = "0.5";
           btnEl.style.cursor = "not-allowed";
         }
+        if (switchWrap) switchWrap.style.display = 'none';
 
         triggerRobotReaction('sad');
         return;
@@ -1311,6 +1369,8 @@
             if (!res.isOpen) {
               document.getElementById('closedNoticeText').innerText = res.message || "Cổng đăng ký chương trình hiện đã đủ số lượng tham gia!";
               document.getElementById('closedNoticeBox').style.display = 'flex';
+              const switchWrap = document.getElementById('otherSwitchWrap');
+              if (switchWrap) switchWrap.style.display = 'none';
             }
           } else {
             titleElem.innerText = "HỆ THỐNG CHƯA TÌM RA CHƯƠNG TRÌNH";
@@ -1319,8 +1379,10 @@
             
             const inputEl = document.getElementById('inputMSSV');
             const btnEl = document.getElementById('btnCheck');
+            const switchWrap = document.getElementById('otherSwitchWrap');
             if (inputEl) inputEl.disabled = true;
             if (btnEl) btnEl.disabled = true;
+            if (switchWrap) switchWrap.style.display = 'none';
             triggerRobotReaction('sad');
           }
         })
@@ -1331,7 +1393,46 @@
         });
     });
 
-    // Bấm nút kiểm tra MSSV
+    // Mở form dành cho Học viên Sau đại học / Đối tượng khác
+    function openOtherObjectForm() {
+      if (!currentEvent) {
+        return showAlert('Hệ thống chưa tìm ra chương trình, liên hệ email: vpdhump@gmail.com', 'danger');
+      }
+      if (document.getElementById('closedNoticeBox').style.display === 'flex') {
+        return showAlert('Cổng đăng ký hiện đã đóng hoặc tất cả các buổi đều đã đủ chỉ tiêu!', 'warning');
+      }
+
+      clearAlert();
+      isOtherObjectMode = true;
+      foundStudent = null;
+      currentRegisteredData = null;
+
+      document.getElementById('statusContainer').style.display = 'none';
+      document.getElementById('regFormLeadTitle').innerHTML = `<span>🎓</span> ĐĂNG KÝ HỌC VIÊN SĐH / ĐỐI TƯỢNG KHÁC`;
+      document.getElementById('regFormBadge').innerText = "Nhập thông tin";
+
+      // Ẩn khung tự động SV, bật khung nhập tay Học viên
+      document.getElementById('studentAutoInfoBox').style.display = 'none';
+      document.getElementById('otherManualInfoBox').style.display = 'block';
+
+      // Đổi ô email sang nhập tự do
+      document.getElementById('svEmailGroup').style.display = 'none';
+      document.getElementById('svEmailTip').style.display = 'none';
+      document.getElementById('otherEmailInput').style.display = 'block';
+
+      // Reset các ô nhập
+      document.getElementById('otherCode').value = '';
+      document.getElementById('otherName').value = '';
+      document.getElementById('otherMajor').value = '';
+      document.getElementById('otherEmailInput').value = '';
+      document.getElementById('regPhone').value = '';
+      document.querySelectorAll('input[name="regSession"]').forEach(cb => cb.checked = false);
+
+      document.getElementById('regFormContainer').style.display = 'block';
+      triggerRobotReaction('happy');
+    }
+
+    // Bấm nút kiểm tra MSSV / Mã học viên
     function handleCheck() {
       if (!currentEvent) {
         return showAlert('Hệ thống chưa tìm ra chương trình, liên hệ email: vpdhump@gmail.com', 'danger');
@@ -1341,7 +1442,7 @@
       const cleanMSSV = inputEl.value.replace(/['"\s]/g, '').toUpperCase();
 
       if (!cleanMSSV) {
-        return showAlert('Vui lòng nhập Mã số sinh viên (MSSV)!', 'warning');
+        return showAlert('Vui lòng nhập Mã số sinh viên (MSSV) hoặc Mã số học viên!', 'warning');
       }
 
       clearAlert();
@@ -1370,7 +1471,7 @@
 
           if (!res.success) {
             triggerRobotReaction('sad');
-            showAlert(res.message || "Không tìm thấy thông tin sinh viên!", res.isClosed ? 'warning' : 'danger');
+            showAlert(res.message || "Không tìm thấy thông tin!", res.isClosed ? 'warning' : 'danger');
             return;
           }
 
@@ -1381,7 +1482,7 @@
             const d = res.data;
             currentRegisteredData = d;
 
-            document.getElementById('resName').innerText = d.hoten || "Sinh viên";
+            document.getElementById('resName').innerText = d.hoten || "Sinh viên / Học viên";
             document.getElementById('resMssv').innerText = d.mssv || cleanMSSV;
             document.getElementById('resClass').innerText = d.lop || "--";
             document.getElementById('resFaculty').innerText = d.truongkhoa || "--";
@@ -1408,10 +1509,19 @@
             document.getElementById('statusContainer').style.display = 'block';
           }
 
-          // TRƯỜNG HỢP 2: CHƯA ĐĂNG KÝ -> MỞ FORM ĐIỀN EMAIL/SĐT
+          // TRƯỜNG HỢP 2: CHƯA ĐĂNG KÝ -> MỞ FORM ĐIỀN EMAIL/SĐT CHO SV CHÍNH QUY
           else if (res.status === 'NOT_REGISTERED') {
+            isOtherObjectMode = false;
             foundStudent = res.data;
             currentRegisteredData = null;
+
+            document.getElementById('regFormLeadTitle').innerHTML = `<span>✓</span> ĐÃ XÁC THỰC SINH VIÊN`;
+            document.getElementById('regFormBadge').innerText = "Chưa đăng ký";
+            document.getElementById('studentAutoInfoBox').style.display = 'block';
+            document.getElementById('otherManualInfoBox').style.display = 'none';
+            document.getElementById('svEmailGroup').style.display = 'flex';
+            document.getElementById('svEmailTip').style.display = 'block';
+            document.getElementById('otherEmailInput').style.display = 'none';
 
             document.getElementById('regName').innerText = foundStudent.hoten || "Sinh viên";
             document.getElementById('regMssv').innerText = foundStudent.mssv || cleanMSSV;
@@ -1420,7 +1530,6 @@
             document.getElementById('regEmail').value = '';
             document.getElementById('regPhone').value = '';
 
-            // Bỏ tick các checkbox ngày cũ nếu có
             document.querySelectorAll('input[name="regSession"]').forEach(cb => cb.checked = false);
 
             document.getElementById('regFormContainer').style.display = 'block';
@@ -1437,42 +1546,72 @@
         });
     }
 
-    // Gửi đăng ký tham gia chương trình
+    // Gửi đăng ký tham gia chương trình (Hỗ trợ cả Sinh viên & Học viên SĐH)
     function handleRegister() {
-      if (!foundStudent) return;
+      if (!isOtherObjectMode && !foundStudent) return;
       if (!currentEvent) {
         return showAlert('Hệ thống chưa tìm ra chương trình, liên hệ email: vpdhump@gmail.com', 'danger');
       }
 
-      const emailInput = document.getElementById('regEmail');
-      const phoneInput = document.getElementById('regPhone');
-      
-      let rawEmailName = emailInput.value.trim().toLowerCase();
-      const phone = phoneInput.value.trim();
+      let regMssv = "";
+      let regHoten = "";
+      let regLop = "";
+      let regKhoa = "";
+      let fullEmail = "";
 
-      if (rawEmailName.includes('@')) {
-        rawEmailName = rawEmailName.split('@')[0].trim();
+      if (isOtherObjectMode) {
+        regMssv = document.getElementById('otherCode').value.replace(/['"\s]/g, '').toUpperCase();
+        regHoten = document.getElementById('otherName').value.trim();
+        regKhoa = document.getElementById('otherMajor').value.trim();
+        regLop = "Học viên SĐH";
+        fullEmail = document.getElementById('otherEmailInput').value.trim().toLowerCase();
+
+        if (!regMssv) {
+          triggerRobotReaction('sad');
+          return showAlert('Vui lòng nhập Mã số học viên!', 'warning');
+        }
+        if (!regHoten) {
+          triggerRobotReaction('sad');
+          return showAlert('Vui lòng nhập Họ và tên!', 'warning');
+        }
+        if (!regKhoa) {
+          triggerRobotReaction('sad');
+          return showAlert('Vui lòng nhập Chuyên ngành / Đơn vị!', 'warning');
+        }
+        if (!fullEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fullEmail)) {
+          triggerRobotReaction('sad');
+          return showAlert('Vui lòng nhập địa chỉ Email hợp lệ!', 'warning');
+        }
+      } else {
+        regMssv = foundStudent.mssv;
+        regHoten = foundStudent.hoten;
+        regLop = foundStudent.lop;
+        regKhoa = foundStudent.truongkhoa;
+
+        let rawEmailName = document.getElementById('regEmail').value.trim().toLowerCase();
+        if (rawEmailName.includes('@')) {
+          rawEmailName = rawEmailName.split('@')[0].trim();
+        }
+        if (!rawEmailName || !/^[a-z0-9._-]+$/.test(rawEmailName)) {
+          triggerRobotReaction('sad');
+          return showAlert('Vui lòng nhập tên tài khoản email trường cấp hợp lệ!', 'warning');
+        }
+        fullEmail = rawEmailName + "@ump.edu.vn";
       }
 
-      if (!rawEmailName || !/^[a-z0-9._-]+$/.test(rawEmailName)) {
-        triggerRobotReaction('sad');
-        return showAlert('Vui lòng nhập tên tài khoản email trường cấp hợp lệ!', 'warning');
-      }
-
-      const fullEmail = rawEmailName + "@ump.edu.vn";
-
+      const phone = document.getElementById('regPhone').value.trim();
       if (!phone || !/^[0-9]{9,11}$/.test(phone)) {
         triggerRobotReaction('sad');
         return showAlert('Vui lòng nhập Số điện thoại hợp lệ (9 - 11 chữ số)!', 'warning');
       }
 
-      // Kiểm tra bắt buộc chọn ngày nếu sự kiện có cấu hình đa ngày (ô M1)
+      // Kiểm tra bắt buộc chọn buổi nếu sự kiện có cấu hình đa buổi (ô M1)
       let selectedSessionsStr = "";
       if (eventSessionOptions.length > 0) {
         const checkedBoxes = Array.from(document.querySelectorAll('input[name="regSession"]:checked'));
         if (checkedBoxes.length === 0) {
           triggerRobotReaction('sad');
-          return showAlert('Vui lòng chọn ít nhất 1 ngày / địa điểm tham gia!', 'warning');
+          return showAlert('Vui lòng chọn ít nhất 1 buổi tham gia!', 'warning');
         }
         selectedSessionsStr = checkedBoxes.map(cb => cb.value).join(' | ');
       }
@@ -1493,10 +1632,10 @@
         action: "register",
         event: currentEvent,
         student: {
-          mssv: foundStudent.mssv,
-          hoten: foundStudent.hoten,
-          lop: foundStudent.lop,
-          truongkhoa: foundStudent.truongkhoa,
+          mssv: regMssv,
+          hoten: regHoten,
+          lop: regLop,
+          truongkhoa: regKhoa,
           email: fullEmail,
           sdt: phone,
           sessions: selectedSessionsStr
@@ -1619,7 +1758,7 @@
 
     function submitStudentFeedback() {
       if (!currentRegisteredData) {
-        alert("Không tìm thấy thông tin sinh viên đã đăng ký!");
+        alert("Không tìm thấy thông tin đã đăng ký!");
         return;
       }
 
