@@ -1645,60 +1645,72 @@
         }
       };
 
-      fetch(GAS_API_URL, {
-        method: "POST",
-        mode: "cors",
-        redirect: "follow",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload)
-      })
-      .then(r => r.json())
-      .then(res => {
-        btn.disabled = false;
-        btn.classList.remove('btn-loading');
-        btnIcon.innerText = "✍️";
-        btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
+      // Hàm gửi dữ liệu có tự động thử lại nếu Google đóng kết nối tạm thời
+      const sendRegisterRequest = (attempt = 1) => {
+        fetch(GAS_API_URL, {
+          method: "POST",
+          redirect: "follow",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        })
+        .then(r => {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(res => {
+          btn.disabled = false;
+          btn.classList.remove('btn-loading');
+          btnIcon.innerText = "✍️";
+          btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
 
-        if (res.success) {
-          triggerRobotReaction('happy');
-          document.getElementById('regFormContainer').style.display = 'none';
+          if (res.success) {
+            triggerRobotReaction('happy');
+            document.getElementById('regFormContainer').style.display = 'none';
 
-          const d = res.registeredData;
-          currentRegisteredData = d;
+            const d = res.registeredData;
+            currentRegisteredData = d;
 
-          document.getElementById('resName').innerText = d.hoten;
-          document.getElementById('resMssv').innerText = d.mssv;
-          document.getElementById('resClass').innerText = d.lop;
-          document.getElementById('resFaculty').innerText = d.truongkhoa;
-          document.getElementById('resEmail').innerText = d.email;
-          document.getElementById('resPhone').innerText = d.sdt;
-          document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
-          document.getElementById('resTime').innerText = d.time;
-          document.getElementById('resAttend').innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
+            document.getElementById('resName').innerText = d.hoten;
+            document.getElementById('resMssv').innerText = d.mssv;
+            document.getElementById('resClass').innerText = d.lop;
+            document.getElementById('resFaculty').innerText = d.truongkhoa;
+            document.getElementById('resEmail').innerText = d.email;
+            document.getElementById('resPhone').innerText = d.sdt;
+            document.getElementById('resScore').innerText = d.diem || "Chưa cập nhật";
+            document.getElementById('resTime').innerText = d.time;
+            document.getElementById('resAttend').innerHTML = `<span class="status-badge badge-pending">Chưa điểm danh</span>`;
 
-          const sessionRow = document.getElementById('resSessionRow');
-          if (d.sessions) {
-            document.getElementById('resSessions').innerText = d.sessions;
-            sessionRow.style.display = 'flex';
+            const sessionRow = document.getElementById('resSessionRow');
+            if (d.sessions) {
+              document.getElementById('resSessions').innerText = d.sessions;
+              sessionRow.style.display = 'flex';
+            } else {
+              sessionRow.style.display = 'none';
+            }
+
+            document.getElementById('statusContainer').style.display = 'block';
+            showAlert('🎉 Đăng ký thành công! Thông tin của bạn đã được ghi nhận.', 'success');
           } else {
-            sessionRow.style.display = 'none';
+            triggerRobotReaction('sad');
+            showAlert(res.message || "Đăng ký thất bại, vui lòng kiểm tra lại!", 'danger');
           }
+        })
+        .catch(err => {
+          console.warn(`Lần thử ${attempt} gặp lỗi mạng:`, err);
+          if (attempt < 3) {
+            btnText.innerText = `ĐANG THỬ KẾT NỐI LẠI (${attempt}/2)...`;
+            setTimeout(() => sendRegisterRequest(attempt + 1), 1000);
+            return;
+          }
+          btn.disabled = false;
+          btn.classList.remove('btn-loading');
+          btnIcon.innerText = "✍️";
+          btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
+          showAlert('Kết nối tới máy chủ Google bị gián đoạn. Vui lòng kiểm tra mạng hoặc bấm Xác nhận lại!', 'warning');
+        });
+      };
 
-          document.getElementById('statusContainer').style.display = 'block';
-          showAlert('🎉 Đăng ký thành công! Thông tin của bạn đã được ghi nhận.', 'success');
-        } else {
-          triggerRobotReaction('sad');
-          showAlert(res.message || "Đăng ký thất bại, vui lòng kiểm tra lại!", 'danger');
-        }
-      })
-      .catch(err => {
-        console.error("Lỗi API register:", err);
-        btn.disabled = false;
-        btn.classList.remove('btn-loading');
-        btnIcon.innerText = "✍️";
-        btnText.innerText = "XÁC NHẬN ĐĂNG KÝ →";
-        showAlert('Hệ thống đang quá tải, vui lòng bấm xác nhận lại!', 'warning');
-      });
+      sendRegisterRequest(1);
     }
 
     // ======================================================================
