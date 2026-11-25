@@ -355,11 +355,12 @@
       cursor: not-allowed;
     }
 
-    /* NÚT CHUYỂN ĐỔI ĐỐI TƯỢNG KHÁC */
+    /* NÚT CHUYỂN ĐỔI ĐỐI TƯỢNG KHÁC (NẰM GIỮA TIÊU ĐỀ VÀ Ô MSSV) */
     .other-object-switch {
-      margin-top: 10px;
+      margin-top: -6px;
+      margin-bottom: 18px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
     }
 
     .btn-other-link {
@@ -1010,6 +1011,13 @@
         <h1 class="program-heading" id="displayProgramTitle">ĐANG TẢI...</h1>
       </div>
 
+      <!-- NÚT CHUYỂN ĐỔI ĐĂNG KÝ CHO HỌC VIÊN SAU ĐẠI HỌC / ĐỐI TƯỢNG KHÁC -->
+      <div class="other-object-switch" id="otherSwitchWrap">
+        <button type="button" class="btn-other-link" onclick="openOtherObjectForm()">
+          <span>🎓</span> Học viên Sau đại học / Đối tượng khác? Đăng ký tại đây →
+        </button>
+      </div>
+
       <!-- BANNER CẢNH BÁO KHÔNG TÌM THẤY CHƯƠNG TRÌNH -->
       <div class="alert-banner danger" id="noEventNoticeBox" style="display: none;">
         <span style="font-size: 18px;">⚠️</span>
@@ -1046,13 +1054,6 @@
           <button class="btn-submit-main" id="btnCheck" onclick="handleCheck()">
             <span id="btnCheckIcon">🔍</span>
             <span id="btnCheckText">Kiểm tra</span>
-          </button>
-        </div>
-
-        <!-- NÚT CHUYỂN ĐỔI ĐĂNG KÝ CHO HỌC VIÊN SAU ĐẠI HỌC / ĐỐI TƯỢNG KHÁC -->
-        <div class="other-object-switch" id="otherSwitchWrap">
-          <button type="button" class="btn-other-link" onclick="openOtherObjectForm()">
-            <span>🎓</span> Học viên Sau đại học / Đối tượng khác? Đăng ký tại đây →
           </button>
         </div>
       </div>
